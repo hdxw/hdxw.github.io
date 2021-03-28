@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>kali2020虚拟机调校 | Sjhmt的博客</title>
+    
+    
+        <meta property="og:site_name" content="Sjhmt的博客">
+    
+    
+        <meta property="article:author" content="Sjhmt">
+    
+    
+        <link rel="icon" href="/blog/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/blog/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/blog/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/blog/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/blog/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/blog/styl/main.css">
+
+    
+<script src="/blog/js/jquery.min.js"></script>
+
+    
+<script src="/blog/js/highlight.min.js"></script>
+
+    
+<script src="/blog/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/blog/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>Sjhmt的博客<b><sup>1.1</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          <a href="/blog/">首页</a>
+        
+          <a href="/blog/archives">归档</a>
+        
+          <a href="/blog/categories">分类</a>
+        
+          <a href="/blog/tags">标签</a>
+        
+          <a href="/blog/friends">友链</a>
+        
+          <a href="/blog/about">关于</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/blog/2020/08/12/9c2f028d/" class="shake shake-little" title="kali2020虚拟机调校">
+            
+            kali2020虚拟机调校
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/blog/img/Sjhmt.png" alt="head" />
+            <p>Sjhmt</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年08月12日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2020年12月17日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+
+<p>kali linux 2020发布变化较大，以下是关于版本新特性的简短总结</p>
+<ul>
+<li>默认用户为非root用户</li>
+<li>独立的Kali安装镜像</li>
+<li>无需root的Kali NetHunter</li>
+<li>主题&amp;Kali-undercover的优化</li>
+<li>新的工具</li>
+</ul>
+<p>新版本的默认账号由 root/toor 改为 kali/kali。</p>
+<p>安装过程不做介绍，这里记录一下安装后的一些基础配合调整。<a href="https://www.kali.org/downloads/" target="_blank" rel="noopener">官方镜像下载</a>、<a href="https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/" target="_blank" rel="noopener">虚拟机下载</a></p>
+<h3 id="修改软件源"><a href="#修改软件源" class="headerlink" title="修改软件源"></a>修改软件源</h3><p>新装系统后的第一步操作就是修改软件源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak<br>sudo vi /etc/apt/sources.list<br><br><span class="hljs-comment"># 添加以下内容并保存</span><br><span class="hljs-string">''</span><span class="hljs-string">'</span><br><span class="hljs-string">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="hljs-string"># deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="hljs-string">'</span><span class="hljs-string">''</span><br><br><span class="hljs-comment"># 更新系统的更新源</span><br>sudo apt update<br></code></pre></td></tr></table></figure>
+
+<h3 id="常用python包"><a href="#常用python包" class="headerlink" title="常用python包"></a>常用python包</h3><p>python的默认版本依然是python 2，作为兼容历史代码的环境是极好的，下面将记录一些“经典”包的安装过程。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装pip</span><br>sudo apt-get install python-pip<br>sudo pip install wheel<br><br><span class="hljs-comment"># gmpy2</span><br>sudo apt-get install libgmp-dev<br>sudo apt-get install libmpfr-dev<br>sudo apt-get install libmpc-dev<br>sudo pip install gmpy2<br><br><span class="hljs-comment"># Crypto</span><br>sudo pip install pycryptodome<br>sudo pip install pycrypto<br><br><span class="hljs-comment"># libnum</span><br>sudo pip install libnum<br></code></pre></td></tr></table></figure>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Sjhmt」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/08/12/9c2f028d/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改软件源"><span class="toc-text">修改软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用python包"><span class="toc-text">常用python包</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="http://prowiki.demopage.icu/" target="_blank">ProWiki</a>
+            &copy;2021 Sjhmt<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备19032234号-2</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/blog/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>
