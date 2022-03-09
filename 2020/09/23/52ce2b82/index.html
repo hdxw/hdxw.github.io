@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>CTFD项目解析 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/09/23/52ce2b82/" class="shake shake-little" title="CTFD项目解析">
+            
+            CTFD项目解析
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年09月23日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年07月02日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+
+<p>由于需要开发一个ctfd的插件，所以需要先了解其工作流程和调用关系，在此记录一下整理的信息以作备忘。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>官方下载：<a href="https://github.com/CTFd/CTFd" target="_blank" rel="noopener">https://github.com/CTFd/CTFd</a></p>
+<p>安装步骤：</p>
+<ol>
+<li>安装python依赖项<code>pip install -r requirements.txt</code></li>
+<li>修改配置信息/CTFd/CTFd/config.ini，debug的开关在/CTFd/CTFd/config.py中</li>
+<li>启动服务<code>python serve.py</code>，打开页面<code>http://127.0.0.1:4000/</code>按步骤配置安装</li>
+</ol>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><ol>
+<li>页面打开非常缓慢<br>原因：引用了国外网站的all.css文件<br>解决：全局搜索<code>all.css</code>，应该会有三处，全部把<code>https://use.fontawesome.com/releases/v5.9.0/css/all.css</code>改为<code>https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css</code></li>
+</ol>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">CTFd<br>├──conf<br>├──CTFd 网站主要源码<br>│  ├── admin 管理后台页面路由<br>│  ├── api 信息查询api接口/api/v1/???<br>│  ├── events 事件实时通知接口（长链接）<br>│  ├── logs 分类日志文件<br>│  ├── models 数据库model<br>│  ├── plugins 插件目录<br>│  ├── schemas<br>│  ├── themes 主题，网页文件<br>│  ├── uploads 默认文件上传目录<br>│  ├── utils<br>│  ├── challenges.py 前端页面路由<br>│  ├── scoreboard.py 前端页面路由<br>│  ├── teams.py 前端页面路由<br>│  ├── users.py 前端页面路由<br>│  ├── views.py 前端页面路由<br>│  ├── <br>│  └── <br>└──tests 测试代码<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://www.cnblogs.com/wf-skylark/p/9306789.html" target="_blank" rel="noopener">蓝图(Blueprint)详解</a></li>
+</ul>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/09/23/52ce2b82/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-text">优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

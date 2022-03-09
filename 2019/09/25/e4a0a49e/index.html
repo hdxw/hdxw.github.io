@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XCTF攻防世界 MISC 高手区（二） | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/09/25/e4a0a49e/" class="shake shake-little" title="XCTF攻防世界 MISC 高手区（二）">
+            
+            XCTF攻防世界 MISC 高手区（二）
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/writeup/">writeup</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年09月25日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2022年03月09日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>XCTF</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>题太多，一个一个详细写太浪费时间了，这里只记录大概的步骤，可以通过题目名搜索题目。</p>
+<a id="more"></a>
+
+<h3 id="0x037-4433"><a href="#0x037-4433" class="headerlink" title="0x037 4433"></a>0x037 4433</h3><p>图片太大可以先缩小到原图的30%，找到大概位置后再使用原图。使用Stegsolve，在“Red plane 1”的指纹下面有一个二维码，二维码内容是“…–.—-…–..”，这种形式很像莫尔斯电码，但是不知道分隔方法，题目名字“4433”，按照这个分割后得到“…- -.– –. ..- -..”，在线解码后得到“VYGUD”，但是提交后并不正确。字符串很像“VERY GOOD”,这就是“<a href="https://wenku.baidu.com/view/f8384eda6f1aff00bed51e2e.html" target="_blank" rel="noopener">摩斯密码常用的缩写</a>”，对应的原文“VERYGOOD”，所以最终flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;VERYGOOD&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx" target="_blank" rel="noopener">摩尔斯电码转换</a></p>
+<h3 id="0x038-regexpire"><a href="#0x038-regexpire" class="headerlink" title="0x038 regexpire"></a>0x038 regexpire</h3><p>这道题的场景，不是网页，使用“nc ip 端口”访问。访问后返回一个变化的正则表达式，需要在大约10秒内发送一个与正则表达式匹配的字符串，循环成功匹配1000次就会得到flag。python有有两个生成正则匹配的字符串的模块“rstr”和“exrex”，用法如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> rstr,exrex,re<br><br>reg = <span class="hljs-string">"v*[a-zA-Z]U[a-z]+N*(fish|tomato)+(phone|tomato)&#123;2&#125;[\d\d2eh3A]*[aiIZXFoC]&#123;2&#125;[e-j][e-j]&#123;6&#125;[VJ.\WSUZ]&#123;11&#125;(penguin|gazelle)+\D*[vc]"</span><br><span class="hljs-comment"># method 1</span><br>ans = rstr.xeger(reg).replace(<span class="hljs-string">'\n'</span>,<span class="hljs-string">''</span>)<br><span class="hljs-keyword">print</span> <span class="hljs-string">'rstr: '</span> + ans<br><span class="hljs-keyword">print</span> re.match(reg,ans) <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span><br><span class="hljs-comment"># method 2</span><br>ans = exrex.getone(reg).replace(<span class="hljs-string">'\n'</span>,<span class="hljs-string">''</span>)<br><span class="hljs-keyword">print</span> <span class="hljs-string">'exrex: '</span> + ans<br><span class="hljs-keyword">print</span> re.match(reg,ans) <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+<p>网上有<a href="http://www.megabeets.net/csaw-2016-regexpire/" target="_blank" rel="noopener">写好的代码</a>，但是运行不了多久就会失败，上面示例的正则就是一个可能会失败的例子。这两个模块生成的字符串冗余过多，而且生成的字符串不固定，有可能匹配失败。可以在网上代码的基础上加一个循环验证，不匹配就重新调用方法生成，不过我最后决定自己写代码实现，代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket,re<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recvuntil</span><span class="hljs-params">(s, tails=<span class="hljs-string">"\n"</span>)</span>:</span><br>    data = <span class="hljs-string">""</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-keyword">for</span> tail <span class="hljs-keyword">in</span> tails:<br>            <span class="hljs-keyword">if</span> tail <span class="hljs-keyword">in</span> data:<br>                <span class="hljs-keyword">return</span> data.strip(<span class="hljs-string">'\n'</span>)<br>        data += s.recv(<span class="hljs-number">1</span>).decode()<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sendline</span><span class="hljs-params">(s, solution, tail=<span class="hljs-string">"\n"</span>)</span>:</span><br>    s.sendall((solution + tail).encode())<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repzkh</span><span class="hljs-params">(matched)</span>:</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">'['</span>+matched.group(<span class="hljs-string">'chars'</span>)[<span class="hljs-number">0</span>]+<span class="hljs-string">']'</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repxkh</span><span class="hljs-params">(matched)</span>:</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">'['</span>+matched.group(<span class="hljs-string">'chars'</span>)+<span class="hljs-string">']'</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repdkh1</span><span class="hljs-params">(matched)</span>:</span><br>    num = matched.group(<span class="hljs-string">'num'</span>)<br>    <span class="hljs-keyword">if</span> len(num) == <span class="hljs-number">0</span>:<br>        num = <span class="hljs-string">"0"</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">'&#123;'</span>+num+<span class="hljs-string">'&#125;'</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repdkh2</span><span class="hljs-params">(matched)</span>:</span><br>    chars = matched.group(<span class="hljs-string">'chars'</span>)<br>    num = matched.group(<span class="hljs-string">'num'</span>)<br>    res = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(int(num)):<br>        res += chars<br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span><br>    url = <span class="hljs-string">"111.111.111.111"</span><span class="hljs-comment"># 换成自己的ip和端口</span><br>    port = <span class="hljs-number">1111</span><br>    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    s.connect((url, port))<br>    print(recvuntil(s))<br><br>    count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        count += <span class="hljs-number">1</span><br>        print(<span class="hljs-string">"round %d----------------------------------------"</span>%count)<br>        reg = recvuntil(s,[<span class="hljs-string">'\n'</span>,<span class="hljs-string">'Irregular'</span>])<br>        print(<span class="hljs-string">"reg: "</span>+reg)<br>        <span class="hljs-keyword">if</span> reg == <span class="hljs-string">'Irregular'</span>:<br>            <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">elif</span> reg.startswith(<span class="hljs-string">"flag"</span>):<br>            <span class="hljs-keyword">break</span><br><br>        match_string = get_match_string(reg)<br>        print(<span class="hljs-string">"pre: "</span>+match_string)<br>        sendline(s, match_string)<br>        <span class="hljs-comment"># break</span><br>    s.close()<br><br><span class="hljs-comment"># 替换字典</span><br>rep = &#123;<span class="hljs-string">'\w'</span>:<span class="hljs-string">'0'</span>,<span class="hljs-string">'\d'</span>:<span class="hljs-string">'0'</span>,<span class="hljs-string">'\W'</span>:<span class="hljs-string">'!'</span>,<span class="hljs-string">'\D'</span>:<span class="hljs-string">'!'</span>&#125;<br><span class="hljs-comment"># 构造最短的匹配字符串</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_match_string</span><span class="hljs-params">(reg)</span>:</span><br>    <span class="hljs-comment"># 按优先级替换</span><br>    <span class="hljs-comment"># *:匹配零次或多次 +:匹配一次或多次 ?:匹配零次或一次</span><br>    <span class="hljs-comment"># 替换字典</span><br>    match_string = reg<br>    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> rep.items():<br>        match_string = match_string.replace(k,v)<br>    <span class="hljs-comment"># 替换中括号内容</span><br>    match_string = re.sub(<span class="hljs-string">'[\[](?P&lt;chars&gt;[\w!\|\-.]+)[\]]'</span>,repzkh,match_string)<br>    <span class="hljs-comment"># 替换小括号中内容(优先级最低，但影响不大)</span><br>    match_string = re.sub(<span class="hljs-string">'[\(](?P&lt;chars&gt;[\w!\-.]+)([\|][\w!\-.]+)+[\)]'</span>,repxkh,match_string)<br>    <span class="hljs-comment"># 去掉*和?</span><br>    match_string = re.sub(<span class="hljs-string">'([\[][\w!\-.]+[\]]|[\w!\-.])[*?]'</span>,<span class="hljs-string">''</span>,match_string)<br>    <span class="hljs-comment"># 去掉+</span><br>    match_string = match_string.replace(<span class="hljs-string">'+'</span>,<span class="hljs-string">''</span>)<br>    <span class="hljs-comment"># 替换大括号内数字+去掉大括号</span><br>    match_string = re.sub(<span class="hljs-string">'[\&#123;](?P&lt;num&gt;[\d]*)([,|.]\d+)*[\&#125;]'</span>,repdkh1,match_string)<br>    match_string = re.sub(<span class="hljs-string">'[\[\(](?P&lt;chars&gt;[\w!\-.]+)[\]\)][\&#123;](?P&lt;num&gt;[\d]+)[\&#125;]'</span>,repdkh2,match_string)<span class="hljs-comment"># 有括号+大括号</span><br>    match_string = re.sub(<span class="hljs-string">'(?P&lt;chars&gt;[\w!\-.])[\&#123;](?P&lt;num&gt;[\d]+)[\&#125;]'</span>,repdkh2,match_string)<span class="hljs-comment"># 没括号+大括号</span><br>    <span class="hljs-comment"># 去掉中括号和小括号</span><br>    match_string = match_string.replace(<span class="hljs-string">'['</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-string">']'</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-string">'('</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-string">')'</span>,<span class="hljs-string">''</span>)<br><br>    <span class="hljs-comment"># print("match: "+str(re.match(reg,match_string) is not None))</span><br>    <span class="hljs-keyword">return</span> match_string<br><br><span class="hljs-comment"># 测试正则</span><br><span class="hljs-comment"># print("string: "+get_match_string("v*[a-zA-Z]U[a-z]+N*(fish|tomato)+(phone|tomato)&#123;2&#125;[\d\d2eh3A]*[aiIZXFoC]&#123;2&#125;[e-j][e-j]&#123;6&#125;[VJ.\WSUZ]&#123;11&#125;(penguin|gazelle)+\D*[vc]"))</span><br>main()<br></code></pre></td></tr></table></figure>
+
+<p>一次跑过，最后返回flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;^regularly_express_yourself$&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x039-神奇的压缩文件"><a href="#0x039-神奇的压缩文件" class="headerlink" title="0x039 神奇的压缩文件"></a>0x039 神奇的压缩文件</h3><p>压缩文件427k，解压后文本文件19字节，而且根据题目描述和解压出来的文本文件提示有压缩文件被隐藏了，没有解压出来。用“010 Editor”把“block[1]”的“enum RarBlockType HeadType”改为“FILE_OR_DIR (116)”，保存后解压，得到一个426k的文件。根据文件头或者解压出的文本文件提示，这是一个zip压缩文件。解压后得到一张命运石之门的图片和一个压缩包。解压压缩包之后发现还是压缩包，一直重复，比较解压前后的文件hash发现没有变化。题目提示“命运石之门里面并没有Flag”，在压缩包的注释里“Hello XDSEC”中间有三行空白，复制出来是tab和空格，把tab替换为1，空格替换为0，得到一个二进制串。二进制串直接转字符串失败，二进制共98位，是7的整数倍，每7位前面补一个0，再转字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">binstr = <span class="hljs-string">"11011001100011111010011001101111011011011011001000110011011011001101110110111110010011001001111101"</span><br>b = re.findall(<span class="hljs-string">r'.&#123;7&#125;'</span>,binstr)<br>string = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>    string += chr(int(i,<span class="hljs-number">2</span>))<br>print(string)<br></code></pre></td></tr></table></figure>
+<p>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">lctf&#123;6d3677dd&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.5ixuexiwang.com/str/from-binary.php" target="_blank" rel="noopener">二进制转字符串</a></p>
+<h3 id="0x040-很普通的数独"><a href="#0x040-很普通的数独" class="headerlink" title="0x040 很普通的数独"></a>0x040 很普通的数独</h3><p>第1张、第5张、第21张有明显的“回”字形，联想到二维码。但是这三张的位置不对，“1.png”重命名为“5.png”，“5.png”重命名为“21.png”，“21.png”重命名为“1.png”，然后前9张图重命名前面加“0”（比如1.png变成01.png）。使用命令拼接所有图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">montage *.png -tile x5 -geometry +0+0 qrcode.png<br></code></pre></td></tr></table></figure>
+
+<p>得到结果图片“qrcode.png”，可以把有数字的格填充纯色，然后马赛克处理一下，或者把图片翻译成二进制生成二维码。扫描二维码得到64进制字符串，连续base64解密（7次），最后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;y0ud1any1s1&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x041-心仪的公司"><a href="#0x041-心仪的公司" class="headerlink" title="0x041 心仪的公司"></a>0x041 心仪的公司</h3><p>解压后得到文件“webshell.pcapng”，搜索字符串“webshell”提取出一个html，是“PhpSpy”的界面，界面上有一个文件“webshell.jpg”比较可疑，重新搜索“webshell.jpg”后追踪TCP流，在图片流的末尾发现flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">fl4g:&#123;ftop_Is_Waiting_4_y&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x042-Blocks"><a href="#0x042-Blocks" class="headerlink" title="0x042 Blocks"></a>0x042 Blocks</h3><p>附件是.tar文件，在kali下解压后，是一个没有扩展名的文件，但显示是tar文件，继续解压得到一张像二维码的PNG图片，但是没有二维码的方框。文件名是“stego_100_f78a3acde659adf7ceef546380e49e5f”，使用“Stegsolve”在“Alpha plane 0”通道下发现中间出现一个类似的19x19的类似二维码的图片，这样就有两个19x19的图片，取异或后转为二进制，再转字符串得到flag信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>img = Image.open(<span class="hljs-string">'stego_100_f78a3acde659adf7ceef546380e49e5f'</span>)<br>m1 = m2 = <span class="hljs-string">''</span><br><span class="hljs-comment"># 取大图二进制</span><br><span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, img.size[<span class="hljs-number">0</span>], <span class="hljs-number">19</span>):<br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, img.size[<span class="hljs-number">1</span>], <span class="hljs-number">19</span>):<br>        r,g,b,a = img.getpixel((x,y))<br>        m1 += str(r &amp; <span class="hljs-number">1</span>)<br><span class="hljs-comment"># 取中间隐写图二进制</span><br><span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">171</span>, <span class="hljs-number">171</span> + <span class="hljs-number">19</span>):<br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">171</span>, <span class="hljs-number">171</span> + <span class="hljs-number">19</span>):<br>        r,g,b,a = img.getpixel((x,y))<br>        m2 += str(a &amp; <span class="hljs-number">1</span>)<br><span class="hljs-comment"># 二进制串取异或</span><br>xor = <span class="hljs-string">''</span>.join(str(int(A)^int(B)) <span class="hljs-keyword">for</span> A,B <span class="hljs-keyword">in</span> zip(m1,m2))<br><span class="hljs-comment"># 二进制转字符串并输出</span><br>print(<span class="hljs-string">''</span>.join(chr(int(xor[i:i+<span class="hljs-number">8</span>], <span class="hljs-number">2</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(xor), <span class="hljs-number">8</span>)))<br></code></pre></td></tr></table></figure>
+
+<p>输出结果是“flag  = ASIS_08213db585ffe1c93c8f04622c319594”，所以flag就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ASIS_08213db585ffe1c93c8f04622c319594<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x043-stage1"><a href="#0x043-stage1" class="headerlink" title="0x043 stage1"></a>0x043 stage1</h3><p>“Stegsolve”打开图片，左上角有二维码，使用“Random”通道截取一个比较清晰的图片，扫码得到内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">03F30D0AB6266A576300000000000000000100000040000000730D0000006400008400005A00006401005328020000006300000000030000000800000043000000734E0000006401006402006403006404006405006406006405006407006708007D00006408007D0100781E007C0000445D16007D02007C01007400007C0200830100377D0100712B00577C010047486400005328090000004E6941000000696C000000697000000069680000006961000000694C0000006962000000740000000028010000007403000000636872280300000074030000007374727404000000666C6167740100000069280000000028000000007307000000746573742E7079520300000001000000730A00000000011E0106010D0114014E280100000052030000002800000000280000000028000000007307000000746573742E707974080000003C6D6F64756C653E010000007300000000<br></code></pre></td></tr></table></figure>
+
+<p>转字符串后发现“test.pyt”（或者通过文件头“03f30d0a”识别），把十六进制保存为文件“test.pyc”，直接运行没有输出，反编译后末尾加上“flag()”执行输出flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">AlphaLab<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x044-传感器1"><a href="#0x044-传感器1" class="headerlink" title="0x044 传感器1"></a>0x044 传感器1</h3><p>差分曼彻斯特码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hex2bin</span><span class="hljs-params">(hex_str)</span>:</span><br>    <span class="hljs-keyword">return</span> bin(int(hex_str, <span class="hljs-number">16</span>))[<span class="hljs-number">2</span>:]<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bin2hex</span><span class="hljs-params">(s1)</span>:</span><br>    s2 = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> re.findall(<span class="hljs-string">'.&#123;4&#125;'</span>,s1):<br>        s2 += str(hex(int(i,<span class="hljs-number">2</span>))).replace(<span class="hljs-string">'0x'</span>,<span class="hljs-string">''</span>)<br>    <span class="hljs-keyword">return</span> s2<br><br><span class="hljs-comment"># 差分曼彻斯特解码</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">diffmqst</span><span class="hljs-params">(s)</span>:</span><br>    s = hex2bin(s)<br>    s1 = <span class="hljs-string">''</span><br>    cc = <span class="hljs-string">'01'</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> re.findall(<span class="hljs-string">'.&#123;2&#125;'</span>,s):<br>        <span class="hljs-keyword">if</span> i == cc:<span class="hljs-comment"># 无跳变为“0”</span><br>            s1 += <span class="hljs-string">'0'</span><br>        <span class="hljs-keyword">else</span>:<span class="hljs-comment"># 有跳变为“1”</span><br>            s1 += <span class="hljs-string">'1'</span><br>        cc = i  <span class="hljs-comment"># 差分加上cc = i</span><br>    <span class="hljs-keyword">return</span> bin2hex(s1).upper()<br><br>hex1 = <span class="hljs-string">"3EAAAAA56A69AA55A95995A569AA95565556"</span>[<span class="hljs-number">2</span>:]<span class="hljs-comment"># 已知ID</span><br>hex2 = <span class="hljs-string">"3EAAAAA56A69AA556A965A5999596AA95656"</span>[<span class="hljs-number">2</span>:]<span class="hljs-comment"># 未知ID</span><br>print(diffmqst(hex1))<span class="hljs-comment"># ID: 0x8893CA58</span><br>print(diffmqst(hex2))<br></code></pre></td></tr></table></figure>
+<p>输出结果为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">8024D8893CA584181<br>8024D8845ABF34119<br></code></pre></td></tr></table></figure>
+<p>第一条结果的第6位到第13位对应已知ID“0x8893CA58”，那么未知ID就是“8845ABF3”，所以flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;8845ABF3&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x045-很普通的Disco"><a href="#0x045-很普通的Disco" class="headerlink" title="0x045 很普通的Disco"></a>0x045 很普通的Disco</h3><p>附件是音频文件，使用“Audacity”分析波形谱。在文件最开始有杂音，放大后高的为1，低的为0，得到长度105位的二进制串，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">110011011011001100001110011111110111010111011000010101110101010110011011101011101110110111011110011111101<br></code></pre></td></tr></table></figure>
+
+<p>105是7的整数倍，每7位转字符得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;W0W*funny&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.audacityteam.org/download/" target="_blank" rel="noopener">Audacity</a></p>
+<h3 id="0x046-第四扩展FS"><a href="#0x046-第四扩展FS" class="headerlink" title="0x046 第四扩展FS"></a>0x046 第四扩展FS</h3><p>图片属性里备注信息“Pactera”。binwalk发现有多文件，foremost提取出文件，有一个图片，一个压缩包，压缩包里有“file.txt”但是有密码。使用备注信息解压得到文本文件，由题目描述得到提示，进行频次统计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br>f=open(<span class="hljs-string">'file.txt'</span>,<span class="hljs-string">'r'</span>)<br>f_read=f.read()<br>print(Counter(f_read))<br></code></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">Counter(&#123;&#39;D&#39;: 3950, &#39;C&#39;: 1900, &#39;T&#39;: 1850, &#39;F&#39;: 1800, &#39;&#123;&#39;: 1750, &#39;k&#39;: 1700, &#39;a&#39;: 1650, &#39;1&#39;: 1600, &#39;f&#39;: 1550, &#39;4&#39;: 1500, &#39;<br>N&#39;: 1450, &#39;g&#39;: 1400, &#39;x&#39;: 1350, &#39;I&#39;: 1300, &#39;n&#39;: 1250, &#39;t&#39;: 1200, &#39;A&#39;: 1150, &#39;i&#39;: 1100, &#39;&#125;&#39;: 1050&#125;)<br></code></pre></td></tr></table></figure>
+<p>按照频率从高到低排序“DCTF{ka1f4NgxIntAi}”，但是正确的flag需要把I换成l（题目问题）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">DCTF&#123;ka1f4NgxlntAi&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x047-就在其中"><a href="#0x047-就在其中" class="headerlink" title="0x047 就在其中"></a>0x047 就在其中</h3><p>附件是流量包，打开后是一个访问ftp的过程，ftp中有一个压缩包“key.zip”，提取压缩包解压后得到“key.txt”，但是打开是乱码。ftp中还有“pub.key”和“test.key”，其中“pub.key”是RSA公钥，“test.key”是RSA私钥，在kali系统下使用openssl解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">openssl rsautl -decrypt -in key.txt -inkey private.key<br></code></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">hi, boys and girls! flag is &#123;haPPy_Use_0penSsI&#125;<br></code></pre></td></tr></table></figure>
+<p>所以flag就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;haPPy_Use_0penSsI&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x048-low"><a href="#0x048-low" class="headerlink" title="0x048 low"></a>0x048 low</h3><p>由题目名称提示，这道题是低位lsb隐写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">low_lsb</span><span class="hljs-params">(file)</span>:</span><br>    img = Image.open(file)<br>    img_tmp = img.copy()<br>    pix = img_tmp.load()<br>    width,height = img_tmp.size<br>    <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> range(width):<br>        <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> range(height):<br>            <span class="hljs-keyword">if</span> pix[w,h]&amp;<span class="hljs-number">1</span> == <span class="hljs-number">0</span>:<span class="hljs-comment"># 按位与，偶数得0，奇数得1</span><br>                pix[w,h] = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">else</span>:<br>                pix[w,h] = <span class="hljs-number">255</span><br>    img_tmp.show()<br><br>low_lsb(<span class="hljs-string">"low.bmp"</span>)<br></code></pre></td></tr></table></figure>
+<p>得到二维码，反相后扫码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;139711e8e9ed545e&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x049-message"><a href="#0x049-message" class="headerlink" title="0x049 message"></a>0x049 message</h3><p>这题考脑洞。十六进制字符串首尾连续的F，想到对称，是上下的边框，可能是拼出图案，十六进制太短，转2进制（为了看得清楚用.替换0，用#替换1），转2进制后长度是1679，1679=23*73是两个质数之积，然后按73一行输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">string = bin(int(open(<span class="hljs-string">"msg.txt"</span>,<span class="hljs-string">"r"</span>).read(),<span class="hljs-number">16</span>))[<span class="hljs-number">2</span>:].replace(<span class="hljs-string">"0"</span>,<span class="hljs-string">"."</span>).replace(<span class="hljs-string">"1"</span>,<span class="hljs-string">"#"</span>)<span class="hljs-comment"># [2:]去掉二进制前的0b</span><br>print(len(string))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">23</span>):<br>    print(string[<span class="hljs-number">73</span>*i:<span class="hljs-number">73</span>*i+<span class="hljs-number">73</span>])<br></code></pre></td></tr></table></figure>
+
+<p>最后从输出的图案得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">RCTF&#123;ArEciBo_mEsSaGe&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x050-Miscellaneous-300"><a href="#0x050-Miscellaneous-300" class="headerlink" title="0x050 Miscellaneous-300"></a>0x050 Miscellaneous-300</h3><p>附件压缩包加密了，试了伪加密不行，没有提示信息，直接爆破，得到密码“46783”（竟然是压缩包里的文件名）。按照此规律解压发现陷入了循环，果断改用代码解压</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> zipfile,os<br><br>extPath = <span class="hljs-string">"D:\\"</span><br>file = <span class="hljs-string">"4d5f8453074b41ce873e51688543f05d.zip"</span><br>index = <span class="hljs-number">0</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    index += <span class="hljs-number">1</span><br>    filePath = extPath + file<br>    print(<span class="hljs-string">"unzip "</span> + str(index) + <span class="hljs-string">": "</span> + filePath)<br>    zFile = zipfile.ZipFile(filePath, <span class="hljs-string">"r"</span>)<br>    <span class="hljs-keyword">for</span> fileM <span class="hljs-keyword">in</span> zFile.namelist():<br>        zFile.extract(fileM, extPath, pwd=fileM[:<span class="hljs-number">-4</span>].encode())<span class="hljs-comment"># 解压到extPath目录</span><br>        file = fileM<br>    zFile.close();<br>    os.remove(filePath)<br></code></pre></td></tr></table></figure>
+
+<p>解压1520次得到“12475.zip”，爆破压缩包得到解压密码“b0yzz”。解压后得到音频文件，用Audacity打开，播放发现是杂音，切换到频谱图可得flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">BallsRealBolls<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x051-互相伤害"><a href="#0x051-互相伤害" class="headerlink" title="0x051 互相伤害!!!"></a>0x051 互相伤害!!!</h3><p>解压后文件没有扩展名，在kali下看是流量包。wireshark打开，是一个斗图过程有很多图片，文件-导出对象-HTTP-Save All， 其中一个图片上有二维码，裁剪出二维码后用在线扫码得到二维码内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">U2FsdGVkX1+VpmdLwwhbyNU80MDlK+8t61sewce2qCVztitDMKpQ4fUl5nsAZOI7 bE9uL8lW&#x2F;KLfbs33aC1XXw&#x3D;&#x3D;<br></code></pre></td></tr></table></figure>
+<p>像是base64，解码后乱码，不过是以“Salted__”开头，同时图片中提示“本发布会有aes独家赞助”，从这几点都可以看出这个字符串是AES加密，图片上还有大字“CTF”这应该是密钥，解密得到“668b13e0b0fc0944daf4c223b9831e49”，查询md5失败。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">binwalk -e *.jpg<br></code></pre></td></tr></table></figure>
+<p>发现很多二维码和压缩包（图片是压缩包里的图片），其中一个文件夹异常，就是“互相伤害”的那张图片，压缩包是加密的，用“668b13e0b0fc0944daf4c223b9831e49”解密得到图片，是一个二维码，二维码中间还有一个二维码。外面的二维码内容没用，里面的二维码反相后扫描得到“flag{97d1-0867-2dc1-8926-144c-bc8a-4d4a-3758}”，最后提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">97d1-0867-2dc1-8926-144c-bc8a-4d4a-3758<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://cli.im/deqr" target="_blank" rel="noopener">草料二维码扫描器</a>、<a href="http://tool.oschina.net/encrypt" target="_blank" rel="noopener">在线加密解密</a></p>
+<h3 id="0x052-Hear-with-your-Eyes"><a href="#0x052-Hear-with-your-Eyes" class="headerlink" title="0x052 Hear-with-your-Eyes"></a>0x052 Hear-with-your-Eyes</h3><p>附件解压后是还是压缩文件，再次解压得到音频文件，用“Audacity”打开，由题目提示切换到“频谱图”，得到“flag:e5353bb7b57578bd4da1c898a8e2d767”，最后提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">e5353bb7b57578bd4da1c898a8e2d767<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x053-Miscellaneous-200"><a href="#0x053-Miscellaneous-200" class="headerlink" title="0x053 Miscellaneous-200"></a>0x053 Miscellaneous-200</h3><p>文件内容是rgb，每行一个，共61366行，61366 = 2*61*503，所以应该是一个“122x503”或者“503x122”的图片。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br><span class="hljs-comment"># 读rgb保存到图片</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rgb_save_pic</span><span class="hljs-params">(file, width, height, output=<span class="hljs-string">"flag.png"</span>)</span>:</span><br>    img = Image.new(<span class="hljs-string">'RGB'</span>, (width, height))<br>    f = open(file,<span class="hljs-string">'r'</span>)<br>    x = y = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f.readlines():<br>        r,g,b = line.split(<span class="hljs-string">","</span>)<br>        img.putpixel((x,y), (int(r),int(g),int(b)))<br>        x += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> x == width:<br>            x = <span class="hljs-number">0</span><br>            y += <span class="hljs-number">1</span><br>    f.close()<br>    img.show()<br>    img.save(output)<br><br>rgb_save_pic(<span class="hljs-string">"5b29cacad0a74829abf57cda39ae52ef.txt"</span>,<span class="hljs-number">122</span>,<span class="hljs-number">503</span>)<br></code></pre></td></tr></table></figure>
+
+<p>得到图片，但是左右翻转了，使用命令调整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">convert -flop flag.png flag2.png<br></code></pre></td></tr></table></figure>
+
+<p>得到正向图片“flag2.png”，读出flag（有空格）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123; youc@n&#39;tseeme &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x054-Hidden-Message"><a href="#0x054-Hidden-Message" class="headerlink" title="0x054 Hidden-Message"></a>0x054 Hidden-Message</h3><p>wireshark打开，全是udp请求，追踪udp流后有两串英文，然而这两个文本里并没有什么有用的东西。仔细观察可以发现“Info”列里的源端口在“3400”和“3401”间变化，按照请求的顺序读出“0”和“1”，得到80位的二进制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">10110111100110101001011010001100100110101001000110011101100110101000110110011000<br></code></pre></td></tr></table></figure>
+
+<p>正好是8的整数倍，但是最高位不能是1，所以把0替换成1，把1替换成0。得到新的二进制字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">01001000011001010110100101110011011001010110111001100010011001010111001001100111<br></code></pre></td></tr></table></figure>
+
+<p>二进制转字符串得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Heisenberg<br></code></pre></td></tr></table></figure>
+
+<p>这题还可以使用命令来做</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tshark -r 325f4fe7179847d1b35af0252e4d9b90.pcap -Tfields -e udp.srcport | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> port; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> -n <span class="hljs-variable">$&#123;port: -1&#125;</span>; <span class="hljs-keyword">done</span> | tr 01 10 | perl -lpe <span class="hljs-string">'$_=pack"B*",$_'</span><br><span class="hljs-comment"># 输出udp源端口 | 转二进制字符串 | 0替换为1，1替换为0 | 二进制转字符串</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="0x055-misc-pic-again"><a href="#0x055-misc-pic-again" class="headerlink" title="0x055 misc_pic_again"></a>0x055 misc_pic_again</h3><p>Stegsolve打开，通道0下画面模糊应该是lsb隐写，“Data Extract”选中rgb的0通道、LSB First，点击“Preview”，在最开头发现“PK”，这是zip压缩包的文件头，“Save Bin”保存为zip文件，解压得到没有扩展名的文件，十六进制打开文件查看文件头，顺便搜了一下“ctf”就得到了flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">hctf&#123;scxdc3tok3yb0ard4g41n~~~&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x056-7-2"><a href="#0x056-7-2" class="headerlink" title="0x056 7-2"></a>0x056 7-2</h3><p>解压后有很多文件，文件名是base64一样的东西，文件内容随便打开一个全是数字。这道题使用linux的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 先解base，发现“ainidexingzhuang”</span><br>ls | base64 -d | strings<br><br><span class="hljs-comment"># base64加密字符串，得到“YWluaWRleGluZ3podWFuZwo=”</span><br><span class="hljs-built_in">echo</span> ainidexingzhuang | base64<br><br><span class="hljs-comment"># 输出文件内容</span><br>cat YWluaWRleGluZ3podWFuZw<br></code></pre></td></tr></table></figure>
+<p>得到“74 94 22 42 91 23 {82 42 82 52 63 21 42 22 73 21 }”，数字范围[2-9][1-4]，尝试使用手机拼音九键解密（例如：74表示7键上的第四个字符，即s）,得到“szbhwc{uhukoahbra}”，再使用凯撒解密偏移22得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">wdflag&#123;ylyoselfve&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/kaisamima.php" target="_blank" rel="noopener">凯撒密码加密解密</a></p>
+<h3 id="0x057-hong"><a href="#0x057-hong" class="headerlink" title="0x057 hong"></a>0x057 hong</h3><p>binwalk发现有东西，foremost提取出来两张图片，二维码扫不出来，flag在另一张图上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">BCTF&#123;cute&amp;fat_cats_does_not_like_drinking&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x058-intoU"><a href="#0x058-intoU" class="headerlink" title="0x058 intoU"></a>0x058 intoU</h3><p>用“Audacity”打开，查看频谱图，在最后发现字符“??e_in_wav}”，调小采样率就能看清完整的flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">RCTF&#123;bmp_file_in_wav&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x059-侧信道初探"><a href="#0x059-侧信道初探" class="headerlink" title="0x059 侧信道初探"></a>0x059 侧信道初探</h3><p>当ki=1时会执行if里的计算，增加复杂度，所消耗能量也增加，所以波形图里，间隔小的代表ki=0，间隔大的代表1。读图得到二进制串“0110111010”，flag就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SCTF&#123;0110111010&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x060-pyHAHA"><a href="#0x060-pyHAHA" class="headerlink" title="0x060 pyHAHA"></a>0x060 pyHAHA</h3><p>附件是pyc文件，先按照正常套路来一套。反编译报错，python文件隐写解密报错，直接执行还报错。010Editor打开文件，发现里面的字母顺序倒了（比如“galf”是“flag”倒过来了），翻转文件字节顺序(例如“A5 CA 57 59”变成“59 57 CA A5”)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverseHex</span><span class="hljs-params">(file)</span>:</span><br>    i=open(file, <span class="hljs-string">'rb'</span>)<br>    o=open(file + <span class="hljs-string">'.rev'</span>, <span class="hljs-string">'wb'</span>)<br>    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> i.read()[::<span class="hljs-number">-1</span>]:<br>        o.write(b.to_bytes(length=<span class="hljs-number">1</span>,byteorder=<span class="hljs-string">'big'</span>,signed=<span class="hljs-literal">False</span>))<br>    i.close()<br>    o.close()<br><br>reverseHex(<span class="hljs-string">"PyHaHa.pyc"</span>)<br></code></pre></td></tr></table></figure>
+
+<p>转换后的文件缺少文件头，补上4字节“03F30D0A”。binwalk发现文件尾部追加了一个压缩包，foremost提取出来。windows系统下发现压缩包的注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag1: ec8d57d820ad8c586e4be0122b442c871a3d71cd8036c45083d860caf1793ddc<br>flag2: c40a0be335babcfbd8c47aa771f6a2ceca2c8638caa5924da58286d2a942697e<br></code></pre></td></tr></table></figure>
+<p>解压（伪加密）得到一个mp3文件，用010Editor删除文件尾部的压缩包，然后就可以反编译了，反编译后是一个加密代码。先分析解压出来的mp3文件，发现备注信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">163 key(Don&#39;t modify):L64FU3W4YxX3ZFTmbZ+8&#x2F;dx5jBNDPdsKv9gAgXYyj0&#x2F;Z0Vl4ORaCLH5D0oN9v9nBBv6zxpBucgNeE2qqke4ugZs7dxriT5lfUpulX5PYMzSg2pqL6APTHQjtIHw16ZCRTMBBkInrUGSTklA2MwPLGkuDTmWfzjHqDWEK5LLRP6oiOXe0JeI9mLHzL2nm6T3&#x2F;ianaPEzeH7lpE&#x2F;ciWDyqFUXoTZWeyK0xTjYxBSj9RJFoaoIxmXk6P8MJq+EvcS7ratByRUvWLaUFhcXhJ1iRK58BKcVPS0hxkzA77WB1UnrUfpkS1U&#x2F;F5uYmYWGZ3Cz2fTvJHcsE228LUnnybaoIoDyY6BvZVUitmA+VhhTHoIKsREyCzC3VXq&#x2F;HuwwuHdCdftzXJpXPoJSNzWAZH0oGnF+WE7m5Fqd36dqp2srL5bgFjFnyZzIkxdaU+ZW+Rm7aIbrb7nK2Pp9iequOBV6rnKeHZyc3hzG4lVVapoXl&#x2F;U2cvfVgIqVtnuJE4XM4NuUd<br></code></pre></td></tr></table></figure>
+
+<p>用“DeEgger Embedder”从mp3文件中导出隐藏文件，是一个文本文件，内容是很多行base32，而且base32解码再编码与原文末尾有差别，使用base32隐写解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Pytthon3</span><br><span class="hljs-keyword">import</span> base64<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_base32_diff_value</span><span class="hljs-params">(stego_line, normal_line)</span>:</span><br>    base32chars = <span class="hljs-string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(normal_line)):<br>        <span class="hljs-keyword">if</span> stego_line[i] != normal_line[i]:<br>            <span class="hljs-keyword">return</span> abs(base32chars.index(chr(stego_line[i]))-base32chars.index(chr(normal_line[i])))<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br><span class="hljs-comment"># base32隐写解密</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">base32stego_decode</span><span class="hljs-params">(lines)</span>:</span><br>    res = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lines:<br>        stego_line = i.strip()<br>        normal_line = base64.b32encode(base64.b32decode(i.strip()))<br>        diff = get_base32_diff_value(stego_line, normal_line)<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'='</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> str(stego_line):<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> diff:<br>            res += bin(diff)[<span class="hljs-number">2</span>:]<br>        <span class="hljs-keyword">else</span>:<br>            res += <span class="hljs-string">'0'</span><br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-comment"># # 或者</span><br><span class="hljs-comment"># # base32隐写解密</span><br><span class="hljs-comment"># def base32stego_decode(lines):</span><br><span class="hljs-comment">#     bin_str = ''</span><br><span class="hljs-comment">#     for line in lines:</span><br><span class="hljs-comment">#         line = line.strip('\n')</span><br><span class="hljs-comment">#         if line.count("=") &gt; 0:</span><br><span class="hljs-comment">#             if line == base64.b32encode(base64.b32decode(line.encode("utf-8"))).decode("utf-8"):</span><br><span class="hljs-comment">#                 bin_str += '0'</span><br><span class="hljs-comment">#             else:</span><br><span class="hljs-comment">#                 bin_str += '1'</span><br><span class="hljs-comment">#     return bin_str</span><br><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">"Dream It Possible - extracted.txt"</span>, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:<br>    file_lines = f.readlines()<br>en=open(<span class="hljs-string">"encrypt.txt"</span>,<span class="hljs-string">"w"</span>)<br>en.write(base32stego_decode(file_lines))<br>en.close()<br></code></pre></td></tr></table></figure>
+<p>解密得到7200位二进制。现在加密后的flag1（encrypt2）、加密后的flag2（encrypt3）、encrypt.txt（base32隐写的二进制）和加密算法都有了，写出解密算法然后代入参数就能得到原始信息“data.txt”了</p>
+<blockquote>
+<p>以下为引用writeup内容<br>分析脚本发现flag1和flag2的密文在前面的zip注释信息已给出，脚本对三段明文使用了同个Seed做了加密，其中后两段明文和密文还有第一段的密文已知，考虑OTP加密。<br>其中encrypt实现的是一个256bit随机数生成器的功能，generate实现的是在有限域GF(2^256)下的平方运算：new_key=(old_key+seed)^2<br>因此，先由后两段明文和密文算出key2和key3，再在GF(2^256)下进行开方即可得到seed，key3 = (key2+seed)^2<br>再由第一段密文(即base32隐藏的数据)key1和seed解得key1<br>Key2= (key1+seed)^2<br>最后对第一段密文(即base32隐藏的数据)和22次叠加的key1做异或得到原始二进制数据</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Python2</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate</span><span class="hljs-params">(m, k)</span>:</span><br>    result = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> bin(m ^ k)[<span class="hljs-number">2</span>:]:<br>        result = result &lt;&lt; <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> int(i):<br>            result = result ^ m ^ k<br>        <span class="hljs-keyword">if</span> result &gt;&gt; <span class="hljs-number">256</span>:<br>            result = result ^ P<br>    <span class="hljs-keyword">return</span> result<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert</span><span class="hljs-params">(string)</span>:</span><br>    <span class="hljs-keyword">return</span> int(string.encode(<span class="hljs-string">'hex'</span>), <span class="hljs-number">16</span>)<br><br><span class="hljs-comment"># P = 115792089237316195423570985008687907853269984665640564039457584007913129640997L</span><br>P = <span class="hljs-number">0x10000000000000000000000000000000000000000000000000000000000000425L</span><br>flag1 = <span class="hljs-string">'ThIs_Fl4g_Is_Ri9ht'</span><br>flag2 = <span class="hljs-string">'Hey_Fl4g_Is_Not_HeRe'</span><br><br>encrypt1 = open(<span class="hljs-string">'encrypt.txt'</span>, <span class="hljs-string">'r'</span>).read()<br>encrypt2 = <span class="hljs-number">0xec8d57d820ad8c586e4be0122b442c871a3d71cd8036c45083d860caf1793ddc</span><br>encrypt3 = <span class="hljs-number">0xc40a0be335babcfbd8c47aa771f6a2ceca2c8638caa5924da58286d2a942697e</span><br><br>key3 = encrypt3 ^ convert(flag2)<br>key2 = encrypt2 ^ convert(flag1)<br><span class="hljs-keyword">print</span> <span class="hljs-string">'Found key2:'</span>,key2<br><span class="hljs-keyword">print</span> <span class="hljs-string">'Found key3:'</span>,key3<br><br>tmp = key3 - <span class="hljs-number">233333333333L</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">255</span>):<br>    tmp = generate(tmp,<span class="hljs-number">0</span>)<br>seed = tmp ^ key2<br><span class="hljs-keyword">print</span> <span class="hljs-string">'Found seed:'</span>,seed<br><span class="hljs-keyword">print</span> <span class="hljs-string">'use seed generate key3:'</span>,generate(key2,seed)+<span class="hljs-number">233333333333L</span><br><br>tmp = key2 - <span class="hljs-number">233333333333L</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">255</span>):<br>    tmp = generate(tmp,<span class="hljs-number">0</span>)<br>key1 = tmp ^ seed<br><span class="hljs-keyword">print</span> <span class="hljs-string">'Found key1:'</span>,key1<br><span class="hljs-keyword">print</span> <span class="hljs-string">'use key1 generate key2:'</span>,generate(key1,seed)+<span class="hljs-number">233333333333L</span><br><br>result = eval(hex(int(encrypt1,<span class="hljs-number">2</span>))[:<span class="hljs-number">-1</span>]) ^ eval(<span class="hljs-string">'0x'</span>+hex(key1)[<span class="hljs-number">2</span>:<span class="hljs-number">-1</span>]*<span class="hljs-number">22</span>)<br>data = open(<span class="hljs-string">'data.txt'</span>, <span class="hljs-string">'w'</span>)<br>data.write(bin(result)[<span class="hljs-number">2</span>:])<br>data.close()<br></code></pre></td></tr></table></figure>
+<p>“encrypt.txt”和“data.txt”中的二进制数据其实是二值图像，转化为png</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Python3</span><br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>str=open(<span class="hljs-string">"data.txt"</span>,<span class="hljs-string">"r"</span>).read()<br>length=<span class="hljs-number">240</span><br>width=<span class="hljs-number">30</span><br>pic=Image.new(<span class="hljs-string">"RGB"</span>,(length,width))<br>i=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(length):<br>    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(width):<br>        <span class="hljs-keyword">if</span> str[i] == <span class="hljs-string">'0'</span>:<br>            pic.putpixel([x,y],(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))<br>        <span class="hljs-keyword">else</span>:<br>            pic.putpixel([x,y],(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>))<br>        i += <span class="hljs-number">1</span><br>pic.show()<br>pic.save(<span class="hljs-string">"Fl4g.png"</span>)<br></code></pre></td></tr></table></figure>
+<p>加密后的“encrypt.txt”的二值图像只露出了“flag”，加密前的“data.txt”的二值图像显示了完整的flag内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;H4pPy_pY_C0dlng&#125;<br></code></pre></td></tr></table></figure>
+<p>其中音频文件的备注信息是网易云音乐的歌曲信息json用aes加密后的结果，详情参考<a href="https://www.zhihu.com/question/27139181" target="_blank" rel="noopener">知乎</a></p>
+<p>工具：<a href="http://deegger-embedder.findmysoft.com/" target="_blank" rel="noopener">DeEgger Embedder</a></p>
+<h3 id="0x061-latlong"><a href="#0x061-latlong" class="headerlink" title="0x061 latlong"></a>0x061 latlong</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ file 997a0b28705f4ef086acfb7e1b932336 <br>997a0b28705f4ef086acfb7e1b932336: RIFF (little-endian) data, WAVE audio, mono 48000 Hz<br></code></pre></td></tr></table></figure>
+<p>附件是RIFF文件，使用Audacity频谱分析得到如下结果<br><img src="/images/xctf-misc-g2/20200707112440.png" alt></p>
+<p>在图中左边我们可以看到有1100 Hz和2200 Hz两个峰值，这是在BFSK中用于AX.25的两个音调。这题主要是工具的使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># kali系统</span><br><br>$ apt-get install -y sox multimon-ng<br>$ sox -t wav 997a0b28705f4ef086acfb7e1b932336 -esigned-integer -b16 -r 22050 -t raw 997a0b28705f4ef086acfb7e1b932336.raw<br>$ multimon-ng -t raw -a AFSK1200 997a0b28705f4ef086acfb7e1b932336.raw <br>multimon-ng 1.1.8<br>  (C) 1996/1997 by Tom Sailer HB9JNX/AE4WA<br>  (C) 2012-2019 by Elias Oenal<br>Available demodulators: POCSAG512 POCSAG1200 POCSAG2400 FLEX EAS UFSK1200 CLIPFSK FMSFSK AFSK1200 AFSK2400 AFSK2400_2 AFSK2400_3 HAPN4800 FSK9600 DTMF ZVEI1 ZVEI2 ZVEI3 DZVEI PZVEI EEA EIA CCIR MORSE_CW DUMPCSV X10 SCOPE<br>Enabled demodulators: AFSK1200<br>AFSK1200: fm WDPX01-0 to APRS-0 UI  pid=F0<br>!/;E<span class="hljs-string">'q/Sz'</span>O   /A=000000flag&#123;f4ils4f3c0mms&#125;<br><br><br><span class="hljs-comment"># 题目文件生成</span><br>$ apt-get install -y libao-dev pkg-config<br>$ git <span class="hljs-built_in">clone</span> https://github.com/fsphil/ax25beacon.git<br>$ <span class="hljs-built_in">cd</span> ax25beacon<br>$ make &amp;&amp; make install<br>$ ax25beacon -s <span class="hljs-string">"WDPX01"</span> -o output.wav -- 37.780963 -122.392227 0 <span class="hljs-string">"flag&#123;f4ils4f3c0mms&#125;"</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;f4ils4f3c0mms&#125;<br></code></pre></td></tr></table></figure>
+
+<p>参考链接：</p>
+<ul>
+<li><a href="http://g4ngli0s.logdown.com/posts/1422073-bsidessfctf-for-latlong" target="_blank" rel="noopener">http://g4ngli0s.logdown.com/posts/1422073-bsidessfctf-for-latlong</a></li>
+<li><a href="https://github.com/BSidesSF/ctf-2017-release/tree/master/forensics/latlong" target="_blank" rel="noopener">https://github.com/BSidesSF/ctf-2017-release/tree/master/forensics/latlong</a></li>
+<li><a href="https://github.com/EliasOenal/multimon-ng" target="_blank" rel="noopener">https://github.com/EliasOenal/multimon-ng</a></li>
+<li><a href="https://gitee.com/maxto1234/write-ups-2017/tree/master/bsidessf-ctf-2017/forensics/latlong-150" target="_blank" rel="noopener">https://gitee.com/maxto1234/write-ups-2017/tree/master/bsidessf-ctf-2017/forensics/latlong-150</a></li>
+</ul>
+<h3 id="0x062-qr-easy"><a href="#0x062-qr-easy" class="headerlink" title="0x062 qr-easy"></a>0x062 qr-easy</h3><p>附件是半个二维码，先提取出能够读到的二维码信息</p>
+<p><img src="/images/xctf-misc-g2/20200417110742.png" alt></p>
+<p>接下来就是通过这“半个”二维码复原出二维码内容。首先，计算二维码属性。<br>二维码尺寸是29*29，那么N=29，version V 的计算公式是N = 17 + 4V，得到二维码的version值V=3。<br>二维码格式信息共15位，下图中的是15位中的后8位（黑色代表1白色代表0，前7位在二维码左边）：10111110</p>
+<p><img src="/images/xctf-misc-g2/20200417112722.png" alt></p>
+<p><a href="https://www.thonky.com/qr-code-tutorial/format-version-tables#list-of-all-format-information-strings" target="_blank" rel="noopener">查表</a>可得二维码格式信息</p>
+<table>
+<thead>
+<tr>
+<th align="left">ECC Level</th>
+<th align="left">Mask Pattern</th>
+<th align="left">Type Information Bits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">L</td>
+<td align="left">0</td>
+<td align="left">111011111000100</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">1</td>
+<td align="left">111001011110011</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">2</td>
+<td align="left">111110110101010</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">3</td>
+<td align="left">111100010011101</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">4</td>
+<td align="left">110011000101111</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">5</td>
+<td align="left">110001100011000</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">6</td>
+<td align="left">110110001000001</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">7</td>
+<td align="left">110100101110110</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">0</td>
+<td align="left">101010000010010</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">1</td>
+<td align="left">101000100100101</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">2</td>
+<td align="left">101111001111100</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">3</td>
+<td align="left">101101101001011</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">4</td>
+<td align="left">100010111111001</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">5</td>
+<td align="left">100000011001110</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">6</td>
+<td align="left">100111110010111</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">7</td>
+<td align="left">100101010100000</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">0</td>
+<td align="left">011010101011111</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">1</td>
+<td align="left">011000001101000</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">2</td>
+<td align="left">011111100110001</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">3</td>
+<td align="left">011101000000110</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">4</td>
+<td align="left">010010010110100</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">5</td>
+<td align="left">010000110000011</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">6</td>
+<td align="left">010111011011010</td>
+</tr>
+<tr>
+<td align="left">Q</td>
+<td align="left">7</td>
+<td align="left">010101111101101</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">0</td>
+<td align="left">001011010001001</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">1</td>
+<td align="left">001001110111110</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">2</td>
+<td align="left">001110011100111</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">3</td>
+<td align="left">001100111010000</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">4</td>
+<td align="left">000011101100010</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">5</td>
+<td align="left">000001001010101</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">6</td>
+<td align="left">000110100001100</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">7</td>
+<td align="left">000100000111011</td>
+</tr>
+</tbody></table>
+<p>得到二维码格式信息：ECC Level（纠错级别）=H，Mask Pattern（掩码模式）=1<br>根据二维码Mask Pattern（掩码模式）值查的对应公式为：(row) mod 2 == 0</p>
+<table>
+<thead>
+<tr>
+<th align="left">Mask Number</th>
+<th align="left">如果下面的公式对于给定的行/列坐标是正确的，则在该坐标处交换位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">(row + column) mod 2 == 0</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">(row) mod 2 == 0</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">(column) mod 3 == 0</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">(row + column) mod 3 == 0</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">( floor(row / 2) + floor(column / 3) ) mod 2 == 0</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">((row * column) mod 2) + ((row * column) mod 3) == 0</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">( ((row * column) mod 2) + ((row * column) mod 3) ) mod 2 == 0</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">( ((row + column) mod 2) + ((row * column) mod 3) ) mod 2 == 0</td>
+</tr>
+</tbody></table>
+<p>行号从0开始，转换坐标为0,2,4，…，28的所在行的位。下图是version=3的二维码分块信息</p>
+<p><img src="/images/xctf-misc-g2/QR_Ver3_Codeword_Ordering.svg" alt></p>
+<p>与题目所给二维码信息可知，题目恰好给出了所有数据块（D开头）的信息，通过这些数据块就能计算出二维码的完整内容。<br>先比对题目二维码和上图数据块信息，并按照图中箭头顺序写出所有数据块（D1-D26）的二进制值，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs plain">D1  &#x3D; 0b11101100<br>D14 &#x3D; 0b10000010<br>D2  &#x3D; 0b11111000<br>D15 &#x3D; 0b10010101<br>D3  &#x3D; 0b00110110<br>D16 &#x3D; 0b00111101<br>D4  &#x3D; 0b01110110<br>D17 &#x3D; 0b01100010<br>D5  &#x3D; 0b00100010<br>D18 &#x3D; 0b11101001<br>D6  &#x3D; 0b11110001<br>D19 &#x3D; 0b10100001<br>D7  &#x3D; 0b00110111<br>D20 &#x3D; 0b11100101<br>D8  &#x3D; 0b01010010<br>D21 &#x3D; 0b11010101<br>D9  &#x3D; 0b00010111<br>D22 &#x3D; 0b00101101<br>D10 &#x3D; 0b11011110<br>D23 &#x3D; 0b10010111<br>D11 &#x3D; 0b01000100<br>D24 &#x3D; 0b10001011<br>D12 &#x3D; 0b01010100<br>D25 &#x3D; 0b01111000<br>D13 &#x3D; 0b11001101<br>D26 &#x3D; 0b11000110<br></code></pre></td></tr></table></figure>
+<p>计算掩码处理前数据（偶数行二进制取反），得到二维码的原始二进制数据信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs plain">D1  &#x3D; 0b00100000<br>D14 &#x3D; 0b01001110<br>D2  &#x3D; 0b00110100<br>D15 &#x3D; 0b01011001<br>D3  &#x3D; 0b11111010<br>D16 &#x3D; 0b00001110<br>D4  &#x3D; 0b01000101<br>D17 &#x3D; 0b01010001<br>D5  &#x3D; 0b00010001<br>D18 &#x3D; 0b11011010<br>D6  &#x3D; 0b00111101<br>D19 &#x3D; 0b10010010<br>D7  &#x3D; 0b00000100<br>D20 &#x3D; 0b11010101<br>D8  &#x3D; 0b10011110<br>D21 &#x3D; 0b00011001<br>D9  &#x3D; 0b11010100<br>D22 &#x3D; 0b00010001<br>D10 &#x3D; 0b00010100<br>D23 &#x3D; 0b00001110<br>D11 &#x3D; 0b11011101<br>D24 &#x3D; 0b00010010<br>D12 &#x3D; 0b11010010<br>D25 &#x3D; 0b00011111<br>D13 &#x3D; 0b01010100<br>D26 &#x3D; 0b01000000<br></code></pre></td></tr></table></figure>
+<p>计算方法以D13和D26为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs plain">&gt;&gt;&gt;D13<br>1		0<br>01		01<br>10		01<br>01		01<br> 1		 0<br><br>11001101<br>01010100<br><br><br>&gt;&gt;&gt;D26<br>1		0<br>01		01<br><br>00		00<br>11		00<br> 0		 0<br><br>11000110<br>01000000<br></code></pre></td></tr></table></figure>
+<p>得到二维码data数据后，接下来是最后一步，根据二维码字符编码方式解码数据</p>
+<p>把data数据二进制按D1-D26的顺序依次排列成一个二进制字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">0010000000110100111110100100010100010001001111010000010010011110110101000001010011011101110100100101010001001110010110010000111001010001110110101001001011010101000110010001000100001110000100100001111101000000<br></code></pre></td></tr></table></figure>
+<p>解码时二值串中包含解码方式指示位：</p>
+<ul>
+<li>0001: Numeric Mode (10 bits per 3 digits)</li>
+<li>0010: Alphanumeric Mode (11 bits per 2 characters)</li>
+<li>0100: Byte Mode (8 bits per character)</li>
+<li>1000: Kanji Mode (13 bits per character)</li>
+<li>0111: ECI Mode</li>
+</ul>
+<p>不同的version对应编码方式的编码bits长度指示位关系如下：</p>
+<ul>
+<li>Version 1–9<ul>
+<li>Numeric mode: 10 bits</li>
+<li>Alphanumeric mode: 9 bits</li>
+<li>Byte mode: 8 bits</li>
+<li>Kanji mode: 8 bits</li>
+</ul>
+</li>
+<li>Version 10–26<ul>
+<li>Numeric mode: 12 bits</li>
+<li>Alphanumeric mode: 11 bits</li>
+<li>Byte mode: 16 bits</li>
+<li>Kanji mode: 10 bits</li>
+</ul>
+</li>
+<li>Version 27–40<ul>
+<li>Numeric mode: 14 bits</li>
+<li>Alphanumeric mode: 13 bits</li>
+<li>Byte mode: 16 bits</li>
+<li>Kanji mode: 12 bits</li>
+</ul>
+</li>
+</ul>
+<p>不同字符类型编码方式如下</p>
+<ul>
+<li><a href="http://www.thonky.com/qr-code-tutorial/numeric-mode-encoding/" target="_blank" rel="noopener">Numeric Mode Encoding</a></li>
+<li><a href="http://www.thonky.com/qr-code-tutorial/alphanumeric-mode-encoding/" target="_blank" rel="noopener">Alphanumeric Mode Encoding</a></li>
+<li><a href="http://www.thonky.com/qr-code-tutorial/byte-mode-encoding/" target="_blank" rel="noopener">Byte Mode Encoding</a></li>
+<li><a href="http://www.thonky.com/qr-code-tutorial/kanji-mode-encoding/" target="_blank" rel="noopener">Kanji Mode Encoding</a></li>
+</ul>
+<p>以二进制字符串的开头为例：001000000011010011111010010001010001000…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plain">-&gt; 取头4位：0010<br>-&gt; 对应字母编码（Alphanumeric Mode），已知version&#x3D;3<br>-&gt; 取9 bits：000000110 -&gt; 0b110&#x3D;6位字符，每11位编码2个字符<br>-&gt; 取接下来的3 * 11 bits：<br>10011111010 -&gt; 1274 -&gt; 1274&#x2F;45&#x3D;28 1274%45&#x3D;14 -&gt; table[28]+table[14] -&gt; SE<br>01000101000 -&gt; 552 -&gt; 552&#x2F;45&#x3D;12 552%45&#x3D;12 -&gt; table[12]+table[12] -&gt; CC<br>10001001111 -&gt; 1103 -&gt; 1103&#x2F;45&#x3D;24 1103%45&#x3D;23 -&gt; table[24]+table[23] -&gt; ON<br><br>其中字母表table为：0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-.&#x2F;:<br>二进制结构：<br>编码方式(4位)+<br>长度指示位[version+编码方式]+<br>真实数据位[长度指示字符长度+编码方式对应bin长度]<br>编码方式(4位)+<br>长度指示位[version+编码方式]+<br>真实数据位[长度指示字符长度+编码方式对应bin长度]<br>......<br></code></pre></td></tr></table></figure>
+<p>解码脚本如下，保存为.rb文件</p>
+<figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs rb">data = <span class="hljs-string">'00100000'</span> \<br>       <span class="hljs-string">'00110100'</span> \<br>       <span class="hljs-string">'11111010'</span> \<br>       <span class="hljs-string">'01000101'</span> \<br>       <span class="hljs-string">'00010001'</span> \<br>       <span class="hljs-string">'00111101'</span> \<br>       <span class="hljs-string">'00000100'</span> \<br>       <span class="hljs-string">'10011110'</span> \<br>       <span class="hljs-string">'11010100'</span> \<br>       <span class="hljs-string">'00010100'</span> \<br>       <span class="hljs-string">'11011101'</span> \<br>       <span class="hljs-string">'11010010'</span> \<br>       <span class="hljs-string">'01010100'</span> \<br>       <span class="hljs-string">'01001110'</span> \<br>       <span class="hljs-string">'01011001'</span> \<br>       <span class="hljs-string">'00001110'</span> \<br>       <span class="hljs-string">'01010001'</span> \<br>       <span class="hljs-string">'11011010'</span> \<br>       <span class="hljs-string">'10010010'</span> \<br>       <span class="hljs-string">'11010101'</span> \<br>       <span class="hljs-string">'00011001'</span> \<br>       <span class="hljs-string">'00010001'</span> \<br>       <span class="hljs-string">'00001110'</span> \<br>       <span class="hljs-string">'00010010'</span> \<br>       <span class="hljs-string">'00011111'</span> \<br>       <span class="hljs-string">'01000000'</span><br>alphanumeric = <span class="hljs-string">'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:'</span>.chars<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read</span><span class="hljs-params">(str, size)</span></span><br>  str.slice!(<span class="hljs-number">0</span>, size)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">kanji</span><span class="hljs-params">(num)</span></span><br>  <span class="hljs-keyword">if</span> num &gt;= <span class="hljs-number">0x1740</span><br>    (<span class="hljs-number">0xC140</span> + num / <span class="hljs-number">0xC0</span> * <span class="hljs-number">0x100</span> + num % <span class="hljs-number">0xC0</span>)<br>      .chr(Encoding::Shift_JIS).encode(Encoding::UTF_8)<br>  <span class="hljs-keyword">else</span><br>    (<span class="hljs-number">0x8140</span> + num / <span class="hljs-number">0xC0</span> * <span class="hljs-number">0x100</span> + num % <span class="hljs-number">0xC0</span>)<br>      .chr(Encoding::Shift_JIS).encode(Encoding::UTF_8)<br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>loop <span class="hljs-keyword">do</span><br>  <span class="hljs-keyword">case</span> mode = read(data, <span class="hljs-number">4</span>)<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'0010'</span> <span class="hljs-comment"># Alphanumeric</span><br>    count = read(data, <span class="hljs-number">9</span>).to_i(<span class="hljs-number">2</span>)<br>    (count / <span class="hljs-number">2</span>).times <span class="hljs-keyword">do</span><br>      chunk = read(data, <span class="hljs-number">11</span>).to_i(<span class="hljs-number">2</span>)<br>      print alphanumeric[chunk / <span class="hljs-number">45</span>] + alphanumeric[chunk % <span class="hljs-number">45</span>]<br>    <span class="hljs-keyword">end</span><br>    print alphanumeric[read(data, <span class="hljs-number">11</span>).to_i(<span class="hljs-number">2</span>)] <span class="hljs-keyword">if</span> count.odd?<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'0100'</span> <span class="hljs-comment"># Byte</span><br>    count = read(data, <span class="hljs-number">8</span>).to_i(<span class="hljs-number">2</span>)<br>    count.times <span class="hljs-keyword">do</span><br>      print read(data, <span class="hljs-number">8</span>).to_i(<span class="hljs-number">2</span>).chr<br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'1000'</span> <span class="hljs-comment"># Kanji</span><br>    count = read(data, <span class="hljs-number">8</span>).to_i(<span class="hljs-number">2</span>)<br>    count.times <span class="hljs-keyword">do</span><br>      print kanji(read(data, <span class="hljs-number">13</span>).to_i(<span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'0000'</span> <span class="hljs-comment"># Terminate</span><br>    <span class="hljs-keyword">break</span><br>  <span class="hljs-keyword">else</span><br>    fail <span class="hljs-string">"Unhandled mode <span class="hljs-subst">#&#123;mode&#125;</span>"</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<p>运行后解得二维码内容，即flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SECCON&#123;PSwIQ9d9GjKTdD8H&#125;<br></code></pre></td></tr></table></figure>
+
+<p>本题还可以使用在线工具自动解码：<a href="https://merricx.github.io/qrazybox/" target="_blank" rel="noopener">https://merricx.github.io/qrazybox/</a></p>
+<ol>
+<li><p>New - New blank QR code - 29*29(Ver.3)</p>
+</li>
+<li><p>Tools - Data Masking - 1，Apply</p>
+</li>
+<li><p>填充已知的二维码信息(黑色白色都要填充，灰色是未知状态)</p>
+</li>
+<li><p>Tools - Extract QR Information</p>
+</li>
+</ol>
+<p>参考链接：<a href="https://yous.be/2014/12/07/seccon-ctf-2014-qr-easy-write-up/" target="_blank" rel="noopener">https://yous.be/2014/12/07/seccon-ctf-2014-qr-easy-write-up/</a></p>
+<h3 id="0x063-Flying-High"><a href="#0x063-Flying-High" class="headerlink" title="0x063 Flying_High"></a>0x063 Flying_High</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ file bfa9e53164824aa29521f35bbc347d9a <br>bfa9e53164824aa29521f35bbc347d9a: POSIX tar archive (GNU)<br><span class="hljs-comment"># 解压得到4个文件</span><br>$ file *<br>image0.bin: UBIfs image, sequence number 1, length 4096, CRC 0x03a905a7<br>image1.bin: UBIfs image, sequence number 1, length 4096, CRC 0x47b22f13<br>image2.bin: UBIfs image, sequence number 1, length 4096, CRC 0xf7f7a9b7<br>image3.bin: UBIfs image, sequence number 1, length 4096, CRC 0x68fa15bd<br><span class="hljs-comment"># 工具：https://github.com/jrspruitt/ubi_reader</span><br>$ apt-get install -y liblzo2-dev<br>$ pip install python-lzo<br>$ pip install ubi_reader<br>$ ubireader_extract_files image0.bin<br>$ rm -rf ubifs-root/<br>$ ubireader_extract_files image1.bin<br>$ rm -rf ubifs-root/<br>$ ubireader_extract_files image2.bin<br>$ rm -rf ubifs-root/<br>$ ubireader_extract_files image3.bin<br></code></pre></td></tr></table></figure>
+<p>最后image3.bin提取后的文件中包含一个.mov视频，播放视频就能看到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">HITB&#123;96ac9a0458279711e5d61f10849e6c58&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x064-base64÷4"><a href="#0x064-base64÷4" class="headerlink" title="0x064 base64÷4"></a>0x064 base64÷4</h3><p>base16或者16进制转字符串得到flag，另外“flag”转16进制后以666c6开头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;E33B7FD8A3B841CA9699EDDBA24B60AA&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x065-wireshark-1"><a href="#0x065-wireshark-1" class="headerlink" title="0x065 wireshark-1"></a>0x065 wireshark-1</h3><p>题目提示“管理员的密码即是答案”，wireshark打开流量包，搜索分组字节流、字符串“pass”，找到一条记录，password是ffb7567a1d4f4abdffdb54e022f8facd，所以flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;ffb7567a1d4f4abdffdb54e022f8facd&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在线工具：<a href="https://www.qqxiuzi.cn/bianma/base.php?type=16" target="_blank" rel="noopener">base16编码解码</a></p>
+<h3 id="0x066-双色块"><a href="#0x066-双色块" class="headerlink" title="0x066 双色块"></a>0x066 双色块</h3><p>题目附件是gif文件，文件末尾附加了png图片，打开后显示“key:ctfer2333”。动图中有一个动态的色块，有两个色值，用IrfanView把动图分解成单帧，然后把色值转换成二进制，二进制转字符串后用base64解码乱码，结合前面获得的key猜测是ACS/DES之类的编码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> base64<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bin2str</span><span class="hljs-params">(bin)</span>:</span><br>    b = re.findall(<span class="hljs-string">r'.&#123;8&#125;'</span>,bin)<br>    string = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>        string += chr(int(i,<span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">return</span> string<br><br>string = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,<span class="hljs-number">577</span>):<br>    img = Image.open(<span class="hljs-string">"out_frame_%s.jpg"</span>%str(i).zfill(<span class="hljs-number">4</span>))<br>    <span class="hljs-comment"># 24*24</span><br>    x = (i<span class="hljs-number">-1</span>)%<span class="hljs-number">24</span><br>    y = int((i<span class="hljs-number">-1</span>)/<span class="hljs-number">24</span>)<br>    r,g,b = img.getpixel((x*<span class="hljs-number">10</span>+<span class="hljs-number">5</span>,y*<span class="hljs-number">10</span>+<span class="hljs-number">5</span>))<br>    <span class="hljs-keyword">if</span> g &lt;<span class="hljs-number">20</span>:<br>        string += <span class="hljs-string">'1'</span><br>    <span class="hljs-keyword">elif</span> g &gt; <span class="hljs-number">240</span>:<br>        string += <span class="hljs-string">'0'</span><br>    <span class="hljs-keyword">else</span>:<br>        print(g)<br><br>print(bin2str(string))<br><span class="hljs-comment"># 输出：o8DlxK+H8wsiXe/ERFpAMaBPiIcj1sHyGOMmQDkK+uXsVZgre5DSXw==hhhhhhhhhhhhhhhh</span><br></code></pre></td></tr></table></figure>
+<p>密码是ctfer2333，输入待解密文本，解密得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;2ce3b416457d4380dc9a6149858f71db&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在线工具：<a href="http://tool.chacuo.net/cryptdes" target="_blank" rel="noopener">在线DES加密解密</a></p>
+<h3 id="0x067-miscmisc"><a href="#0x067-miscmisc" class="headerlink" title="0x067 miscmisc"></a>0x067 miscmisc</h3><p>解压出图片hex尾部附加了压缩包保存为1.zip，1.zip解压得到一个图片chayidian.jpg和加密的压缩包chadian.zip</p>
+<p>chayidian.jpg这个图片的尾部同样附加了压缩包，这个压缩包里的flag.txt与加密压缩包里的chadian.zip里的flag.txt文件的crc32相同，使用ARCHPR明文攻击得到解压密码z$^58a4w，解压得到文件world1.png、world.doc、whoami.zip(加密)</p>
+<p>图片world1.png上写着pass in world（可能跟world.doc文件有关），word文档内容如下（下面的字符字体是隐藏的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">除了这个就差一点点了<br>Zdfaw1234<br>3daeghalz<br>2aeaqrqfa<br>Weasa65fa<br>Ezafasfasf3<br>Sadera85fa<br>Daaszffasfz<br>Asdfafsfaff<br>Sad54656a8<br></code></pre></td></tr></table></figure>
+<p>看似跟键盘有关实际没什么规律，图片文件名中也有world，用StegSolve查看world1.png隐写信息（BGR），得到pass:z^ea，像是密码的开头</p>
+<p>接下来是脑筋急转弯，解压密码是z^ea加doc文档中每行的最后一个字符，最终解压密码是z^ea4zaa3azf8，解压后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;12sad7eaf46a84fe9q4fasf48e6q4f6as4f864q9e48f9q4fa6sf6f48&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x068-打野"><a href="#0x068-打野" class="headerlink" title="0x068 打野"></a>0x068 打野</h3><p>用StegSolve看应该有隐写，图片是bmp格式，使用zsteg，得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">qwxf&#123;you_say_chick_beautiful?&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用工具：<a href="http://www.github.com/zed-0xff/zsteg" target="_blank" rel="noopener">zsteg</a></p>
+<h3 id="0x069-Aesop-secret"><a href="#0x069-Aesop-secret" class="headerlink" title="0x069 Aesop_secret"></a>0x069 Aesop_secret</h3><p>附件是动图Aesop.gif，文件hex末尾附加了字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">U2FsdGVkX19QwGkcgD0fTjZxgijRzQOGbCWALh4sRDec2w6xsY&#x2F;ux53Vuj&#x2F;AMZBDJ87qyZL5kAf1fmAH4Oe13Iu435bfRBuZgHpnRjTBn5+xsDHONiR3t0+Oa8yG&#x2F;tOKJMNUauedvMyN4v4QKiFunw&#x3D;&#x3D;<br></code></pre></td></tr></table></figure>
+
+<p>动图提取出单帧，发现每一帧是整个图片的一部分（九宫格），合并后得到ISCC（此处容易错认成1588，题目来源是ISCC），由动图文件名Aesop猜测是AES加密，使用ISCC作密码经过两次AES解密得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;DugUpADiamondADeepDarkMine&#125;<br></code></pre></td></tr></table></figure>
+<p>在线工具：<a href="https://tool.oschina.net/encrypt" target="_blank" rel="noopener">AES在线加密解密</a></p>
+<h3 id="0x070-倒立屋"><a href="#0x070-倒立屋" class="headerlink" title="0x070 倒立屋"></a>0x070 倒立屋</h3><p>图片外表没什么可疑的，用StegSolve看lsb隐写在开始得到“IsCc_2019”，提交后flag错误，由题目名倒序后flag正确</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;9102_cCsI&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x071-Become-a-Rockstar"><a href="#0x071-Become-a-Rockstar" class="headerlink" title="0x071 Become_a_Rockstar"></a>0x071 Become_a_Rockstar</h3><p>附件解压得到Become_a_Rockstar.rock文件，使用工具rockstar-py把rock文件转换成python文件，再运行python文件后得到flag（有两次输入，需要回车两次才有输出）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">NCTF&#123;youarnicerockstar&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用工具：<a href="https://github.com/yyyyyyyan/rockstar-py" target="_blank" rel="noopener">rockstar-py</a></p>
+<h3 id="0x072-a-good-idea"><a href="#0x072-a-good-idea" class="headerlink" title="0x072 a_good_idea"></a>0x072 a_good_idea</h3><p>附件图片hex尾部附加了压缩包，解压得到三个文件：hint.txt、to.png、to_do.png，hint.txt的内容是“try to find the secret of pixels”</p>
+<p>两个看似相同的图片先跑一下盲水印发现结果没有文字</p>
+<p>用StegSolve比较两个图片的像素，to_do.png “Image Combiner” to.png，调整通道到SUB时得到二维码</p>
+<p>或者在kali系统中运行命令compare -compose src to.png to_do.png diff.png</p>
+<p>或者还可以用Beyond Compare比较两个图片，可以得到二维码</p>
+<p>或者通过代码比较两个图片的像素差别，发现大约有一半像素不同，按行比较不同的像素数发现，每行的不同像素数有连续性</p>
+<p>想到二维码，两个图片像素相同时存为黑色，不同时存为白色</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>im1 = Image.open(<span class="hljs-string">"to.png"</span>)<br>im2 = Image.open(<span class="hljs-string">"to_do.png"</span>)<br>p1 = im1.load()<br>p2 = im2.load()<br>w = im1.size[<span class="hljs-number">0</span>]<br>h = im1.size[<span class="hljs-number">1</span>]<br><br>im = Image.new(<span class="hljs-string">'RGB'</span>,(<span class="hljs-number">290</span>,<span class="hljs-number">289</span>))<br>p = im.load()<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(w):<br>    cnt = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(h):<br>        <span class="hljs-keyword">if</span> p1[i, j] != p2[i, j]:<br>            p[i,j] = (<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>)<br>im.show()<br></code></pre></td></tr></table></figure>
+
+<p>最后得到一个二维码，扫码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">NCTF&#123;m1sc_1s_very_funny!!!&#125;<br></code></pre></td></tr></table></figure>
+<p>使用工具：<a href="http://www.scootersoftware.com/download.php" target="_blank" rel="noopener">Beyond Compare</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/09/25/e4a0a49e/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x037-4433"><span class="toc-text">0x037 4433</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x038-regexpire"><span class="toc-text">0x038 regexpire</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x039-神奇的压缩文件"><span class="toc-text">0x039 神奇的压缩文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x040-很普通的数独"><span class="toc-text">0x040 很普通的数独</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x041-心仪的公司"><span class="toc-text">0x041 心仪的公司</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x042-Blocks"><span class="toc-text">0x042 Blocks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x043-stage1"><span class="toc-text">0x043 stage1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x044-传感器1"><span class="toc-text">0x044 传感器1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x045-很普通的Disco"><span class="toc-text">0x045 很普通的Disco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x046-第四扩展FS"><span class="toc-text">0x046 第四扩展FS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x047-就在其中"><span class="toc-text">0x047 就在其中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x048-low"><span class="toc-text">0x048 low</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x049-message"><span class="toc-text">0x049 message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x050-Miscellaneous-300"><span class="toc-text">0x050 Miscellaneous-300</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x051-互相伤害"><span class="toc-text">0x051 互相伤害!!!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x052-Hear-with-your-Eyes"><span class="toc-text">0x052 Hear-with-your-Eyes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x053-Miscellaneous-200"><span class="toc-text">0x053 Miscellaneous-200</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x054-Hidden-Message"><span class="toc-text">0x054 Hidden-Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x055-misc-pic-again"><span class="toc-text">0x055 misc_pic_again</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x056-7-2"><span class="toc-text">0x056 7-2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x057-hong"><span class="toc-text">0x057 hong</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x058-intoU"><span class="toc-text">0x058 intoU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x059-侧信道初探"><span class="toc-text">0x059 侧信道初探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x060-pyHAHA"><span class="toc-text">0x060 pyHAHA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x061-latlong"><span class="toc-text">0x061 latlong</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x062-qr-easy"><span class="toc-text">0x062 qr-easy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x063-Flying-High"><span class="toc-text">0x063 Flying_High</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x064-base64÷4"><span class="toc-text">0x064 base64÷4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x065-wireshark-1"><span class="toc-text">0x065 wireshark-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x066-双色块"><span class="toc-text">0x066 双色块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x067-miscmisc"><span class="toc-text">0x067 miscmisc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x068-打野"><span class="toc-text">0x068 打野</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x069-Aesop-secret"><span class="toc-text">0x069 Aesop_secret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x070-倒立屋"><span class="toc-text">0x070 倒立屋</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x071-Become-a-Rockstar"><span class="toc-text">0x071 Become_a_Rockstar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x072-a-good-idea"><span class="toc-text">0x072 a_good_idea</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>python的环境配置及部分特殊包安装 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/11/07/b5360df7/" class="shake shake-little" title="python的环境配置及部分特殊包安装">
+            
+            python的环境配置及部分特殊包安装
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/wwzc/">五味杂陈</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年11月07日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年06月30日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gmpy2/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>gmpy2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><h4 id="python2和python3共存"><a href="#python2和python3共存" class="headerlink" title="python2和python3共存"></a>python2和python3共存</h4><p>从官网下载安装包，傻瓜式下一步安装完成后，在C:\Windows目录下会多出一个py.exe文件，通过此命令可以指定执行时的python版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 不用添加安装路径到环境变量，当然添加也没问题</span><br><br>py -2 --version<br>py -3 --version<br><br>py -2 -m pip --version<br>py -3 -m pip --version<br></code></pre></td></tr></table></figure>
+
+<h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><p>有的包不动点脑子还真装不上</p>
+<h4 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h4><p>gmpy2这个库在CTF中解rsa相关题目比较常用，但是直接执行“pip install gmpy2”往往会报错导致安装失败。失败的主要原因是这个库的依赖比较多，下面记录一下两个系统下的安装步骤，以作备忘。</p>
+<blockquote>
+<p>系统环境信息</p>
+<ol>
+<li>Windows7 64位</li>
+<li>Python3.7.4</li>
+</ol>
+</blockquote>
+<p>安装步骤</p>
+<ol>
+<li><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#gmpy" target="_blank" rel="noopener">下载相应版本whl</a>，如果有匹配版本的whl文件可以直接下载安装，我的是“gmpy2-2.0.8-cp37-cp37m-win_amd64.whl”</li>
+<li>pip install gmpy2-2.0.8-cp37-cp37m-win_amd64.whl</li>
+</ol>
+<p>如果找不到匹配的版本只能自己安装相关依赖文件，详细内容在<a href="https://github.com/aleaxit/gmpy" target="_blank" rel="noopener">gmpy源码</a>根目录下的windows_build.txt文件中。我个人能力、时间有限，这种方法没有成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">The build files for MPIR, MPFR, and MPC only support VS 2010. However, if<br>VS 2008 is also installed, the &quot;Platform Toolset&quot; setting can be used to select<br>a specific compiler: v100 &#x3D; VS 2010, v90 &#x3D; VS 2008.<br><br>Assumes MPIR is placed in c:\src\mpir. (No version number.)<br>Assumes MPFR is placed in c:\src\mpfr. (No version number.)<br>Assumes MPC is placed in c:\src\mpc. (No version number.)<br>Assumes gmpy2 is placed in c:\src\gmpy2. (No version number.)<br>Assumes vsyasm is installed.<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>系统环境信息</p>
+<ol>
+<li>Linux kali 4.19.0-kali3-686-pae #1 SMP Debian 4.19.20-1kali1 (2019-02-14) i686 GNU/Linux</li>
+<li>Python2.7.15+</li>
+</ol>
+</blockquote>
+<p>安装步骤</p>
+<ol>
+<li>apt-get install libgmp-dev</li>
+<li>apt-get install libmpfr-dev</li>
+<li>apt-get install libmpc-dev</li>
+<li>pip install gmpy2</li>
+</ol>
+<h4 id="模块和包名不一样"><a href="#模块和包名不一样" class="headerlink" title="模块和包名不一样"></a>模块和包名不一样</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 错误信息</span><br>ModuleNotFoundError: No module named <span class="hljs-string">'xxxxx'</span><br><br><span class="hljs-comment"># module对应的包名</span><br>Image   Pillow<br>Crypto  pycryptodome<br><br>pip install 包名<br></code></pre></td></tr></table></figure>
+
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><h4 id="pip-install超时"><a href="#pip-install超时" class="headerlink" title="pip install超时"></a>pip install超时</h4><p>修改pip安装源</p>
+<p>方法一：<br>首先在当前用户文件夹下建立一个pip文件夹，<code>C:\Users\Administrator\AppData\Roaming</code></p>
+<p>然后在pip文件夹下新建一个文件pip.ini，内容如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[global]</span><br><span class="hljs-attr">timeout</span> = <span class="hljs-number">60000</span><br><span class="hljs-attr">index-url</span> = https://pypi.tuna.tsinghua.edu.cn/simple<br><span class="hljs-section">[install]</span><br><span class="hljs-attr">use-mirrors</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">mirrors</span> = https://pypi.tuna.tsinghua.edu.cn<br></code></pre></td></tr></table></figure>
+
+<p>方法二：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 单次指定源</span><br>pip install Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple<br><br><span class="hljs-comment"># 其他相关配置项</span><br><br><span class="hljs-comment"># 设置超时时间</span><br>pip --default-timeout=100 install Pillow<br><br><span class="hljs-comment"># 不使用缓存</span><br>pip --no-cache-dir install Pillow<br></code></pre></td></tr></table></figure>
+
+<p>其他国内源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 阿里云</span><br>http://mirrors.aliyun.com/pypi/simple/<br><span class="hljs-comment"># 豆瓣</span><br>http://pypi.douban.com/simple/<br><span class="hljs-comment"># 清华大学</span><br>https://pypi.tuna.tsinghua.edu.cn/simple/<br><span class="hljs-comment"># 中国科学技术大学</span><br>http://pypi.mirrors.ustc.edu.cn/simple/<br></code></pre></td></tr></table></figure>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/11/07/b5360df7/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境配置"><span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#python2和python3共存"><span class="toc-text">python2和python3共存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件包安装"><span class="toc-text">软件包安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gmpy2"><span class="toc-text">gmpy2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块和包名不一样"><span class="toc-text">模块和包名不一样</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他问题"><span class="toc-text">其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pip-install超时"><span class="toc-text">pip install超时</span></a></li></ol></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

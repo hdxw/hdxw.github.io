@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JS不讲道理的特性 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/08/04/d5bee04a/" class="shake shake-little" title="JS不讲道理的特性">
+            
+            JS不讲道理的特性
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年08月04日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2022年03月09日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+
+<p>JS的不讲道理可以达到让你怀疑人生的地步。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs js">&gt; <span class="hljs-keyword">typeof</span> <span class="hljs-literal">NaN</span><br>&lt; <span class="hljs-string">"number"</span><br><br>&gt; <span class="hljs-number">9999999999999999</span><br>&lt; <span class="hljs-number">10000000000000000</span><br><br>&gt; <span class="hljs-number">0.5</span>+<span class="hljs-number">0.1</span>==<span class="hljs-number">0.6</span><br>&lt; <span class="hljs-literal">true</span><br><br>&gt; <span class="hljs-number">0.1</span>+<span class="hljs-number">0.2</span>==<span class="hljs-number">0.3</span><br>&lt; <span class="hljs-literal">false</span><br><br>&gt; <span class="hljs-built_in">Math</span>.min()<br>&lt; <span class="hljs-literal">Infinity</span><br><br>&gt; []+[]<br>&lt; <span class="hljs-string">""</span><br><br>&gt; []+&#123;&#125;<br>&lt; <span class="hljs-string">"[object Object]"</span><br><br>&gt; &#123;&#125;+[]<br>&lt; <span class="hljs-number">0</span><br><br>&gt; <span class="hljs-literal">true</span>+<span class="hljs-literal">true</span>+<span class="hljs-literal">true</span>===<span class="hljs-number">3</span><br>&lt; <span class="hljs-literal">true</span><br><br>&gt; <span class="hljs-literal">true</span>-<span class="hljs-literal">true</span><br>&lt; <span class="hljs-number">0</span><br><br>&gt; <span class="hljs-literal">true</span>==<span class="hljs-number">1</span><br>&lt; <span class="hljs-literal">true</span><br><br>&gt; <span class="hljs-literal">true</span>===<span class="hljs-number">1</span><br>&lt; <span class="hljs-literal">false</span><br><br>&gt; (!+[]+[]+![]).length<br>&lt; <span class="hljs-number">9</span><br><br>&gt; <span class="hljs-number">9</span>+<span class="hljs-string">"1"</span><br>&lt; <span class="hljs-string">"91"</span><br><br>&gt; <span class="hljs-number">91</span>-<span class="hljs-string">"1"</span><br>&lt; <span class="hljs-number">90</span><br><br>&gt; []==<span class="hljs-number">0</span><br>&lt; <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<p><img src="/images/d5bee04a/javascript.jpg" alt></p>
+<p>上面有点扯犊子，下面才是正题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// js的sort()方法是把数字转成字符串再从小到大进行排序</span><br><span class="hljs-comment">// 第一个字符2比1大所以结果是2在后面</span><br>&gt; [<span class="hljs-number">2</span>,<span class="hljs-number">1000</span>].sort()<br>&lt; [<span class="hljs-number">1000</span>, <span class="hljs-number">2</span>]<br><br><span class="hljs-comment">// json取值，多维数组嵌套不影响结果</span><br>&gt; config=&#123;<span class="hljs-string">"secret"</span>:<span class="hljs-string">"ok"</span>&#125;;config[[[[<span class="hljs-string">"secret"</span>]]]]<br>&lt; <span class="hljs-string">"ok"</span><br><br><span class="hljs-comment">// toUpperCase和toLowerCase，fuzz了0~0x10FFFF得到以下几种“意外情况”</span><br><span class="hljs-comment">// 参考链接：https://www.leavesongs.com/HTML/javascript-up-low-ercase-tip.html</span><br>&gt; <span class="hljs-string">"ı"</span>.toUpperCase() == <span class="hljs-string">'I'</span><br>&lt; <span class="hljs-literal">true</span><br>&gt; <span class="hljs-string">"ſ"</span>.toUpperCase() == <span class="hljs-string">'S'</span><br>&lt; <span class="hljs-literal">true</span><br>&gt; <span class="hljs-string">"K"</span>.toLowerCase() == <span class="hljs-string">'k'</span><br>&lt; <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>参考链接</p>
+<ul>
+<li><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank" rel="noopener">You-Dont-Know-JS</a></li>
+</ul>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/08/04/d5bee04a/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>unity3d安装和入门 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/09/20/a4dc2f89/" class="shake shake-little" title="unity3d安装和入门">
+            
+            unity3d安装和入门
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年09月20日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+
+<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><blockquote>
+<p>下载链接：<a href="https://unity.cn/releases" target="_blank" rel="noopener">https://unity.cn/releases</a></p>
+</blockquote>
+<p>在网站上注册账号登录，点击“从Hub下载”，下载Unity Hub并安装。Unity Hub用来管理不同版本Editor（编辑器）。<br>登录Unity Hub客户端并激活许可证：设置-许可证管理-激活新许可证-Unity个人版-我不以专业身份使用Unity-完成。<br>安装Editor，可以在Unity Hub客户端点击安装后选择安装的版本也可以在上面的下载链接中选择版本后点击“从Hub下载”。</p>
+<h2 id="操作说明"><a href="#操作说明" class="headerlink" title="操作说明"></a>操作说明</h2><h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><p>手型：拖拽界面移动查看场景<br>交叉箭头：移动物体（热键：W）<br>循环箭头：旋转物体（热键：E），沿X/Y/Z轴<br>扩展方形：缩放物体（热键：R）<br>圆角方框：在2D UI中移动背景（热键：T）<br>最后一个：移动、旋转、缩放都可以（热键：Y）</p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>MainScene：创建场景<br>Main Camera：可以编辑游戏背景颜色（Background），游戏界面大小（Size）等属性</p>
+<p>注意：拖拽图片前先修改配置，Pixels Per Unit改为1，否则1像素的图片会“无法显示”</p>
+<p>Box Collider 2D：在游戏中的物体，占有空间，图片默认是不占空间的。<br>Circle Collider 2D：在游戏中的物体，圆形，占有空间。<br>Rigidbody(刚体)：在游戏世界中运动的物体，形状大小不变。<br>Script：物体可以绑定C#脚本，处理物体的运动变化<br>Assets-Create-Physics Material 2D：创建“遇墙反弹”的物体<br>Prefabs：组合物体</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MoveRacket</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// 游戏开始（初始化）时调用</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>    &#123;<br>       <br>    &#125;<br><br>    <span class="hljs-comment">// 界面刷新，每秒调用60次</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>    &#123;<br>       <br>    &#125;<br><br>    <span class="hljs-comment">// 固定时间间隔调用一次</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>    &#123;<br>       <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Sprite选择Pivot:Bottom Left可以使计算更简单（全在第一象限）<br>Transitions：根据条件物体显示不同状态（移动时上下左右）<br>动画对象创建：Multiple-Sprite Editor-Slice(分割)-同组拖拽合并-删除多余只保留一组-双击打开Animation-添加参数-右键创建Transitions指定状态对应的条件<br>Prefabs（组合体）：Create Empty-拖拽图片到其下-调整子元素位置关系-GameObject重命名-GameObject拖回Project-删除GameObject<br>Spawn：物体自动生成<br>EventSystem：负责处理用户输入、射线投射以及发送事件，一个场景中只能有一个EventSystem，否则EventSystem会失效。<br>Canvas：</p>
+<ol>
+<li>Screen Space - Overlay 屏幕最上层，主要是2D效果。</li>
+<li>Screen Space - Camera 绑定摄像机，可以实现3D效果。</li>
+<li>World Space 世界空间，让UI变成场景中的一个物体。</li>
+</ol>
+<p>ReorderableList：可重新排序的列表框<br>按钮点击事件：创建Script和点击事件方法（名称自定义），按钮添加script，Button的OnClick()添加并选择自身，然后在Function中选择script的对应方法<br>AudioSource：音频播放，支持音频格式.aif/.wav/.mp3/.ogg</p>
+<h3 id="目录说明"><a href="#目录说明" class="headerlink" title="目录说明"></a>目录说明</h3><p>Assets<br>Editor—-自定义属性编辑界面<br>Scenes—-场景<br>Scripts—-动作控制脚本<br>Sprite—-素材</p>
+<h2 id="报错处理"><a href="#报错处理" class="headerlink" title="报错处理"></a>报错处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">errors == MDB_SUCCESS || errors == MDB_NOTFOUND<br></code></pre></td></tr></table></figure>
+<p>许可证过期，移除重新获取即可</p>
+<p>WebGL中文无法显示，中文字体ttf文件放到Assets/Fonts目录下，修改Text字体</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://docs.unity3d.com/cn/2020.2/Manual/UnityManual.html" target="_blank" rel="noopener">Unity用户手册</a></li>
+<li><a href="https://noobtuts.com/unity/2d-pong-game" target="_blank" rel="noopener">Unity 2D Pong Game</a></li>
+</ul>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/09/20/a4dc2f89/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载安装"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作说明"><span class="toc-text">操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具栏"><span class="toc-text">工具栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录说明"><span class="toc-text">目录说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错处理"><span class="toc-text">报错处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>云服务器docker环境搭建及优化 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/03/19/a454cbe5/" class="shake shake-little" title="云服务器docker环境搭建及优化">
+            
+            云服务器docker环境搭建及优化
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/wwzc/">五味杂陈</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年03月19日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年06月29日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hjdj/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>环境搭建</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>个人云服务器，一拖多个服务难免杂乱难以管理，现改用docker统一管理，便于部署和迁移，有利于降低服务器的维护成本。很多开源项目也有相应的docker版本，一条命令就可以直接部署测试，好处多多，真可谓是居家旅行必备之物啊！</p>
+<a id="more"></a>
+
+<h2 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h2><p>由于ubuntu系统与docker兼容较好，所以云服务器系统选择使用ubuntu</p>
+<blockquote>
+<p>云服务器：阿里云Ubuntu 18.04<br>服务器连接软件：Xshell6/Xftp6</p>
+</blockquote>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>阿里云默认管理用户是admin，腾讯云默认用户名是ubuntu。安装完系统使用root登录后su admin切换用户。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Get Docker Engine - Community for Ubuntu</a></li>
+<li><a href="https://www.runoob.com/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">Ubuntu Docker 安装</a></li>
+<li><a href="https://www.jianshu.com/p/5400722c369c" target="_blank" rel="noopener">Ubuntu | 对sources.list的总结</a></li>
+</ul>
+<h3 id="更换软件源"><a href="#更换软件源" class="headerlink" title="更换软件源"></a>更换软件源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak<br>$ lsb_release -a<br>LSB Version:	core-9.20170808ubuntu1-noarch:security-9.20170808ubuntu1-noarch<br>Distributor ID:	Ubuntu<br>Description:	Ubuntu 18.04.2 LTS<br>Release:	18.04<br>Codename:	bionic<br><br><span class="hljs-comment"># sudo sed -i 's/&lt;原域名/新域名&gt;/g' /etc/apt/sources.list</span><br>$ sudo sed -i <span class="hljs-string">'s/mirrors.cloud.aliyuncs.com/mirrors.ustc.edu.cn/g'</span> /etc/apt/sources.list<br>$ sudo apt update<br></code></pre></td></tr></table></figure>
+
+<h3 id="如果安装过docker需要先卸载"><a href="#如果安装过docker需要先卸载" class="headerlink" title="如果安装过docker需要先卸载"></a>如果安装过docker需要先卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get remove docker docker-engine docker.io containerd runc<br></code></pre></td></tr></table></figure>
+
+<h3 id="安装需要的包"><a href="#安装需要的包" class="headerlink" title="安装需要的包"></a>安装需要的包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 弹窗回车保持默认即可</span><br>$ sudo apt-get -y install \<br>    apt-transport-https \<br>    ca-certificates \<br>    curl \<br>    gnupg-agent \<br>    software-properties-common<br></code></pre></td></tr></table></figure>
+
+<h3 id="添加-GPG-密钥，并添加-Docker-ce-软件源"><a href="#添加-GPG-密钥，并添加-Docker-ce-软件源" class="headerlink" title="添加 GPG 密钥，并添加 Docker-ce 软件源"></a>添加 GPG 密钥，并添加 Docker-ce 软件源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<br>$ sudo add-apt-repository \<br>    <span class="hljs-string">"deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \</span><br><span class="hljs-string">    <span class="hljs-variable">$(lsb_release -cs)</span> \</span><br><span class="hljs-string">    stable"</span><br>$ sudo apt-get update<br></code></pre></td></tr></table></figure>
+
+<h3 id="安装最新版docker"><a href="#安装最新版docker" class="headerlink" title="安装最新版docker"></a>安装最新版docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get -y install docker-ce docker-ce-cli containerd.io<br></code></pre></td></tr></table></figure>
+
+<h3 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl <span class="hljs-built_in">enable</span> docker<br>sudo systemctl start docker<br><span class="hljs-comment"># 添加用户到docker用户组(可以不用 sudo 运行 docker)</span><br>sudo groupadd docker<br>sudo usermod -aG docker admin<br>su admin<br><span class="hljs-comment"># 退出ssh重新登录，测试运行</span><br>$ docker run hello-world<br></code></pre></td></tr></table></figure>
+
+<h2 id="常用docker命令"><a href="#常用docker命令" class="headerlink" title="常用docker命令"></a>常用docker命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 构建容器</span><br>docker build -t repository_name .<br><span class="hljs-comment"># 运行容器</span><br>docker run -d --name image_name -p out_port:in_port -e <span class="hljs-string">"env=环境变量"</span> repository_name<br><span class="hljs-comment"># 运行容器(输出启动信息)</span><br>docker run --name image_name -p out_port:in_port -e <span class="hljs-string">"env=环境变量"</span> repository_name<br><span class="hljs-comment"># 连接容器内shell</span><br>docker <span class="hljs-built_in">exec</span> -i -t image_name /bin/bash<br><span class="hljs-comment"># 从容器内复制文件到本机</span><br>docker cp image_name:/tmp /tmp/<br><span class="hljs-comment"># 复制本机文件到容器内</span><br>docker cp /tmp image_name:/tmp/<br><br><span class="hljs-comment"># 登录docker仓库</span><br>docker login<br><span class="hljs-comment"># 提交容器到远程仓库</span><br>docker push repository_name<br><br><span class="hljs-comment"># 查看运行中容器</span><br>docker ps<br><span class="hljs-comment"># 查看所有容器</span><br>docker ps -a<br><span class="hljs-comment"># 移除容器（containers）</span><br>docker rm id/name<br><span class="hljs-comment"># 停止所有容器</span><br>docker stop $(docker ps -a -q)<br><span class="hljs-comment"># 删除所有容器</span><br>docker rm $(docker ps -a -q)<br><span class="hljs-comment"># 移除所有退出状态的容器</span><br>docker rm $(docker ps -q -f status=exited)<br><span class="hljs-comment"># 查看容器日志</span><br>docker logs id/name<br><br><span class="hljs-comment"># 查看所有镜像</span><br>docker images [ls]<br><span class="hljs-comment"># 标记tag</span><br>docker tag repository_name:old_version new_repository_name:tag_version<br><span class="hljs-comment"># 移除镜像（images）</span><br>docker rmi id1/name1 id2/name2 id3/name3 ...<br><span class="hljs-comment"># 删除所有镜像</span><br>docker rmi $(docker images -q)<br><br><span class="hljs-comment"># 获取镜像的详细信息，其中，包括创建者，各层的数字摘要等</span><br>docker inspect repository_name:tag<br><span class="hljs-comment"># 获取镜像的详细信息json中指定的一项内容</span><br>docker inspect -f &#123;&#123;<span class="hljs-string">".Size"</span>&#125;&#125; repository_name:tag<br><br><span class="hljs-comment"># 查看镜像历史</span><br>docker <span class="hljs-built_in">history</span> repository_name:tag<br><span class="hljs-comment"># 不省略，显示全部</span><br>docker <span class="hljs-built_in">history</span> --no-trunc repository_name:tag<br><br><span class="hljs-comment"># 创建一个volume</span><br>docker volume create volume_name<br><span class="hljs-comment"># 列出所有volume</span><br>docker volume ls<br><span class="hljs-comment"># 显示一个或者多个volume的详细信息</span><br>docker volume inspect [volume_name]<br><span class="hljs-comment"># 清除一个或者多个volume</span><br>docker volume rm [volume_name]<br><span class="hljs-comment"># 清除当前没有被任何容器用到的volume</span><br>docker volume prune -f<br></code></pre></td></tr></table></figure>
+
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p>Compose 是用于定义和运行多容器Docker应用程序的工具。通过Compose，可以使用YML文件来配置应用程序需要的所有服务。然后使用一个命令，就可以从YML文件配置中创建并启动所有服务。</p>
+<figure class="highlight bash"><figcaption><span>安装docker-compose</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y docker-compose<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><figcaption><span>配置实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">'3'</span> <span class="hljs-comment"># 指定依从compose的版本</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span> <span class="hljs-comment"># 指定Dockerfile目录</span><br>    <span class="hljs-attr">build:</span>   <span class="hljs-comment"># 或者分别指定目录和dockerfile文件名</span><br>      <span class="hljs-attr">context:</span> <span class="hljs-string">./dir</span><br>      <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">Dockerfile-alternate</span><br>      <span class="hljs-attr">args:</span> <span class="hljs-comment"># 添加构建参数，这是只能在构建过程中访问的环境变量</span><br>        <span class="hljs-attr">buildno:</span> <span class="hljs-number">1</span><br>      <span class="hljs-attr">labels:</span> <span class="hljs-comment"># 设置构建镜像的标签</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">"com.example.description=Accounting webapp"</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">"com.example.department=Finance"</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">"com.example.label-with-empty-value"</span><br>      <span class="hljs-attr">target:</span> <span class="hljs-string">prod</span> <span class="hljs-comment"># 多层构建，可以指定构建哪一层</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"5000:5000"</span><br>    <span class="hljs-attr">expose:</span> <span class="hljs-comment"># 暴露的容器内端口，使之可以被访问</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"3000"</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"8000"</span><br>    <span class="hljs-attr">extra_hosts:</span> <span class="hljs-comment"># 主机名映射，会被添加到容器内/etc/hosts中</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"somehost:162.242.195.82"</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"otherhost:50.31.209.229"</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">.:/code</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">logvolume01:/var/log</span><br>    <span class="hljs-attr">command:</span> <span class="hljs-string">["bundle",</span> <span class="hljs-string">"exec"</span><span class="hljs-string">,</span> <span class="hljs-string">"thin"</span><span class="hljs-string">,</span> <span class="hljs-string">"-p"</span><span class="hljs-string">,</span> <span class="hljs-string">"3000"</span><span class="hljs-string">]</span> <span class="hljs-comment"># 覆盖容器启动的默认命令</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">my-web-container</span> <span class="hljs-comment"># 指定自定义容器名称，而不是生成的默认名称</span><br>    <span class="hljs-attr">env_file:</span> <span class="hljs-string">.env</span> <span class="hljs-comment"># 从文件添加环境变量。可以是单个值或列表的多个值</span><br>    <span class="hljs-attr">environment:</span> <span class="hljs-comment"># 添加环境变量。您可以使用数组或字典、任何布尔值，布尔值需要用引号引起来</span><br>      <span class="hljs-attr">RACK_ENV:</span> <span class="hljs-string">development</span><br>      <span class="hljs-attr">SHOW:</span> <span class="hljs-string">'true'</span><br>    <span class="hljs-attr">depends_on:</span> <span class="hljs-comment"># 设置依赖关系，会按依赖顺序启动和停止服务，但不会等待完成</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">redis</span><br>    <span class="hljs-attr">links:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">redis</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">redis</span><br>    <span class="hljs-attr">deploy:</span> <span class="hljs-comment"># 指定与服务的部署和运行有关的配置，只在 swarm 模式下才会有用</span><br>      <span class="hljs-string">mode：replicated</span> <span class="hljs-comment"># 指定服务提供的模式。replicated：复制指定服务到集群的机器上；global：服务将部署至集群的每个节点</span><br>      <span class="hljs-attr">replicas:</span> <span class="hljs-number">6</span> <span class="hljs-comment"># mode为replicated 时，需要使用此参数配置具体运行的节点数量</span><br>      <span class="hljs-attr">endpoint_mode:</span> <span class="hljs-string">dnsrr</span> <span class="hljs-comment"># 访问集群服务的方式。DNS轮询（DNSRR）自动获取到一个ip地址；（vip）集群使用一个对外的虚拟ip</span><br>      <span class="hljs-attr">labels:</span> <br>        <span class="hljs-attr">description:</span> <span class="hljs-string">"This redis service label"</span><br>      <span class="hljs-attr">resources:</span> <span class="hljs-comment"># 配置服务器资源使用的限制</span><br>        <span class="hljs-attr">limits:</span><br>          <span class="hljs-attr">cpus:</span> <span class="hljs-string">'0.50'</span><br>          <span class="hljs-attr">memory:</span> <span class="hljs-string">50M</span><br>        <span class="hljs-attr">reservations:</span><br>          <span class="hljs-attr">cpus:</span> <span class="hljs-string">'0.25'</span><br>          <span class="hljs-attr">memory:</span> <span class="hljs-string">20M</span><br>      <span class="hljs-attr">restart_policy:</span><br>        <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span><br>        <span class="hljs-attr">delay:</span> <span class="hljs-string">5s</span><br>        <span class="hljs-attr">max_attempts:</span> <span class="hljs-number">3</span><br>        <span class="hljs-attr">window:</span> <span class="hljs-string">120s</span> <span class="hljs-comment"># 容器重启超时时间</span><br><br><span class="hljs-attr">volumes:</span><br>  <span class="hljs-attr">logvolume01:</span> <span class="hljs-string">&#123;&#125;</span><br><br><span class="hljs-attr">networks:</span><br>  <span class="hljs-attr">local_network:</span><br>    <span class="hljs-attr">external:</span> <span class="hljs-comment"># 使用已存在的network</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">local_network</span><br></code></pre></td></tr></table></figure>
+<p>在上面配置中定义了web和redis两个服务。常见的操作命令如下</p>
+<figure class="highlight bash"><figcaption><span>需要在docker-compose.yml目录下执行下面服务相关命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看版本</span><br>docker-compose --version<br><span class="hljs-comment"># 后台启动docker-compose.yml定义的整个应用程序</span><br>docker-compose up -d [service_name...]<br><span class="hljs-comment"># 停止up命令所启动的容器，并移除网络。使用rm无法删除up命令创建的网络</span><br>docker-compose down [service_name...]<br><span class="hljs-comment"># 查看项目中的所有容器</span><br>docker-compose ps<br><span class="hljs-comment"># 启动服务</span><br>docker-compose run [options] [-p PORT...] [-e KEY=VAL...] service_name [COMMAND] [ARGS...]<br><span class="hljs-comment"># 重启服务</span><br>docker-compose restart [options] [service_name...]<br><span class="hljs-comment"># 启动和停止容器</span><br>docker-compose start service_name<br>docker-compose stop service_name<br><span class="hljs-comment"># 重建所有/指定容器</span><br>docker-compose build [service_name...]<br><span class="hljs-comment"># 进入某个容器</span><br>docker-compose <span class="hljs-built_in">exec</span> service_name /bin/bash<br><span class="hljs-comment"># 拉取依赖</span><br>docker-compose pull [options] [service_name...]<br><span class="hljs-comment"># 推送服务依赖的镜像到Docker镜像仓库</span><br>docker-compose push [service_name...]<br><span class="hljs-comment"># 查看所有/指定容器的进程</span><br>docker-compose top [service_name...]<br><br><span class="hljs-comment"># 查看compose文件中包含的镜像</span><br>docker-compose images<br><span class="hljs-comment"># 验证docker-compose.yml文件格式是否正确</span><br>docker-compose config<br></code></pre></td></tr></table></figure>
+
+<p>使用别名简化命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在/etc/profile末尾添加</span><br><span class="hljs-built_in">alias</span> dc=<span class="hljs-string">'docker-compose'</span><br><br><span class="hljs-comment"># 执行</span><br><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>使用过程中遇到的问题</p>
+<h3 id="一、默认服务没有启动"><a href="#一、默认服务没有启动" class="headerlink" title="一、默认服务没有启动"></a>一、默认服务没有启动</h3><blockquote>
+<p>在Dockerfile中设置默认启动的服务<br>相关链接：<a href="https://www.jianshu.com/p/6a499ceed1b9" target="_blank" rel="noopener">https://www.jianshu.com/p/6a499ceed1b9</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs plain">希望一个服务作为container启动时的默认且唯一的服务，并和container一直存在，就需要满足：<br>1. CMD和ENTRYPOINT启动该服务<br>2.一个前置的一直存在的进程<br><br>常见的用法有：<br>1）启动目标服务，并追加non-end命令<br>CMD service mysql start &amp;&amp; tail -F &#x2F;dev&#x2F;null<br><br>2）使用前置服务<br>CMD &#x2F;usr&#x2F;bin&#x2F;mysqld_safe<br><br>3）启动目标服务，并追加&#x2F;bin&#x2F;bash命令<br>ENTRYPOINT&#x2F;CMD service mysql start &amp;&amp; &#x2F;bin&#x2F;bash<br><br>4) 脚本启动程序，尤其是步骤较多的时候<br>CMD &#x2F;start.sh<br></code></pre></td></tr></table></figure>
+<p>这种启动命令相当于操作系统的“开机启动”，有多个时会直接覆盖（子镜像会覆盖）。</p>
+<h3 id="二、build成功但返回错误码137"><a href="#二、build成功但返回错误码137" class="headerlink" title="二、build成功但返回错误码137"></a>二、build成功但返回错误码137</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">The <span class="hljs-built_in">command</span> <span class="hljs-string">'/bin/sh -c ......'</span> returned a non-zero code: 137<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相关链接：<a href="https://success.docker.com/article/what-causes-a-container-to-exit-with-code-137" target="_blank" rel="noopener">https://success.docker.com/article/what-causes-a-container-to-exit-with-code-137</a></p>
+</blockquote>
+<p>原因可能很多，但大多数情况下可以一言以概之，内存不足。</p>
+<h3 id="三、数据持久化"><a href="#三、数据持久化" class="headerlink" title="三、数据持久化"></a>三、数据持久化</h3><blockquote>
+<p>Docker的数据持久化，就是让数据不随着container的结束而结束<br>相关链接：<br><a href="https://www.jianshu.com/p/ef0f24fd0674" target="_blank" rel="noopener">https://www.jianshu.com/p/ef0f24fd0674</a><br><a href="https://www.cnblogs.com/wjoyxt/p/9925065.html" target="_blank" rel="noopener">https://www.cnblogs.com/wjoyxt/p/9925065.html</a></p>
+</blockquote>
+<p><strong>1.bind mount</strong></p>
+<p>通过启动命令绑定挂载到宿主机目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用-v参数把容器内的/var/log目录挂载到宿主机的/mnt目录</span><br><span class="hljs-comment"># 宿主机路径必须是全路径，使用非全路径会被当做volume</span><br><span class="hljs-comment"># 目录不存在时会自动创建，宿主机目录覆盖容器内目录（宿主机原有文件不重置）</span><br>docker run -d --name hdxw -p 80:80 -v /mnt:/var/<span class="hljs-built_in">log</span> docimg/hdxw<br></code></pre></td></tr></table></figure>
+
+<p><strong>2.volume</strong></p>
+<p>volume同样会直接写到宿主机上，区别是volume由docker管理，真实路径一般是/var/lib/docker/volumes。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><strong>container无内容</strong></th>
+<th align="center"><strong>container有内容</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>bind mount无内容</strong></td>
+<td align="center">c* =&gt; bm*</td>
+<td align="center">c* = bm* =&gt; 无内容</td>
+</tr>
+<tr>
+<td align="center"><strong>volume无内容</strong></td>
+<td align="center">c* =&gt; v*</td>
+<td align="center">cp c* v* =&gt; 有内容，为c*</td>
+</tr>
+<tr>
+<td align="center"><strong>bind mount有内容</strong></td>
+<td align="center">c* =&gt; bm*</td>
+<td align="center">c* = bm* =&gt; 内容为bm*</td>
+</tr>
+<tr>
+<td align="center"><strong>volume有内容</strong></td>
+<td align="center">c* =&gt; v*</td>
+<td align="center">c* = v* =&gt; 内容为v*</td>
+</tr>
+</tbody></table>
+<p>如方法一中所说，不使用全路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 挂载容器内/var/log目录到/var/lib/docker/volumes/mylog</span><br>docker run -d --name hdxw -p 80:80 -v mylog:/var/<span class="hljs-built_in">log</span> docimg/hdxw<br><span class="hljs-comment"># 不指定volume时会自动创建匿名volume</span><br>docker run -d --name hdxw -p 80:80 -v /var/<span class="hljs-built_in">log</span> docimg/hdxw<br><span class="hljs-comment"># 挂载已经运行中的容器目录</span><br>docker run -it -v mylog:/var/<span class="hljs-built_in">log</span><br><span class="hljs-comment"># 列出所有volume</span><br>docker volume ls<br></code></pre></td></tr></table></figure>
+<p>也可以在Dockerfile中挂载</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">VOLUME</span><span class="bash"> [<span class="hljs-string">"&lt;路径1&gt;"</span>,<span class="hljs-string">"&lt;路径2&gt;"</span>]</span><br><span class="hljs-keyword">VOLUME</span><span class="bash"> &lt;路径&gt;</span><br></code></pre></td></tr></table></figure>
+<p>挂载卷的目录或文件一般是动态数据，防止向存储层写入大量数据。</p>
+<p>为防止运行时用户忘记挂载动态数据为卷，容器内应用也能正常运行，可以在Dockerfile中挂载为卷，然后运行时再覆盖挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Dockerfile</span><br>VOLUME /var/<span class="hljs-built_in">log</span><br><br><span class="hljs-comment"># 运行时覆盖挂载</span><br>docker run -v mylog:/var/<span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="四、docker容器的时区"><a href="#四、docker容器的时区" class="headerlink" title="四、docker容器的时区"></a>四、docker容器的时区</h3><blockquote>
+<p>通常情况下docker容器内的时区并不是东八区，这就导致了8小时的时间差<br>相关链接：<br><a href="https://www.cnblogs.com/linjiqin/p/10607800.html" target="_blank" rel="noopener">https://www.cnblogs.com/linjiqin/p/10607800.html</a><br><a href="https://blog.csdn.net/hechaojie_com/article/details/100924488" target="_blank" rel="noopener">https://blog.csdn.net/hechaojie_com/article/details/100924488</a></p>
+</blockquote>
+<p><strong>1.容器启动参数指定</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -e TZ=<span class="hljs-string">"Asia/Shanghai"</span> -d -p 80:80 --name nginx nginx<br></code></pre></td></tr></table></figure>
+
+<p><strong>2.dockerfile</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># ...</span><br>RUN <span class="hljs-built_in">echo</span> <span class="hljs-string">'Asia/Shanghai'</span> &gt;/etc/timezone<br><span class="hljs-comment"># ...</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>3.docker-compose.yml</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">version: <span class="hljs-string">'2'</span><br>services:<br>    nginx:<br>      <span class="hljs-comment"># ...</span><br>      environment:<br>        TZ : <span class="hljs-string">'Asia/Shanghai'</span><br>      <span class="hljs-comment"># ...</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="五、docker镜像版本选择"><a href="#五、docker镜像版本选择" class="headerlink" title="五、docker镜像版本选择"></a>五、docker镜像版本选择</h3><blockquote>
+<p>相关链接：<br><a href="https://www.debian.org/releases/" target="_blank" rel="noopener">https://www.debian.org/releases/</a><br><a href="https://segmentfault.com/q/1010000021722055/" target="_blank" rel="noopener">https://segmentfault.com/q/1010000021722055/</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">Debian 10（buster） —  当前的稳定版（stable）<br>Debian 9（stretch） —  旧的稳定版（oldstable）<br>Debian 8（jessie）  —  更旧的稳定版（oldoldstable）<br>Debian 7（wheezy）  —  被淘汰的稳定版<br><br>image:&lt;version&gt;         —  基于Debian，官方默认镜像。体积较大。<br>image:&lt;version&gt;-slim    —  基于Debian，删除了很多默认公共的软件包，只有运行的最小环境。<br>image:&lt;version&gt;-alpine  —  基于alpine，精简版，比Debian小的多。如果想要最小的镜像，可以选择这个做为base。<br></code></pre></td></tr></table></figure>
+
+<h3 id="六、shell脚本未执行"><a href="#六、shell脚本未执行" class="headerlink" title="六、shell脚本未执行"></a>六、shell脚本未执行</h3><blockquote>
+<p>相关链接：<a href="https://blog.csdn.net/feinifi/article/details/102910715" target="_blank" rel="noopener">https://blog.csdn.net/feinifi/article/details/102910715</a></p>
+</blockquote>
+<p>报错信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">standard_init_linux.go:211: <span class="hljs-built_in">exec</span> user process caused <span class="hljs-string">"no such file or directory"</span><br></code></pre></td></tr></table></figure>
+
+<p>原因一、文件编码有问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi shell.sh<br><br>:<span class="hljs-built_in">set</span> ff=unix<br>:wq<br></code></pre></td></tr></table></figure>
+<p>windows下使用notepad++，在右下角也可以修改</p>
+<p>原因二、shell头有问题<br>#!/bin/bash，没有/bin/bash时改为#!/bin/sh</p>
+<h3 id="七、环境变量修改"><a href="#七、环境变量修改" class="headerlink" title="七、环境变量修改"></a>七、环境变量修改</h3><figure class="highlight bash"><figcaption><span>环境变量操作命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置环境变量</span><br><span class="hljs-built_in">export</span> FLAG=fake_flag<br><span class="hljs-comment"># 删除环境变量</span><br><span class="hljs-built_in">unset</span> FLAG<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>使用shell脚本设置环境变量</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># a.sh</span><br><span class="hljs-meta">#!/bin/sh</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">"a start:<span class="hljs-variable">$FLAG</span>"</span><br><span class="hljs-built_in">source</span> b.sh<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"a stop:<span class="hljs-variable">$FLAG</span>"</span><br><br><span class="hljs-comment"># b.sh</span><br><span class="hljs-meta">#!/bin/sh</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">"b start:<span class="hljs-variable">$FLAG</span>"</span><br><span class="hljs-built_in">export</span> FLAG=not_flag<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"b stop:<span class="hljs-variable">$FLAG</span>"</span><br><br><span class="hljs-comment"># 执行shell脚本</span><br><span class="hljs-built_in">source</span> a.sh<br>. a.sh（<span class="hljs-built_in">source</span>的简写）<br>sh a.sh<br>/bin/sh -c a.sh（需要可执行权限）<br>./a.sh（需要可执行权限）<br><br><span class="hljs-comment"># 这些命令设置的环境变量，都是临时变量，只在当前命令进程中有效</span><br><span class="hljs-comment"># source和sh的结果略有不同，sh相当于单起了一个进程，结果不会影响执行sh命令的进程下的环境变量</span><br><br><span class="hljs-comment"># 执行shell脚本结果如下，但是source a.sh再执行env后会发现环境变量已经改变（也限于当前进程），sh a.sh没有改变</span><br>a start:flag&#123;f5562d0d-4404-4aa0-9372-241d7c7130dd&#125;<br>b start:flag&#123;f5562d0d-4404-4aa0-9372-241d7c7130dd&#125;<br>b stop:not_flag<br>a stop:not_flag<br><br><span class="hljs-comment"># 同理，如果在a.sh中不使用source而使用sh，那么环境变量的改变只在b.sh中生效</span><br><span class="hljs-comment"># 执行结果</span><br>a start:flag&#123;f5562d0d-4404-4aa0-9372-241d7c7130dd&#125;<br>b start:flag&#123;f5562d0d-4404-4aa0-9372-241d7c7130dd&#125;<br>b stop:not_flag<br>a stop:flag&#123;f5562d0d-4404-4aa0-9372-241d7c7130dd&#125;<br></code></pre></td></tr></table></figure>
+<p><code>CMD shell.sh</code>和<code>ENTRYPOINT shell.sh</code>相当于执行<code>sh -c shell.sh</code>，但由于web服务属于其子进程（在shell.sh中启动），所以从web服务中getshell后读取的环境变量是shell.sh进程中的。<br>无论shell.sh进程中环境变如何改变都不会影响系统中的环境变量（因为不是source shell.sh），这就是上面“也限于当前进程”的原因。<br><code>docker exec -it docker_name /bin/sh</code>也相当于新建一个系统的子线程，所以每次连接的环境变量都会“重置”。</p>
+<h3 id="八、login报错"><a href="#八、login报错" class="headerlink" title="八、login报错"></a>八、login报错</h3><blockquote>
+<p>相关链接：<br><a href="https://blog.csdn.net/wistral/article/details/95603645" target="_blank" rel="noopener">https://blog.csdn.net/wistral/article/details/95603645</a><br><a href="https://blog.csdn.net/tianyouououou/article/details/105484209" target="_blank" rel="noopener">https://blog.csdn.net/tianyouououou/article/details/105484209</a></p>
+</blockquote>
+<p>系统环境为百度云ubuntu18.04服务器，执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 登录报错信息</span><br>$ docker login -u docimg<br>Password: <br>Error saving credentials: error storing credentials - err: <span class="hljs-built_in">exit</span> status 1, out: `Failed to execute child process “dbus-launch” (No such file or directory)`<br><br><span class="hljs-comment"># 解决方法</span><br>$ apt-get install x11-xserver-utils dconf-editor dbus-x11 -y<br><br><br><span class="hljs-comment"># 重新登录后依然报错</span><br>$ docker login -u docimg<br>Password: <br>Error saving credentials: error storing credentials - err: <span class="hljs-built_in">exit</span> status 1, out: `Error spawning <span class="hljs-built_in">command</span> line “dbus-launch --autolaunch=33333333333333333333333333333333 --binary-syntax --close-stderr”: Child process exited with code 1`<br><br><span class="hljs-comment"># 继续解决</span><br>$ apt-get install gnupg2 pass -y<br><span class="hljs-comment"># 再次登录，成功</span><br></code></pre></td></tr></table></figure>
+
+<!-- #### 设置自动重启（未测试，暂不显示）
+
+> https://blog.csdn.net/lazycheerup/article/details/85232082
+
+-->
+
+
+<h2 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h2><ul>
+<li><a href="https://github.com/docimg" target="_blank" rel="noopener">我的docker镜像</a></li>
+</ul>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/03/19/a454cbe5/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境信息"><span class="toc-text">环境信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境搭建"><span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换软件源"><span class="toc-text">更换软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果安装过docker需要先卸载"><span class="toc-text">如果安装过docker需要先卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装需要的包"><span class="toc-text">安装需要的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加-GPG-密钥，并添加-Docker-ce-软件源"><span class="toc-text">添加 GPG 密钥，并添加 Docker-ce 软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装最新版docker"><span class="toc-text">安装最新版docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置开机自启动"><span class="toc-text">设置开机自启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用docker命令"><span class="toc-text">常用docker命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-Compose"><span class="toc-text">Docker Compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、默认服务没有启动"><span class="toc-text">一、默认服务没有启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、build成功但返回错误码137"><span class="toc-text">二、build成功但返回错误码137</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、数据持久化"><span class="toc-text">三、数据持久化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、docker容器的时区"><span class="toc-text">四、docker容器的时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、docker镜像版本选择"><span class="toc-text">五、docker镜像版本选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、shell脚本未执行"><span class="toc-text">六、shell脚本未执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、环境变量修改"><span class="toc-text">七、环境变量修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、login报错"><span class="toc-text">八、login报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推广"><span class="toc-text">推广</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

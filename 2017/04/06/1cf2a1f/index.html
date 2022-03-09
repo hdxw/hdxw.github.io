@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>elasticsearch-5.3安装记录 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2017/04/06/1cf2a1f/" class="shake shake-little" title="elasticsearch-5.3安装记录">
+            
+            elasticsearch-5.3安装记录
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/hjdj/">环境搭建</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2017年04月06日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年06月29日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rjaz/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>软件安装</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>windows系统下的大多数软件都是“一键安装”，一般没有太多的坑。</p>
+<a id="more"></a>
+<p>但是对于linux系统软件（大多是老外搞出来的）大概有以下几种情况，</p>
+<ol>
+<li>没有安装说明文档或安装描述的及其简略</li>
+<li>安装说明文档都是英文且描述性语言较多</li>
+<li>软件安装容易但配置项较多，不便充分使用</li>
+<li>不同系统环境会出现各种不同的坑，而且官方没有给出具体解决方法</li>
+<li>同软件新旧版本之间安装配置步骤差别较大<br>……</li>
+</ol>
+<p>再加上网上的安装步骤大同小异（多数是转的）、部分已过时过期导致每次安装都浪费很多时间。<br>所以我主要以centos系统（主流服务器系统）为例详细记录各种软件以及安装过程中出现的各种坑。</p>
+<h2 id="一、软件简介"><a href="#一、软件简介" class="headerlink" title="一、软件简介"></a>一、软件简介</h2><ol>
+<li>适用范围：处理文档搜索相关业务，非关系型数据，命中结果数量{1000}左右效果最佳</li>
+<li>特点：分布式、非关系型数据库、文档搜索</li>
+<li>相关链接：<a href="https://www.elastic.co/cn/" target="_blank" rel="noopener">官方网站</a>、<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html" target="_blank" rel="noopener">官方JAVA-API</a>、<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank" rel="noopener">使用文档</a></li>
+</ol>
+<h2 id="二、安装环境"><a href="#二、安装环境" class="headerlink" title="二、安装环境"></a>二、安装环境</h2><ol>
+<li>时间：2017年4月5日</li>
+<li>操作系统：centos7.3 64位（阿里云1核1G内存）</li>
+<li>软件版本：5.3.0</li>
+<li>安装方式：TAR</li>
+<li>安装环境：JDK1.8</li>
+</ol>
+<h2 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h2><p>1.下载<br><code>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.3.0.tar.gz</code></p>
+<p>2.解压<br><code>tar -zxvf elasticsearch-5.3.0.tar.gz</code></p>
+<p>3.移动到软件目录<br><code>mv elasticsearch-5.3.0 /usr/local/elasticsearch</code></p>
+<p>4.后台运行软件<br><code>./bin/elasticsearch -d</code></p>
+<h2 id="四、编辑可选配置项"><a href="#四、编辑可选配置项" class="headerlink" title="四、编辑可选配置项"></a>四、编辑可选配置项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ vi &#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml<br></code></pre></td></tr></table></figure>
+
+<h2 id="五、可能遇到的问题"><a href="#五、可能遇到的问题" class="headerlink" title="五、可能遇到的问题"></a>五、可能遇到的问题</h2><h3 id="1-内存不足"><a href="#1-内存不足" class="headerlink" title="1.内存不足"></a>1.内存不足</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">The system is out of physical RAM or swap space<br>OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000085330000, 2060255232, 0) failed; error&#x3D;&#39;Cannot allocate memory&#39; (errno&#x3D;12)<br>#<br># There is insufficient memory for the Java Runtime Environment to continue.<br># Native memory allocation (mmap) failed to map 2060255232 bytes for committing reserved memory.<br># An error report file with more information is saved as:<br># &#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;hs_err_pid22187.log<br></code></pre></td></tr></table></figure>
+<p>原因：详细的错误原因和可能的解决办法会输出到上述提示的文件（hs_err_pid22187.log）中，是jvm内存设置有问题<br>解决：修改./config/jvm.options -Xms512m -Xmx1024m    表示java虚拟机初始化时使用的内存为512MB，可使用的最大内存为1024MB（我的服务器1g内存）</p>
+<h3 id="2-警告"><a href="#2-警告" class="headerlink" title="2.警告"></a>2.警告</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">OpenJDK 64-Bit Server VM warning: If the number of processors is expected to increase from one, then you should configure the number of parallel GC threads appropriately using -XX:ParallelGCThreads&#x3D;N<br></code></pre></td></tr></table></figure>
+<p>解决：<br>vi ./config/jvm.options<br>添加-XX:ParallelGCThreads=8</p>
+<h3 id="3-权限出错"><a href="#3-权限出错" class="headerlink" title="3.权限出错"></a>3.权限出错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root<br></code></pre></td></tr></table></figure>
+<p>原因：出于安全考虑不允许root用户启动<br>解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">groupadd elsearch<br>useradd elastic -g elsearch -p Gs67yqpOOxI89pov<br>cd &#x2F;usr&#x2F;local<br>chown -R elastic:elsearch  elasticsearch<br>su elastic<br>.&#x2F;elasticsearch&#x2F;bin&#x2F;elasticsearch -d<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="六、参考链接"><a href="#六、参考链接" class="headerlink" title="六、参考链接"></a>六、参考链接</h2><p><a href="http://blog.csdn.net/u012371450/article/details/51776505" target="_blank" rel="noopener">centos7虚拟机安装elasticsearch5.0.x-安装篇</a><br><a href="http://blog.csdn.net/omaverick1/article/details/53744586?utm_source=itdadao&utm_medium=referral" target="_blank" rel="noopener">ElasticSearch5.1.1集群部署</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2017/04/06/1cf2a1f/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、软件简介"><span class="toc-text">一、软件简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装环境"><span class="toc-text">二、安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、安装步骤"><span class="toc-text">三、安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、编辑可选配置项"><span class="toc-text">四、编辑可选配置项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、可能遇到的问题"><span class="toc-text">五、可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-内存不足"><span class="toc-text">1.内存不足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-警告"><span class="toc-text">2.警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-权限出错"><span class="toc-text">3.权限出错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、参考链接"><span class="toc-text">六、参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

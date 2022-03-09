@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Hexo博客搭建记录 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/03/05/c6ab1d68/" class="shake shake-little" title="Hexo博客搭建记录">
+            
+            Hexo博客搭建记录
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/wwzc/">五味杂陈</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年03月05日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/xxjl/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>信息记录</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>网页模板更新了，顺便记录一下</p>
+<a id="more"></a>
+
+<h3 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h3><h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><blockquote>
+<p>NodeJS: <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
+</blockquote>
+<h4 id="安装hexo相关模块"><a href="#安装hexo相关模块" class="headerlink" title="安装hexo相关模块"></a>安装hexo相关模块</h4><p>NPM是随同NodeJS一起安装的包管理工具，NodeJS安装完成后就能用npm命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo -g<br>npm install hexo-cli -g<br><br><span class="hljs-comment"># 版本查看</span><br>node -v<br>npm -v<br>hexo -v<br><br><span class="hljs-comment"># 版本更新</span><br>npm install -g npm<br>npm -g i hexo<br></code></pre></td></tr></table></figure>
+
+<h3 id="hexo博客初始化"><a href="#hexo博客初始化" class="headerlink" title="hexo博客初始化"></a>hexo博客初始化</h3><h4 id="默认模板"><a href="#默认模板" class="headerlink" title="默认模板"></a>默认模板</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init blog<br><span class="hljs-built_in">cd</span> blog<br>npm install<br>hexo server<br></code></pre></td></tr></table></figure>
+
+<p>至此，一个最简版的hexo博客已经启动<a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a></p>
+<h4 id="volantis模板"><a href="#volantis模板" class="headerlink" title="volantis模板"></a>volantis模板</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/xaoxuu/hexo-theme-volantis themes/volantis<br>npm i -S hexo-generator-search hexo-generator-json-content hexo-renderer-less<br></code></pre></td></tr></table></figure>
+
+<p>修改根目录下_config.yml文件，将theme的值改为volantis，重启服务即可</p>
+<h4 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加文章</span><br>hexo new <span class="hljs-string">"My New Post"</span><br><span class="hljs-comment"># 启动服务</span><br>hexo server<br><span class="hljs-comment"># 生成静态文件</span><br>hexo generate<br><span class="hljs-comment"># 部署到远程</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
+
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><p>hexo插件：<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a><br>hexo主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<h4 id="添加ico图标"><a href="#添加ico图标" class="headerlink" title="添加ico图标"></a>添加ico图标</h4><p>把图标文件favicon.ico直接放在source目录下</p>
+<h4 id="自动生成文章链接id"><a href="#自动生成文章链接id" class="headerlink" title="自动生成文章链接id"></a>自动生成文章链接id</h4><p><a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">https://github.com/rozbo/hexo-abbrlink</a><br>用这个插件的主要目的是去掉url中的中文</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-abbrlink --save<br></code></pre></td></tr></table></figure>
+<p>修改config.yml配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plain">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;<br>&#x3D;&gt; permalink: :year&#x2F;:month&#x2F;:day&#x2F;:abbrlink&#x2F;<br><br># abbrlink config<br>abbrlink:<br>  alg: crc32  #support crc16(default) and crc32<br>  rep: hex    #support dec(default) and hex<br><br>category_map:<br>  五味杂陈: wwzc<br>tag_map:<br>  未完成: unfinished<br></code></pre></td></tr></table></figure>
+
+<h4 id="文章加密访问"><a href="#文章加密访问" class="headerlink" title="文章加密访问"></a>文章加密访问</h4><p><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">https://github.com/MikeCoder/hexo-blog-encrypt</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-blog-encrypt<br>npm install --save hexo-blog-encrypt<br><span class="hljs-comment"># 详细配置说明见说明文档</span><br></code></pre></td></tr></table></figure>
+
+<p>volantis主题使用hexo-blog-encrypt加密后右侧目录存在一个问题，输入正确密码后目录也不显示。目前原主题（v2.6.6）并没有对这个问题做处理，我已经提交了<a href="https://github.com/xaoxuu/hexo-theme-volantis/issues/327" target="_blank" rel="noopener">issues</a>。下面是我根据hexo-blog-encrypt文档中<a href="https://developer.aliyun.com/mirror/npm/package/hexo-blog-encrypt" target="_blank" rel="noopener">Encrypt TOC部分</a>和源码对该主题做出的改动。</p>
+<p>修改themes/volantis/layout/_widget/toc.ejs为以下内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;%- partial(<span class="hljs-string">'_pre'</span>) %&gt;<br>&lt;% <span class="hljs-keyword">var</span> realcontent = (page.encrypt == <span class="hljs-literal">true</span>) ? page.origin : page.content; %&gt;<br>&lt;% <span class="hljs-keyword">if</span>(realcontent &amp;&amp; page.toc != <span class="hljs-literal">false</span> &amp;&amp; toc(realcontent).length &gt; <span class="hljs-number">0</span>)&#123; %&gt;<br>  &lt;section id=<span class="hljs-string">"toc-div"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"widget toc-wrapper &lt;%- page.widget_style %&gt; &lt;%- page.widget_platform %&gt;"</span> &lt;% <span class="hljs-keyword">if</span> (page.encrypt == <span class="hljs-literal">true</span>) &#123; %&gt;style=<span class="hljs-string">"display:none"</span> &lt;% &#125; %&gt;&gt;<br>    &lt;%- partial(<span class="hljs-string">'header'</span>, &#123;<span class="hljs-attr">item</span>: item&#125;) %&gt;<br>    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'content'</span>&gt;<br>        &lt;%- toc(realcontent, &#123;<span class="hljs-attr">list_number</span>: item.list_number, <span class="hljs-attr">min_depth</span>: item.min_depth, <span class="hljs-attr">max_depth</span>: item.max_depth&#125;) %&gt;<br>    &lt;<span class="hljs-regexp">/div&gt;</span><br><span class="hljs-regexp">  &lt;/</span>section&gt;<br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="开启文章字数统计"><a href="#开启文章字数统计" class="headerlink" title="开启文章字数统计"></a>开启文章字数统计</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 命令安装（失败）</span><br>npm i --save hexo-wordcount<br><br><span class="hljs-comment"># 手动安装</span><br><span class="hljs-built_in">cd</span> node_modules<br>git <span class="hljs-built_in">clone</span> https://github.com/willin/hexo-wordcount.git<br>修改package.json，添加<span class="hljs-string">"hexo-wordcount"</span>: <span class="hljs-string">"^6.0.1"</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="新建页面-导航栏"><a href="#新建页面-导航栏" class="headerlink" title="新建页面(导航栏)"></a>新建页面(导航栏)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page <span class="hljs-string">"about"</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h4><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs md">外面看到的内容<br><br><span class="xml"><span class="hljs-comment">&lt;!-- more --&gt;</span></span><br><br>打开单个文章后才能看到的内容<br></code></pre></td></tr></table></figure>
+
+<p>测试代码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<p>代码块示例样式</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-comment">// Code test</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">int</span> main() &#123;<br>    printf(<span class="hljs-string">"Hello World"</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="提交到远程仓库"><a href="#提交到远程仓库" class="headerlink" title="提交到远程仓库"></a>提交到远程仓库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br><br><span class="hljs-comment"># config.yml配置</span><br>deploy:<br>  <span class="hljs-built_in">type</span>: git<br>  repository: https://gitee.com/og/blog.git<br>  branch: master<br><br><span class="hljs-comment"># 提交（此方法提交的是编译后的html页面，可以防止github公开库泄露加密文章密码的问题）</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a><br><a href="https://volantis.js.org/getting-started/" target="_blank" rel="noopener">https://volantis.js.org/getting-started/</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/03/05/c6ab1d68/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境安装"><span class="toc-text">环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装nodejs"><span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装hexo相关模块"><span class="toc-text">安装hexo相关模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo博客初始化"><span class="toc-text">hexo博客初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认模板"><span class="toc-text">默认模板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volantis模板"><span class="toc-text">volantis模板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo命令"><span class="toc-text">hexo命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他配置"><span class="toc-text">其他配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#添加ico图标"><span class="toc-text">添加ico图标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动生成文章链接id"><span class="toc-text">自动生成文章链接id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章加密访问"><span class="toc-text">文章加密访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开启文章字数统计"><span class="toc-text">开启文章字数统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建页面-导航栏"><span class="toc-text">新建页面(导航栏)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章格式"><span class="toc-text">文章格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交到远程仓库"><span class="toc-text">提交到远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

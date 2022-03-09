@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Windows系统手动搭建php运行环境 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/03/19/8446479d/" class="shake shake-little" title="Windows系统手动搭建php运行环境">
+            
+            Windows系统手动搭建php运行环境
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/hjdj/">环境搭建</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年03月19日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/discuz/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>discuz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>php</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>在Windows系统中使用官方软件搭建php运行环境（非集成环境），安装并运行Discuz论坛系统。</p>
+<a id="more"></a>
+
+<p>“PHP是世界上最好的语言”，但是我不喜欢，我只把它当成和“Python”一样的“工具语言”。“集成环境”的存在也在一定程度上说明了php环境的难搞。但是有时候想运行一些php代码时就需要电脑上有php环境，作为有点“洁癖”的程序员，我不想用一键启动的集成环境，我选择手动搭建php环境。这里以Discuz为例，记录在本地Windows系统中配置并运行php的过程。</p>
+<h2 id="用到的软件"><a href="#用到的软件" class="headerlink" title="用到的软件"></a>用到的软件</h2><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>Nginx在这里与PHP是独立交互的关系，如果使用Apache，PHP就是Apache的一个功能模块。<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">官网下载地址</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">nginx版本翻译<br>Mainline version：目前主力在做的版本，可以说是开发版。<br>Stable version：最新稳定版，生产环境上建议使用的版本。<br>Legacy versions：遗留的老版本的稳定版。<br><br>本地环境搭建建议在使用最新稳定版。<br></code></pre></td></tr></table></figure>
+
+<h3 id="Discuz"><a href="#Discuz" class="headerlink" title="Discuz"></a>Discuz</h3><p>作为在国内最常见的论坛系统之一，漏洞也是经常有的，毕竟用的人多攻击的价值也就高，下载<a href="https://gitee.com/ComsenzDiscuz/DiscuzX" target="_blank" rel="noopener">最新版</a>就完了，建议<strong>首选“SC_GBK”版本</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">discuz版本翻译<br>Discuz_X3.4_SC_GBK：简体GBK<br>Discuz_X3.4_SC_UTF8：简体UTF8<br>Discuz_X3.4_TC_UTF8：繁体UTF8<br><br>在可输入字数、可用插件数量、数据库空间消耗上，GBK都相对UTF8占优势，搭建国际站点UTF8兼容性更好。<br></code></pre></td></tr></table></figure>
+
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><p>必须有，不然怎么玩。下载Windows最新版总是好的，<a href="http://www.php.net/downloads.php" target="_blank" rel="noopener">官网下载地址</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">php版本翻译<br>VC15 x64 Non Thread Safe：64位非线程安全<br>VC15 x64 Thread Safe：64位线程安全<br>VC15 x86 Non Thread Safe：32位非线程安全<br>VC15 x86 Thread Safe：32位线程安全<br><br>Nginx服务器使用的是FastCGI方式，这里下载非线程安全版本的zip包即可。<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="1．VC版本和VS版本对应关系"><a href="#1．VC版本和VS版本对应关系" class="headerlink" title="1．VC版本和VS版本对应关系"></a>1．VC版本和VS版本对应关系</h4><p>VC6版本是使用Visual Studio 6编译器编译的，如果你的PHP是用Apache来架设的，那你就选择VC6版本。</p>
+<p>VC9版本是使用Visual Studio 2008编译器编译的，如果你的PHP是用IIS来架设的，那你就选择 VC9版本。</p>
+<p>VC9版本是针对IIS服务器的版本，没有对APACHE的支持，而VC6版本对IIS和Apache都提供了支持</p>
+<p>Visual Studio 6 ： vc6<br>Visual Studio 2003 ： vc7<br>Visual Studio 2005 ： vc8<br>Visual Studio 2008 ： vc9<br>Visual Studio 2010 ： vc10<br>Visual Studio 2012 ： vc11<br>Visual Studio 2013 ： vc12<br>Visual Studio 2015 ： vc14<br>Visual Studio 2017 ： vc15</p>
+<h4 id="2．Ts与nts的区别"><a href="#2．Ts与nts的区别" class="headerlink" title="2．Ts与nts的区别"></a>2．Ts与nts的区别</h4><p>Windows版的PHP从版本5.2.1开始有Thread Safe和NoneThread Safe之分。</p>
+<p>先从字面意思上理解，Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，以防止有新要求就启动新线程的CGI执行方式而耗尽系统资源。Non Thread Safe是非线程安全，在执行时不进行线程（Thread）安全检查。</p>
+<h4 id="3．PHP的两种执行方式：ISAPI和FastCGI"><a href="#3．PHP的两种执行方式：ISAPI和FastCGI" class="headerlink" title="3．PHP的两种执行方式：ISAPI和FastCGI"></a>3．PHP的两种执行方式：ISAPI和FastCGI</h4><p>ISAPI执行方式是以DLL动态库的形式使用，可以在被用户请求后执行，在处理完一个用户请求后不会马上消失，所以需要进行线程安全检查，这样来提高程序的执行效率，所以如果是以ISAPI来执行PHP，建议选择ThreadSafe版本；</p>
+<p>而FastCGI执行方式是以单一线程来执行操作，所以不需要进行线程的安全检查，除去线程安全检查的防护反而可以提高执行效率，所以，如果是以FastCGI来执行PHP，建议选择NonThread Safe版本。通过phpinfo(); 查看其中的 Thread Safety 项，这个项目就是查看是否是线程安全，如果是：enabled，一般来说应该是ts版，否则是nts版。</p>
+</blockquote>
+<h3 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h3><p>可以下载最新版本，但为了更好的兼容性建议下载5.7版本，<a href="https://dev.mysql.com/downloads/windows/installer/" target="_blank" rel="noopener">下载地址</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">版本说明<br>mysql-installer-web-community-5.7.25.0.msi<br>安装时会从网络下载安装文件，即在线安装。<br><br>mysql-installer-community-5.7.25.0.msi<br>从文件大小就可以看出这个文件大得多，也就是离线安装包，安装时不需要网络连接。<br></code></pre></td></tr></table></figure>
+
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>1.安装MYSQL，下一步，下一步，下一步，完成。</p>
+<p>2.解压Discuz，并将目录下的“upload”文件夹移动到固定磁盘位置。<br>文件夹可以重命名，在本文中文件夹移动到了“D:/WEBSITE”目录，重命名为“Discuz”，即Discuz目录为“D:/WEBSITE/Discuz”。</p>
+<p>3.解压PHP、Nginx压缩包，移动到固定的磁盘位置。修改配置信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">【PHP配置】<br>在PHP目录下复制“php.ini-development”文件并重命名为“php.ini”。<br><br>给PHP指定可加载扩展模块的位置。<br>在“php.ini”中找到extension_dir项目，取消注释（删除前面的;），值为“ext”或“.&#x2F;ext”。<br><br>让PHP和Nginx联动。<br>在php.ini中找到cgi.fix_pathinfo项目，取消注释。<br>cgi.fix_pathinfo是用来设置在cgi模式下PHP是否提供PATH_INFO信息。<br>因为nginx默认不会设置PATH_INFO的值，所以需要通过上面的方法来提供。<br><br>让PHP支持MYSQL。<br>编辑“php.ini”，把<br>extension&#x3D;mysqli<br>extension&#x3D;pdo_mysql<br>extension&#x3D;pdo_pgsql<br>前面的；去掉（PHP版本不同值略有变化，找到类似的去掉注释即可）。<br>安装Discuz论坛时提示“mysqli_connect() 不支持 advice_mysqli_connect”就是因为没有改这里。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs plain">【Nginx配置】<br>编辑Nginx目录下conf&#x2F;nginx.conf，在“http”中添加与“server”并列的“include .&#x2F;conf.d&#x2F;*.conf;”。<br>在Nginx目录下新建“conf.d”文件夹，在文件夹中新建“discuz.conf”文件（文件名可以自定义），文件内容如下：<br><br>server&#123;<br>    # 访问时端口<br>	listen 80;<br>    # 访问域名，可以在C:\Windows\System32\drivers\etc\hosts中自定义<br>	server_name localhost;<br>  <br>    # 解析普通文件<br>    location &#x2F; &#123;<br>		# 设置网站的根目录(类似Apache的www目录)<br>		# 这个路径自己定义就行,下面的是我自己的路径<br>		root   D:&#x2F;WEBSITE&#x2F;Discuz;<br>		# 把index.php添加到默认首页，就是输入&#x2F;时自动打开&#x2F;index.php<br>		index  index.html index.htm index.php;<br>	&#125;<br><br>    # 解析PHP文件<br>    location ~ \.php$ &#123;<br>        # 网站根目录，也就是Discuz目录<br>        root           D:&#x2F;WEBSITE&#x2F;Discuz;<br>        # 设置监听端口，PHP的启动端口<br>        fastcgi_pass   127.0.0.1:9000;<br>        # 设置nginx的默认首页文件(上面已经设置过了，可以删除)<br>        fastcgi_index  index.php;<br>        # 设置脚本文件请求的路径<br>        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;<br>        # 引入fastcgi的配置文件<br>        include        fastcgi_params;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="服务启动安装"><a href="#服务启动安装" class="headerlink" title="服务启动安装"></a>服务启动安装</h2><p>1.启动PHP<br>在PHP安装目录新建文件和文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">文件名：php-start.cmd<br>文件内容：php-cgi.exe -b 127.0.0.1:9000 -c php.ini<br><br>文件名：php-stop.cmd<br>文件内容：TASKKILL &#x2F;F &#x2F;IM php-cgi.exe<br><br>文件名：php-start.vbs<br>文件内容：<br>Set ws &#x3D; CreateObject(&quot;Wscript.Shell&quot;) <br>ws.run &quot;cmd &#x2F;c php-start&quot;,vbhide<br></code></pre></td></tr></table></figure>
+<p>双击运行“php-start.vbs”文件即可开启PHP，运行“php-stop.cmd”即可关闭PHP。<br>可以发送“php-start.vbs”和“php-stop.cmd”文件的快捷方式到桌面。</p>
+<p>2.运行Nginx<br>在Nginx安装目录下新建文件和文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">文件名：start.cmd<br>文件内容：start nginx.exe<br><br>文件名：stop.cmd<br>文件内容：nginx.exe -s quit<br><br>文件名：reload.cmd<br>文件内容：nginx.exe -s reload<br></code></pre></td></tr></table></figure>
+<p>三个文件分别是Nginx的启动、停止、重新加载配置文件的作用。同样可以发送文件的快捷方式到桌面。</p>
+<p>3.安装Discuz<br>浏览器打开Nginx中配置的域名（localhost/install），按照步骤操作即可。</p>
+<p><img src="/images/8446479d/20190320124007.png" alt></p>
+<h2 id="本文参考链接"><a href="#本文参考链接" class="headerlink" title="本文参考链接"></a>本文参考链接</h2><p><a href="https://blog.csdn.net/zjiang1994/article/details/72878374" target="_blank" rel="noopener">Windows下的Nginx安装与配置(PHP)</a><br><a href="https://blog.csdn.net/hhhccckkk/article/details/77574998" target="_blank" rel="noopener">安装Discuz!论坛时提示“mysqli_connect() 不支持 advice_mysqli_connect”</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/03/19/8446479d/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用到的软件"><span class="toc-text">用到的软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discuz"><span class="toc-text">Discuz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-text">PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1．VC版本和VS版本对应关系"><span class="toc-text">1．VC版本和VS版本对应关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2．Ts与nts的区别"><span class="toc-text">2．Ts与nts的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3．PHP的两种执行方式：ISAPI和FastCGI"><span class="toc-text">3．PHP的两种执行方式：ISAPI和FastCGI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MYSQL"><span class="toc-text">MYSQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务启动安装"><span class="toc-text">服务启动安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本文参考链接"><span class="toc-text">本文参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

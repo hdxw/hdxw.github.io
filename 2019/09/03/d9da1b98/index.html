@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XCTF攻防世界 MISC 新手区 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/09/03/d9da1b98/" class="shake shake-little" title="XCTF攻防世界 MISC 新手区">
+            
+            XCTF攻防世界 MISC 新手区
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/writeup/">writeup</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年09月03日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>XCTF</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>CTF杂项入门题目，解题过程尽量的详细记录</p>
+<a id="more"></a>
+
+<h2 id="1-this-is-flag"><a href="#1-this-is-flag" class="headerlink" title="1.this_is_flag"></a>1.this_is_flag</h2><blockquote>
+<p>题目描述：Most flags are in the form flag{xxx}, for example:flag{th1s_!s_a_d4m0_4la9}</p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc1.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;th1s_!s_a_d4m0_4la9&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="2-ext3"><a href="#2-ext3" class="headerlink" title="2.ext3"></a>2.ext3</h2><blockquote>
+<p>题目描述：今天是菜狗的生日，他收到了一个linux系统光盘<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-2/ff941255f4284d308ac36ac2af317aa0.zip" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc2.png" alt></p>
+<p><img src="/images/xctf-misc/misc3.png" alt></p>
+<p>base64解码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;sajbcibzskjjcnbhsbvcjbjszcszbkzj&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="3-give-you-flag"><a href="#3-give-you-flag" class="headerlink" title="3.give_you_flag"></a>3.give_you_flag</h2><blockquote>
+<p>题目描述：菜狗找到了文件中的彩蛋很开心，给菜猫发了个表情包<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-3/fd79628c11714fbbbfc2ec89a58e0101.gif" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc4.png" alt></p>
+<p>是一个动态图，使用Stegsolve按帧查看（Analyse–Frame Browser）,在50帧发现一个缺少定位部分的二维码<br><img src="/images/xctf-misc/misc5.png" alt></p>
+<p>用画图补全后另存为png格式，识别二维码内容，得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;e7d478cf6b915f50ab1277f78502a2c5&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="http://www.caesum.com/handbook/Stegsolve.jar" target="_blank" rel="noopener">Stegsolve</a>、<a href="https://cli.im/deqr" target="_blank" rel="noopener">草料在线扫码</a></p>
+<h2 id="4-pdf"><a href="#4-pdf" class="headerlink" title="4.pdf"></a>4.pdf</h2><blockquote>
+<p>题目描述：菜猫给了菜狗一张图，说图下面什么都没有<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-4/86260d6cb95743aab0ae7e0f3447b092.pdf" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc6.png" alt></p>
+<p>一个pdf文件，打开后搜索“flag”，选中复制（使用<a href="https://wpspdf.cn/" target="_blank" rel="noopener">“金山PDF”</a>可以直接删掉图片）<br><img src="/images/xctf-misc/misc7.png" alt></p>
+<p>粘贴出来就是flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;security_through_obscurity&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="5-stegano"><a href="#5-stegano" class="headerlink" title="5.stegano"></a>5.stegano</h2><blockquote>
+<p>题目描述：菜狗收到了图后很开心，玩起了pdf 提交格式为flag{xxx}<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-5/92f2a87d32594adb84e2c44874a175ca.pdf" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc8.png" alt></p>
+<p>打开pdf附件，搜索“flag”并没有找到可用信息。另存为文本文档后，发现文件内容的开始有一段在pdf中没有显示的文字，具体内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">NoFlagHere! NoFlagHere! NoFlagHere!<br>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>Close - but still not here !<br>BABA BBB BA BBA ABA AB B AAB ABAA AB B AA BBB BA AAA BBAABB AABA ABAA AB BBA BBBAAA ABBBB BA AAAB ABBBB AAAAA ABBBB BAAA ABAA AAABB BB AAABB AAAAA AAAAA AAAAB BBA AAABB<br>......<br></code></pre></td></tr></table></figure>
+<p>这个AB的组合很容易联想到“摩尔斯电码”，把“A”和“B”全替换成“.”和“-”。经过尝试应该是“A”替换成“.”，“B”替换成“-”，解出来是“CONGRATULATIONSFLAG1NV151BL3M3554G3”，可以分割成“CONGRATULATIONS FLAG 1NV151BL3M3554G3”，所以flag就是“1NV151BL3M3554G3”。但是输入flag{1NV151BL3M3554G3}显示答案并不正确，由于摩尔斯电码是忽略大小写的，所以全部转为小写字母，就得到了正确的flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;1nv151bl3m3554g3&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx" target="_blank" rel="noopener">摩尔斯电码转换</a></p>
+<h2 id="6-SimpleRAR"><a href="#6-SimpleRAR" class="headerlink" title="6.SimpleRAR"></a>6.SimpleRAR</h2><blockquote>
+<p>题目描述：菜狗最近学会了拼图，这是他刚拼好的，可是却搞错了一块(ps:双图层)<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-6/aaf644ace50c47b7a0559e68ee43e213.rar" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc9.png" alt></p>
+<p>附件是一个压缩包，解压时提示“文件头已损坏： secret.png”，解压出一个没什么用的flag.txt文件。用“010 Editor”（或其他二进制编辑器）打开压缩包，加载RAR模板，修复文件头。如下图找到图片对应的区块，修改“enum RarBlockType HeadType”的值为“FILE_OR_DIR (116)”并保存修改。</p>
+<p><img src="/images/xctf-misc/misc21.png" alt></p>
+<p>重新解压压缩包，得到一张白色图片。题目提示“双图层”，用Stegsolve分离出两帧图片，调整色调，获得两张半个二维码图片。</p>
+<p><img src="/images/xctf-misc/misc22.png" alt></p>
+<p>用画图拼在一起并补全二维码，扫描图片内容得到flag</p>
+<p><img src="/images/xctf-misc/misc23.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;yanji4n_bu_we1shi&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="http://www.caesum.com/handbook/Stegsolve.jar" target="_blank" rel="noopener">Stegsolve</a>、<a href="https://cli.im/deqr" target="_blank" rel="noopener">草料在线扫码</a></p>
+<h2 id="7-坚持60s"><a href="#7-坚持60s" class="headerlink" title="7.坚持60s"></a>7.坚持60s</h2><blockquote>
+<p>题目描述：菜狗发现最近菜猫不爱理他，反而迷上了菜鸡<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-7/ca1cdad4045d4e9c965c31e14e88bbb6.jar" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc10.png" alt></p>
+<p>是一个.jar的游戏，使用键盘方向键控制。根据题目名称提示，可以坚持60s不挂掉就能得到flag。也可以使用java反编译工具得到游戏的源码，直接搜索关键词“flag”。</p>
+<p><img src="/images/xctf-misc/misc11.png" alt></p>
+<p>得到游戏的提示信息“flag{RGFqaURhbGlfSmlud2FuQ2hpamk=}”，输入后显示答案错误，括号里像是经过base64编码，把括号里面的字符串base64解码后得到正确的flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;DajiDali_JinwanChiji&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="http://java-decompiler.github.io/" target="_blank" rel="noopener">jd-gui</a></p>
+<h2 id="8-gif"><a href="#8-gif" class="headerlink" title="8.gif"></a>8.gif</h2><blockquote>
+<p>题目描述：菜狗截获了一张菜鸡发给菜猫的动态图，却发现另有玄机<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-8/3cc252e404af4415931a2da51c54d8b5.zip" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc12.png" alt></p>
+<p>附件是压缩包，解压后gif文件夹中是104个有编号的黑色和白色的图片（另一个文件夹应该是软件使用生成的缓存；如果给的是gif图需要自己提取帧图片），由黑白两色联想到二进制，所以可以把图片转为二进制串，二进制又可以转为可读字符串。其中可以通过图片属性信息（或hash计算工具）知道黑色和白色图片是各自相同的，这就可以通过简单的代码实现自动计算，想法有了剩下的就是写代码（也可以通过人工把图片转二进制，经过尝试白图代表0黑图代表1）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> re,hashlib<br><span class="hljs-comment"># 计算文件md5</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fileHash</span><span class="hljs-params">(file)</span>:</span><br>    <span class="hljs-keyword">try</span>:<br>        f = open(file,<span class="hljs-string">'rb'</span>)<br>        a = f.read()<br>    <span class="hljs-keyword">finally</span>:<br>        <span class="hljs-keyword">if</span> f:<br>            f.close()<br>        m = hashlib.md5()<br>        m.update(a)<br>        <span class="hljs-keyword">return</span> m.hexdigest()<br><span class="hljs-comment"># 取图片(0,0)像素的rgb</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">imageColor</span><span class="hljs-params">(file)</span>:</span><br>    img = Image.open(file)<br>    <span class="hljs-keyword">return</span> img.getpixel((<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))<br><span class="hljs-comment"># 二进制转字符串</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bin2string</span><span class="hljs-params">(bin)</span>:</span><br>    b = re.findall(<span class="hljs-string">r'.&#123;8&#125;'</span>,bin)<br>    string = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>        string += chr(int(i,<span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">return</span> string<br><br>binNum = <span class="hljs-string">""</span><br>filePath = <span class="hljs-string">"F:/download/3cc252e404af4415931a2da51c54d8b5/gif/"</span><br><span class="hljs-comment"># 方法一：通过比较图片固定像素色值</span><br>colorW = imageColor(filePath + <span class="hljs-string">"0.jpg"</span>)<span class="hljs-comment"># 白图rgb</span><br>colorB = imageColor(filePath + <span class="hljs-string">"1.jpg"</span>)<span class="hljs-comment"># 黑图rgb</span><br>print(<span class="hljs-string">"colorW: %s,colorB: %s"</span>%(colorW,colorB))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">104</span>):<br>    color = imageColor(filePath + <span class="hljs-string">"%s.jpg"</span>%i)<br>    <span class="hljs-keyword">if</span> color == colorW:<br>        binNum = binNum + <span class="hljs-string">"0"</span><br>    <span class="hljs-keyword">elif</span> color == colorB:<br>        binNum = binNum + <span class="hljs-string">"1"</span><br>    <span class="hljs-keyword">else</span>:<br>        print(<span class="hljs-string">"unExecption"</span>)<br><span class="hljs-comment"># 方法二：通过比较文件md5值</span><br>hashW = fileHash(filePath + <span class="hljs-string">"0.jpg"</span>)<span class="hljs-comment"># 白图md5</span><br>hashB= fileHash(filePath + <span class="hljs-string">"1.jpg"</span>)<span class="hljs-comment"># 黑图md5</span><br>print(<span class="hljs-string">"hashW: %s,hashB: %s"</span>%(hashW,hashB))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">104</span>):<br>    hash = fileHash(filePath + <span class="hljs-string">"%s.jpg"</span>%i)<br>    <span class="hljs-keyword">if</span> hash == hashW:<br>        binNum = binNum + <span class="hljs-string">"0"</span><br>    <span class="hljs-keyword">elif</span> hash == hashB:<br>        binNum = binNum + <span class="hljs-string">"1"</span><br>    <span class="hljs-keyword">else</span>:<br>        print(<span class="hljs-string">"unExecption"</span>)<br><span class="hljs-comment"># 上面两种方法选一种</span><br>print(<span class="hljs-string">"binNum: "</span> + binNum)<br>print(<span class="hljs-string">"bin2string: "</span> + bin2string(binNum))<br></code></pre></td></tr></table></figure>
+<p>以上代码执行的结果分别为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 方法一</span><br>colorW: (255, 255, 255),colorB: (12, 12, 0)<br>binNum: 01100110011011000110000101100111011110110100011001110101010011100101111101100111011010010100011001111101<br>bin2string: flag&#123;FuN_giF&#125;<br><br>Process returned 0 (0x0)        execution time : 0.153 s<br>请按任意键继续. . .<br><br><span class="hljs-comment"># 方法二</span><br>hashW: 5fa1f793cd38fda6fcf298de4d9fde7d,hashB: 2bc2b0acf3edd6b1b97088020c5699af<br>binNum: 01100110011011000110000101100111011110110100011001110101010011100101111101100111011010010100011001111101<br>bin2string: flag&#123;FuN_giF&#125;<br><br>Process returned 0 (0x0)        execution time : 0.109 s<br>请按任意键继续. . .<br></code></pre></td></tr></table></figure>
+<p>所以最后得到flag：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;FuN_giF&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="http://www.atool.org/file_hash.php" target="_blank" rel="noopener">在线文件hash批量计算</a>、<a href="http://www.5ixuexiwang.com/str/from-binary.php" target="_blank" rel="noopener">在线二进制转字符串</a>、<a href="https://www.irfanview.com/" target="_blank" rel="noopener">IrfanView</a>(图片处理神器，需要科学上网，中文语言在LANGUAGES菜单下载)</p>
+<h2 id="9-掀桌子"><a href="#9-掀桌子" class="headerlink" title="9.掀桌子"></a>9.掀桌子</h2><blockquote>
+<p>题目描述：菜狗截获了一份报文如下c8e9aca0c6f2e5f3e8c4efe7a1a0d4e8e5a0e6ece1e7a0e9f3baa0e8eafae3f9e4eafae2eae4e3eaebfaebe3f5e7e9f3e4e3e8eaf9eaf3e2e4e6f2，生气地掀翻了桌子(╯°□°）╯︵ ┻━┻</p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc13.png" alt></p>
+<p>观察这个十六进制字符串，大多数都是“字母+数字”的组合，两位十六进制为一组进行处理。然后发现十六进制想要直接转为ascii码（字符串）是不可行的，前两个字符“c8”的十进制值是200，就已经超过ascii的范围。两个字符一组的思路不变，转为二进制看看。<br><img src="/images/xctf-misc/misc14.png" alt><br>从结果可以看出所有组的最高位都是1，而ascii码的二进制最高位（八位）都是0，尝试把八位二进制最高位都替换为0，然后再转ascii码（字符串）。得到结果“Hi, FreshDog! The flag is: hjzcydjzbjdcjkzkcugisdchjyjsbdfr”，把flag放在“flag{}”里就得到了正确的flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;hjzcydjzbjdcjkzkcugisdchjyjsbdfr&#125;<br></code></pre></td></tr></table></figure>
+<p>代码及输出信息如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-comment"># base = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F]</span><br>base = [str(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)] + [ chr(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(ord(<span class="hljs-string">'A'</span>),ord(<span class="hljs-string">'A'</span>)+<span class="hljs-number">6</span>)]<br><span class="hljs-comment"># 十进制转二进制</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dec2bin</span><span class="hljs-params">(string_num)</span>:</span><br>	num = int(string_num)<br>	mid = []<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		<span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span>: <span class="hljs-keyword">break</span><br>		num,rem = divmod(num, <span class="hljs-number">2</span>)<br>		mid.append(base[rem])<br>	<span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join([str(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> mid[::<span class="hljs-number">-1</span>]])<br><span class="hljs-comment"># 十六进制转十进制</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hex2dec</span><span class="hljs-params">(string_num)</span>:</span><br>	<span class="hljs-keyword">return</span> str(int(string_num.upper(), <span class="hljs-number">16</span>))<br><span class="hljs-comment"># 十六进制转二进制</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hex2bin</span><span class="hljs-params">(string_num)</span>:</span><br>	<span class="hljs-keyword">return</span> dec2bin(hex2dec(string_num.upper()))<br><br>hexStr = <span class="hljs-string">"c8e9aca0c6f2e5f3e8c4efe7a1a0d4e8e5a0e6ece1e7a0e9f3baa0e8eafae3f9e4eafae2eae4e3eaebfaebe3f5e7e9f3e4e3e8eaf9eaf3e2e4e6f2"</span><br>b = re.findall(<span class="hljs-string">r'.&#123;2&#125;'</span>,hexStr)<span class="hljs-comment"># 两位十六进制一组</span><br>string = <span class="hljs-string">''</span><br>binStr = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>    i = hex2bin(i).replace(<span class="hljs-string">"1"</span>,<span class="hljs-string">"0"</span>,<span class="hljs-number">1</span>)<span class="hljs-comment"># 十六进制转二进制，并替换掉最高位</span><br>    binStr += i<br>    string += chr(int(i,<span class="hljs-number">2</span>))<span class="hljs-comment"># 二进制转ascii（字符）</span><br>print(binStr)<br>print(string)<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">010010000110100100101100001000000100011001110010011001010111001101101000010001000110111101100111001000010010000001010100<br>011010000110010100100000011001100110110001100001011001110010000001101001011100110011101000100000011010000110101001111010<br>011000110111100101100100011010100111101001100010011010100110010001100011011010100110101101111010011010110110001101110101<br>0110011101101001011100110110010001100011011010000110101001111001011010100111001101100010011001000110011001110010<br>Hi, FreshDog! The flag is: hjzcydjzbjdcjkzkcugisdchjyjsbdfr<br><br>Process returned 0 (0x0)        execution time : 0.072 s<br>请按任意键继续. . .<br></code></pre></td></tr></table></figure>
+<p>简化的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>a = <span class="hljs-string">"c8e9aca0c6f2e5f3e8c4efe7a1a0d4e8e5a0e6ece1e7a0e9f3baa0e8eafae3f9e4eafae2eae4e3eaebfaebe3f5e7e9f3e4e3e8eaf9eaf3e2e4e6f2"</span><br>b = re.findall(<span class="hljs-string">r'.&#123;2&#125;'</span>,a)<br>flag = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>    flag += chr(int(i,<span class="hljs-number">16</span>)<span class="hljs-number">-128</span>)<br>print(flag)<br></code></pre></td></tr></table></figure>
+<p>或者使用工具“JPK.jar”解码，操作步骤如下：</p>
+<ol>
+<li>点击“Clear”，清空显示信息，输入十六制字符串</li>
+<li>菜单栏“General-Group Chars”，输入2点击确定（每2个字符一组）</li>
+<li>InRadix输入16，OutRadix输入2，BitsPerBlock输入7（保留后七位），菜单栏“Number-Convert-Number To Binary”</li>
+<li>菜单栏“Binary-Binary To Ascii”</li>
+</ol>
+<p>工具：<a href="http://ascii.911cha.com/" target="_blank" rel="noopener">ASCII编码对照表</a>、<a href="http://www.5ixuexiwang.com/str/from-binary.php" target="_blank" rel="noopener">在线二进制转字符串</a>、<a href="http://www.wechall.net/downloads" target="_blank" rel="noopener">Java Pocket Knife(简称JPK)</a></p>
+<h2 id="10-如来十三掌"><a href="#10-如来十三掌" class="headerlink" title="10.如来十三掌"></a>10.如来十三掌</h2><blockquote>
+<p>题目描述：菜狗为了打败菜猫，学了一套如来十三掌。<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-10/0ed4c2601da54d7e943fde6bd16a0f85.docx" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc15.png" alt></p>
+<p>附件是word文档，没什么特殊的地方，只是文件属性有一条是“链接失效了吗？”，文件内容是一串看似乱码又不像乱码的“佛语”。实在没有思路，只知道可能要用什么工具，上网搜了一下，才知道要用“与佛论禅”来解这串乱码一样的“佛语”。解完是一串像base64编码的字符串“MzkuM3gvMUAwnzuvn3cgozMlMTuvqzAenJchMUAeqzWenzEmLJW9”，这个字符串需要先用rot13（与题目“如来十三掌”谐音）转一下，然后再base64解码，得到flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;bdscjhbkzmnfrdhbvckijndskvbkjdsab&#125;<br></code></pre></td></tr></table></figure>
+<p>这道题完全使用工具来解，连算法名都不知道想解开完全没戏，就当长见识了。<br>工具：<a href="http://www.keyfc.net/bbs/tools/tudoucode.aspx" target="_blank" rel="noopener">与佛论禅</a>、<a href="https://rot13.com/" target="_blank" rel="noopener">rot13</a></p>
+<h2 id="11-base64stego"><a href="#11-base64stego" class="headerlink" title="11.base64stego"></a>11.base64stego</h2><blockquote>
+<p>题目描述：菜狗经过几天的学习，终于发现了如来十三掌最后一步的精髓<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-11/94d97602ef7e41b88a24778eab8a01f8.zip" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc16.png" alt></p>
+<p>附件是有密码的压缩包，输入常见弱密码都不正确，又没有找到关于密码的提示信息，所以怀疑压缩包是伪加密。用“010 Editor”打开压缩包，运行ZIP模板，如下图所示，尝试修改压缩包文件头的加密标志位，把9改为0后保存。</p>
+<p><img src="/images/xctf-misc/misc17.png" alt></p>
+<p>成功解压压缩包，得到一个名为“stego.txt”的文本文件。文件内容是base64编码，逐行解码后发现是一篇英文文章，文章的最后有一个维基百科关于“隐写术”的连接，这个没什么用。题目名称是“base64隐写”，查找资料后编写解码程序如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-comment"># base = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F]</span><br><span class="hljs-comment"># base2 = [base64]</span><br>base = [str(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)] + [ chr(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(ord(<span class="hljs-string">'A'</span>),ord(<span class="hljs-string">'A'</span>)+<span class="hljs-number">6</span>)]<br>base2 = [ chr(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(ord(<span class="hljs-string">'A'</span>),ord(<span class="hljs-string">'Z'</span>)+<span class="hljs-number">1</span>)] + [ chr(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(ord(<span class="hljs-string">'a'</span>),ord(<span class="hljs-string">'z'</span>)+<span class="hljs-number">1</span>)] + [str(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)] + [<span class="hljs-string">'+'</span>, <span class="hljs-string">'/'</span>]<br><span class="hljs-comment"># 十进制 to 二进制</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dec2bin</span><span class="hljs-params">(string_num)</span>:</span><br>	num = int(string_num)<br>	mid = []<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		<span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span>: <span class="hljs-keyword">break</span><br>		num,rem = divmod(num, <span class="hljs-number">2</span>)<br>		mid.append(base[rem])<br>	<span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join([str(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> mid[::<span class="hljs-number">-1</span>]])<br><span class="hljs-comment"># 64进制 to 二进制（6位）</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">base2bin</span><span class="hljs-params">(b)</span>:</span><br>	bin = <span class="hljs-string">''</span><br>	<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> b:<br>		<span class="hljs-keyword">if</span> c == <span class="hljs-string">'='</span>:<br>			bin += <span class="hljs-string">'0'</span>*<span class="hljs-number">6</span><br>		<span class="hljs-keyword">else</span>:<br>			s = dec2bin(base2.index(c))<br>			<span class="hljs-comment"># s = s.rjust(6,'0')# 右侧对其左侧补0</span><br>			s = s.zfill(<span class="hljs-number">6</span>)<br>			bin += s<br>	<span class="hljs-keyword">return</span> bin<br><span class="hljs-comment"># 二进制转字符串</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bin2str</span><span class="hljs-params">(bin)</span>:</span><br>    b = re.findall(<span class="hljs-string">r'.&#123;8&#125;'</span>,bin)<br>    string = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>        string += chr(int(i,<span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">return</span> string<br><span class="hljs-comment"># 读取文本文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readfile_lines</span><span class="hljs-params">(file)</span>:</span><br>    <span class="hljs-keyword">with</span> open(file, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:<br>        file_lines = f.readlines()<br>    <span class="hljs-keyword">return</span> file_lines<br><span class="hljs-comment"># base64隐写解密</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">base64stego_decode</span><span class="hljs-params">(lines)</span>:</span><br>    bin_str = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>        steg_line = line.decode()[<span class="hljs-number">-4</span>:]<span class="hljs-comment"># 只有后四位64进制（4*6）可能有隐写数据，此处可以不截取</span><br>        pads_num = steg_line.count(<span class="hljs-string">"="</span>)<br>        <span class="hljs-keyword">if</span> pads_num &gt; <span class="hljs-number">0</span>:<span class="hljs-comment"># 只有在末尾存在“=”时，才有隐写二进制位</span><br>            <span class="hljs-comment"># norm_line = base64.b64encode(base64.b64decode(steg_line)).decode()# base64解码后再编码，如果与原编码不同说明存在隐写</span><br>            <span class="hljs-comment"># print("steg_line: %s,norm_line: %s,pads_num: %s"%(steg_line,norm_line,pads_num))</span><br>            <span class="hljs-comment"># 4*6 转 3*8 （base64的逆向，由base64原理，每有一个“=”就有2个二进制位在解码时被忽略）</span><br>            c = steg_line[steg_line.index(<span class="hljs-string">"="</span>)<span class="hljs-number">-1</span>]<span class="hljs-comment"># 隐写数据在 从后面数第一个不是“=”的字符里</span><br>            bin_str += base2bin(c)[-pads_num * <span class="hljs-number">2</span>:]<span class="hljs-comment"># 从末尾取隐写数据二进制位，共pads_num * 2位</span><br>    print(bin2str(bin_str))<br><br>base64stego_decode(readfile_lines(<span class="hljs-string">"F:/download/94d97602ef7e41b88a24778eab8a01f8/stego.txt"</span>))<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Base_sixty_four_point_five<br><br>Process returned 0 (0x0)        execution time : 0.109 s<br>请按任意键继续. . .<br></code></pre></td></tr></table></figure>
+<p>所以最后的flag为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;Base_sixty_four_point_five&#125;<br></code></pre></td></tr></table></figure>
+<p>参考链接：<a href="https://blog.csdn.net/pdsu161530247/article/details/73612910" target="_blank" rel="noopener">zip伪加密破解方法</a>、<a href="https://www.cnblogs.com/Elope/p/6725824.html" target="_blank" rel="noopener">BASE64隐写</a></p>
+<h2 id="12-功夫再高也怕菜刀"><a href="#12-功夫再高也怕菜刀" class="headerlink" title="12.功夫再高也怕菜刀"></a>12.功夫再高也怕菜刀</h2><blockquote>
+<p>题目描述：菜狗决定用菜刀和菜鸡决一死战<br>题目附件： <a href="http://dl.wujiaxing.cn/xctf/misc/1-12/19ae303d520c4790b0401569b354e6a2.zip" target="_blank" rel="noopener">附件1</a></p>
+</blockquote>
+<p><img src="/images/xctf-misc/misc18.png" alt></p>
+<p>附件是一个流量包，使用foremost分离出一个有密码的压缩包，压缩包里的文件名为“flag.txt”，所以剩下的就是找解压密码。</p>
+<p><img src="/images/xctf-misc/misc19.png" alt></p>
+<p>用“wireshark”打开流量包，Ctrl+F搜索“flag.txt”，选择“字符串”和“分组字节流”然后点查找，点几下后发现一张名为“6666.jpg”的图片。在图片名那行右键“追踪流-TCP流”，把整个对话保存为文件。</p>
+<p><img src="/images/xctf-misc/misc20.png" alt></p>
+<p>用文本编辑器，编辑导出的文件，查找并删除第一个jpg文件头（FFD8）和最后一个文件尾（FFD9）之外的字符串，剩下的全是十六进制字符串。然后把十六进制保存为图片，我用的“010 Editor”，打开后新建空白文件，复制图片十六进制字符串到粘贴板，点击菜单栏“Edit-Paste From-Paste From Hex Text”，然后保存为图片就行了，保存后的图片如下图。</p>
+<p><img src="/images/xctf-misc/misc21.jpg" alt></p>
+<p>所以解压密码是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Th1s_1s_p4sswd_!!!<br></code></pre></td></tr></table></figure>
+<p>解压后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;3OpWdJ-JP6FzK-koCMAK-VkfWBq-75Un2z&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：foremost（kali系统自带）、<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">wireshark（kali系统自带、下载需要科学上网）</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/09/03/d9da1b98/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-this-is-flag"><span class="toc-text">1.this_is_flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ext3"><span class="toc-text">2.ext3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-give-you-flag"><span class="toc-text">3.give_you_flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-pdf"><span class="toc-text">4.pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-stegano"><span class="toc-text">5.stegano</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-SimpleRAR"><span class="toc-text">6.SimpleRAR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-坚持60s"><span class="toc-text">7.坚持60s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-gif"><span class="toc-text">8.gif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-掀桌子"><span class="toc-text">9.掀桌子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-如来十三掌"><span class="toc-text">10.如来十三掌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-base64stego"><span class="toc-text">11.base64stego</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-功夫再高也怕菜刀"><span class="toc-text">12.功夫再高也怕菜刀</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

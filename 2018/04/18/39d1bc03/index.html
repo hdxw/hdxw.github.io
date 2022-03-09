@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>hadoop-2.7.3安装与配置 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2018/04/18/39d1bc03/" class="shake shake-little" title="hadoop-2.7.3安装与配置">
+            
+            hadoop-2.7.3安装与配置
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/hjdj/">环境搭建</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2018年04月18日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年06月29日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rjaz/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>软件安装</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>安装过程很复杂。</p>
+<a id="more"></a>
+
+<h2 id="一、软件简介"><a href="#一、软件简介" class="headerlink" title="一、软件简介"></a>一、软件简介</h2><p>由于业务数据量的增加导致现有的数据存储和处理方式的力不从心，以及客户数据分析的需求逐渐增加，需要实时搜索大数据（命中数据总量大）进行业务处理，从而转向分布式大数据存储。</p>
+<h2 id="二、安装参数"><a href="#二、安装参数" class="headerlink" title="二、安装参数"></a>二、安装参数</h2><p>1.时间：2017年4月6日<br>2.操作系统：centos7.3 64位（阿里云1核1G内存）<br>3.软件版本：hadoop2.7.3（stable）<br>4.安装方式：TAR<br>5.安装环境：JDK1.8、openssh-server<br>6.配置：单机/伪分布式</p>
+<h2 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h2><h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">wget http:&#x2F;&#x2F;mirror.bit.edu.cn&#x2F;apache&#x2F;hadoop&#x2F;common&#x2F;hadoop-2.7.3&#x2F;hadoop-2.7.3.tar.gz<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-解压"><a href="#2-解压" class="headerlink" title="2.解压"></a>2.解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">tar -zxvf hadoop-2.7.3.tar.gz<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-移动"><a href="#3-移动" class="headerlink" title="3.移动"></a>3.移动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">mv -f hadoop-2.7.3 &#x2F;usr&#x2F;local&#x2F;hadoop<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-创建用户"><a href="#4-创建用户" class="headerlink" title="4.创建用户"></a>4.创建用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">groupadd hadoop<br>useradd hadoop -g hadoop -p lzgkGNFC48hX0pxm<br>cd &#x2F;usr&#x2F;local<br>chown -R hadoop:hadoop hadoop<br>su hadoop<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-配置ssh登录"><a href="#5-配置ssh登录" class="headerlink" title="5.配置ssh登录"></a>5.配置ssh登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd ~&#x2F;.ssh&#x2F;<br>ssh-keygen -t rsa<br>cat .&#x2F;id_rsa.pub &gt;&gt; .&#x2F;authorized_keys<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-检查hadoop是否可用"><a href="#6-检查hadoop是否可用" class="headerlink" title="6.检查hadoop是否可用"></a>6.检查hadoop是否可用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd &#x2F;usr&#x2F;local&#x2F;hadoop<br>.&#x2F;bin&#x2F;hadoop version<br></code></pre></td></tr></table></figure>
+<p>成功则会显示 Hadoop 版本信息</p>
+<h3 id="7-伪分布式配置"><a href="#7-伪分布式配置" class="headerlink" title="7.伪分布式配置"></a>7.伪分布式配置</h3><p>vi ./etc/hadoop/core-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;configuration&gt;<br>&lt;&#x2F;configuration&gt;<br></code></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;configuration&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;hadoop.tmp.dir&lt;&#x2F;name&gt;<br>             &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&lt;&#x2F;value&gt;<br>             &lt;description&gt;Abase for other temporary directories.&lt;&#x2F;description&gt;<br>        &lt;&#x2F;property&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;fs.defaultFS&lt;&#x2F;name&gt;<br>             &lt;value&gt;hdfs:&#x2F;&#x2F;localhost:9000&lt;&#x2F;value&gt;<br>        &lt;&#x2F;property&gt;<br>&lt;&#x2F;configuration&gt;<br></code></pre></td></tr></table></figure>
+<p>vi ./etc/hadoop/hdfs-site.xml<br>同理改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;configuration&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;dfs.replication&lt;&#x2F;name&gt;<br>             &lt;value&gt;1&lt;&#x2F;value&gt;<br>        &lt;&#x2F;property&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;dfs.namenode.name.dir&lt;&#x2F;name&gt;<br>             &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&#x2F;dfs&#x2F;name&lt;&#x2F;value&gt;<br>        &lt;&#x2F;property&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;dfs.datanode.data.dir&lt;&#x2F;name&gt;<br>             &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&#x2F;dfs&#x2F;data&lt;&#x2F;value&gt;<br>        &lt;&#x2F;property&gt;<br>&lt;&#x2F;configuration&gt;<br></code></pre></td></tr></table></figure>
+<p>配置完成后，执行 NameNode 的格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;bin&#x2F;hdfs namenode -format<br></code></pre></td></tr></table></figure>
+<p>添加环境变量<br>vim ~/.bashrc<br>添加到末尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;java<br>export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop<br>export HADOOP_COMMON_LIB_NATIVE_DIR&#x3D;$HADOOP_HOME&#x2F;lib&#x2F;native<br></code></pre></td></tr></table></figure>
+<p>使配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">source ~&#x2F;.bashrc<br></code></pre></td></tr></table></figure>
+<p>接着开启 NameNode 和 DataNode 守护进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd &#x2F;usr&#x2F;local&#x2F;hadoop<br>.&#x2F;sbin&#x2F;start-dfs.sh<br></code></pre></td></tr></table></figure>
+<p>验证是否启动成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">jps<br></code></pre></td></tr></table></figure>
+<p>显示“NameNode”、”DataNode” 和 “SecondaryNameNode”说明启动成功</p>
+<h3 id="8-运行Hadoop伪分布式实例"><a href="#8-运行Hadoop伪分布式实例" class="headerlink" title="8.运行Hadoop伪分布式实例"></a>8.运行Hadoop伪分布式实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;bin&#x2F;hdfs dfs -mkdir -p &#x2F;user&#x2F;hadoop<br>.&#x2F;bin&#x2F;hdfs dfs -mkdir input<br>.&#x2F;bin&#x2F;hdfs dfs -put .&#x2F;etc&#x2F;hadoop&#x2F;*.xml input<br>.&#x2F;bin&#x2F;hdfs dfs -ls input<br>.&#x2F;bin&#x2F;hadoop jar .&#x2F;share&#x2F;hadoop&#x2F;mapreduce&#x2F;hadoop-mapreduce-examples-*.jar grep input output &#39;dfs[a-z.]+&#39;<br>.&#x2F;bin&#x2F;hdfs dfs -cat output&#x2F;*<br>rm -r .&#x2F;output<br>.&#x2F;bin&#x2F;hdfs dfs -get output .&#x2F;output<br>cat .&#x2F;output&#x2F;*<br>.&#x2F;bin&#x2F;hdfs dfs -rm -r output<br></code></pre></td></tr></table></figure>
+<p>关闭和启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;stop-dfs.sh<br>&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;start-dfs.sh<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-启动YARN"><a href="#9-启动YARN" class="headerlink" title="9.启动YARN"></a>9.启动YARN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">mv ./etc/hadoop/mapred-site.xml.template ./etc/hadoop/mapred-site.xml<br>vi ./etc/hadoop/mapred-site.xml<br><span class="hljs-comment"># 改为</span><br>&lt;configuration&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;mapreduce.framework.name&lt;/name&gt;<br>             &lt;value&gt;yarn&lt;/value&gt;<br>        &lt;/property&gt;<br>&lt;/configuration&gt;<br><br>vi  ./etc/hadoop/yarn-site.xml<br><span class="hljs-comment"># 改为</span><br>&lt;configuration&gt;<br>        &lt;property&gt;<br>             &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;<br>             &lt;value&gt;mapreduce_shuffle&lt;/value&gt;<br>            &lt;/property&gt;<br>&lt;/configuration&gt;<br><br><span class="hljs-comment"># 启动</span><br>./sbin/start-yarn.sh<br>./sbin/mr-jobhistory-daemon.sh start historyserver<br><br><span class="hljs-comment"># 关闭</span><br>./sbin/stop-yarn.sh<br>./sbin/mr-jobhistory-daemon.sh stop historyserver<br></code></pre></td></tr></table></figure>
+
+<h3 id="10-配置环境变量"><a href="#10-配置环境变量" class="headerlink" title="10.配置环境变量"></a>10.配置环境变量</h3><p><code>vim ~/.bashrc</code><br>末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;bin<br>source ~&#x2F;.bashrc<br></code></pre></td></tr></table></figure>
+
+<p>免输入密码<br>生成秘钥：如果本地环境有则不需要 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd &#x2F;root&#x2F;.ssh<br>ssh-keygen -t rsa -P &quot;&quot;<br></code></pre></td></tr></table></figure>
+<p>实现本地登录免密码登录，因为搭建的时候，我们做了对其他主机的免密码登录，但是本地ssh连接本地没有<br>所以，将本地的公钥导入私钥就可以 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cat &#x2F;root&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; &#x2F;root&#x2F;.ssh&#x2F;authorized_keys<br></code></pre></td></tr></table></figure>
+
+<h3 id="11-启动命令整理"><a href="#11-启动命令整理" class="headerlink" title="11.启动命令整理"></a>11.启动命令整理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;bin&#x2F;hdfs namenode -format<br>.&#x2F;sbin&#x2F;start-dfs.sh<br>&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;start-dfs.sh<br>.&#x2F;sbin&#x2F;start-yarn.sh<br>.&#x2F;sbin&#x2F;mr-jobhistory-daemon.sh start historyserver<br><br>启动<br>&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;start-all.sh<br></code></pre></td></tr></table></figure>
+
+<h2 id="四、可能遇到的问题"><a href="#四、可能遇到的问题" class="headerlink" title="四、可能遇到的问题"></a>四、可能遇到的问题</h2><ol>
+<li><p>ssh登录无权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">useradd hadoop<br>passwd hadoop<br><span class="hljs-comment"># 重新输入密码</span><br></code></pre></td></tr></table></figure></li>
+<li><p><code>localhost: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).</code><br>参考链接：<a href="https://www.cnblogs.com/xubing-613/p/6844564.html" target="_blank" rel="noopener">https://www.cnblogs.com/xubing-613/p/6844564.html</a></p>
+</li>
+<li><p>datanode没有启动<br>原因：namenode和datanode版本号不一致。<br>解决：方法一.清空数据 方法二.修改版本号</p>
+</li>
+<li><p>SafeModeException<br>错误日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">Exception in thread &quot;main&quot; org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create file&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;output&#x2F;test_parquet_file8.parquet. Name node is in safe mode.<br>Resources are low on NN. Please add or free up more resources then turn off safe mode manually. NOTE:  If you turn off safe mode before adding resources, the NN will immediately return to safe mode. Use &quot;hdfs dfsadmin -safemode leave&quot; to turn safe mode off.<br></code></pre></td></tr></table></figure>
+<p>解决：清空数据，更改配置目录</p>
+</li>
+<li><p>There are 1 datanode(s) running and 1 node(s) are excluded in this operation<br>参考链接：<a href="http://stackoverflow.com/questions/26545524/there-are-0-datanodes-running-and-no-nodes-are-excluded-in-this-operation" target="_blank" rel="noopener">http://stackoverflow.com/questions/26545524/there-are-0-datanodes-running-and-no-nodes-are-excluded-in-this-operation</a><br>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">service firewalld stop<br>chkconfig firewalld off<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="五、参考链接"><a href="#五、参考链接" class="headerlink" title="五、参考链接"></a>五、参考链接</h2><p><a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a><br><a href="https://segmentfault.com/q/1010000002688904" target="_blank" rel="noopener">https://segmentfault.com/q/1010000002688904</a><br><a href="http://www.powerxing.com/install-hadoop/" target="_blank" rel="noopener">http://www.powerxing.com/install-hadoop/</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2018/04/18/39d1bc03/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、软件简介"><span class="toc-text">一、软件简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装参数"><span class="toc-text">二、安装参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、安装步骤"><span class="toc-text">三、安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载"><span class="toc-text">1.下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-解压"><span class="toc-text">2.解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-移动"><span class="toc-text">3.移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建用户"><span class="toc-text">4.创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-配置ssh登录"><span class="toc-text">5.配置ssh登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-检查hadoop是否可用"><span class="toc-text">6.检查hadoop是否可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-伪分布式配置"><span class="toc-text">7.伪分布式配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-运行Hadoop伪分布式实例"><span class="toc-text">8.运行Hadoop伪分布式实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-启动YARN"><span class="toc-text">9.启动YARN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-配置环境变量"><span class="toc-text">10.配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-启动命令整理"><span class="toc-text">11.启动命令整理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、可能遇到的问题"><span class="toc-text">四、可能遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、参考链接"><span class="toc-text">五、参考链接</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

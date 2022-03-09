@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XCTF攻防世界 WEB 新手区 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/11/03/44419a24/" class="shake shake-little" title="XCTF攻防世界 WEB 新手区">
+            
+            XCTF攻防世界 WEB 新手区
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/writeup/">writeup</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年11月03日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>WEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>XCTF</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>太过于基础了，不作详细说明，只描述大概操作步骤</p>
+<a id="more"></a>
+
+<h2 id="1-view-source"><a href="#1-view-source" class="headerlink" title="1.view_source"></a>1.view_source</h2><p>题目提示鼠标右键用不了，使用F12查看网页源码，flag在注释里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;bc0e1d794f712536dd38e62c77143f9a&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-get-post"><a href="#2-get-post" class="headerlink" title="2.get_post"></a>2.get_post</h2><p>打开场景，提示“请用GET方式提交一个名为a,值为1的变量”，浏览器访问“url?a=1”。得到第二条提示信息“请再以POST方式随便提交一个名为b,值为2的变量”，url里需要带着a=1，随便什么方法（火狐插件Hackbar、postman、python脚本等）post一下“b=2”就能得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;86c1a8608a9bf2304572baa85647034f&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-robots"><a href="#3-robots" class="headerlink" title="3.robots"></a>3.robots</h2><p>题目疯狂暗示“robots.txt”，访问“url/robots.txt”，得到“f1ag_1s_h3re.php”，访问“url/f1ag_1s_h3re.php”得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;0b4342b9fe6a7e2e7090cd54eb5a50b1&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-backup"><a href="#4-backup" class="headerlink" title="4.backup"></a>4.backup</h2><p>打开网页提示index.php的备份文件，访问“url/index.php.bak”，下载后用文本编辑器打开得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Cyberpeace&#123;855A1C4B3401294CB6604CCC98BDE334&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-cookie"><a href="#5-cookie" class="headerlink" title="5.cookie"></a>5.cookie</h2><p>打开网页查看cookie，显示“look-here=cookie.php”。访问“url/cookie.php”，显示“See the http response”，flag就在response的header里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;9013f1bd785979c98896b816e84f502e&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="6-disabled-button"><a href="#6-disabled-button" class="headerlink" title="6.disabled_button"></a>6.disabled_button</h2><p>按钮点不了，审查元素把“disabled”删掉，点按钮就出现flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;61a8f4f4a55dd9bff90e15ffe8697626&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="7-simple-js"><a href="#7-simple-js" class="headerlink" title="7.simple_js"></a>7.simple_js</h2><p>查看网页源码，在console中执行“dechiffre()”无论参数是什么返回的结果都是相同的。源码里有两个关键变量，pass变量转字符串，在console中执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">String.fromCharCode(70,65,85,88,32,80,65,83,83,87,79,82,68,32,72,65,72,65);<br></code></pre></td></tr></table></figure>
+<p>返回”FAUX PASSWORD HAHA”，就是那个错误信息。还有一个hex的字符串，在console中输入并回车</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;<br></code></pre></td></tr></table></figure>
+<p>返回”55,56,54,79,115,69,114,116,107,49,50”，转字符串，在console中执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">String.fromCharCode(55,56,54,79,115,69,114,116,107,49,50);<br></code></pre></td></tr></table></figure>
+<p>返回”786OsErtk12”，根据题目的flag格式，最终flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Cyberpeace&#123;786OsErtk12&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="8-xff-referer"><a href="#8-xff-referer" class="headerlink" title="8.xff_referer"></a>8.xff_referer</h2><p>考察请求头，使用python脚本实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>print(requests.get(<span class="hljs-string">"url"</span>,headers=&#123;<br>    <span class="hljs-string">"X-Forwarded-For"</span>:<span class="hljs-string">"123.123.123.123"</span>,<br>    <span class="hljs-string">"Referer"</span>:<span class="hljs-string">"https://www.google.com"</span><br>&#125;).content.decode(<span class="hljs-string">"utf-8"</span>))<br></code></pre></td></tr></table></figure>
+<p>返回flag信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;012effc5d025df0e05f07f28dd31157b&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="9-weak-auth"><a href="#9-weak-auth" class="headerlink" title="9.weak_auth"></a>9.weak_auth</h2><p>题目提示弱密码，输入用户名“admin”，最弱的密码“123456”，点登陆即返回flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;465ac1b162b5f85dc4a3660c1ed35d49&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="10-webshell"><a href="#10-webshell" class="headerlink" title="10.webshell"></a>10.webshell</h2><p>提示index.php是一句话shell，而且页面提示了参数名是“shell”，连上菜刀发现同目录下有“flag.txt”，打开就是flag（通过url访问也可以）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;3bb02e9c4b5a80d028ac76ca09c601c6&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="https://github.com/Chora10/Cknife" target="_blank" rel="noopener">中国菜刀源码</a>、<a href="https://www.ctftools.com/down/" target="_blank" rel="noopener">中国菜刀下载：WEB工具-中国菜刀</a></p>
+<h2 id="11-command-execution"><a href="#11-command-execution" class="headerlink" title="11.command_execution"></a>11.command_execution</h2><p>什么都不输入点击按钮，返回“ping -c 3 ”，使用“;”、“&amp;”、“|”或者“||”分隔可以执行任意命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 显示网站根目录文件，只有index.php</span><br>;ls<br><br><span class="hljs-comment"># 查看网页源码可以得到index.php的源码，直接cat会由于编码问题报错导致没有输出</span><br>;tail -n 22 index.php<br><br><span class="hljs-comment"># 如果想看完整的index.php源码可以base64编码一下，得到结果再解码得到原文</span><br>;cat index.php | base64<br><br><span class="hljs-comment"># 全局搜索带“flag”的文件，返回信息中“/home/flag.txt”比较可疑</span><br>;find / -name <span class="hljs-string">"*flag*"</span><br><br><span class="hljs-comment"># 查看文件内容</span><br>;cat /home/flag.txt<br></code></pre></td></tr></table></figure>
+<p>文件“/home/flag.txt”的内容即为flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;594f82554d5ba0ce09d276b44f99519d&#125;<br></code></pre></td></tr></table></figure>
+
+<p>不同的分隔符意义如下（这里推荐使用“;”分隔，命令执行互不影响）：</p>
+<blockquote>
+<ol>
+<li>;分隔<br>各命令的执行结果，不会影响其它命令的执行。换句话说，各个命令都会执行，但不保证每个命令都执行成功。</li>
+<li>&amp;&amp;分隔<br>若前面的命令执行成功，才会去执行后面的命令。这样可以保证所有的命令执行完毕后，执行过程都是成功的。</li>
+<li>||或|分隔<br>||是或的意思，只有前面的命令执行失败后才去执行下一条命令，直到执行成功一条命令为止。</li>
+</ol>
+</blockquote>
+<h2 id="12-simple-php"><a href="#12-simple-php" class="headerlink" title="12.simple_php"></a>12.simple_php</h2><p>flag被拆成两部分，需要同时绕过参数a和b才能得到完整的flag，利用的是php是弱类型语言。例如“url/?a=a&amp;b=6666a”就能得到flag（答案不唯一）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Cyberpeace&#123;647E37C7627CC3E4019EC69324F66C7C&#125;<br></code></pre></td></tr></table></figure>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/11/03/44419a24/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-view-source"><span class="toc-text">1.view_source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-get-post"><span class="toc-text">2.get_post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-robots"><span class="toc-text">3.robots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-backup"><span class="toc-text">4.backup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-cookie"><span class="toc-text">5.cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-disabled-button"><span class="toc-text">6.disabled_button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-simple-js"><span class="toc-text">7.simple_js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-xff-referer"><span class="toc-text">8.xff_referer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-weak-auth"><span class="toc-text">9.weak_auth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-webshell"><span class="toc-text">10.webshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-command-execution"><span class="toc-text">11.command_execution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-simple-php"><span class="toc-text">12.simple_php</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

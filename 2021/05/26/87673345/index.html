@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>常用demo代码 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2021/05/26/87673345/" class="shake shake-little" title="常用demo代码">
+            
+            常用demo代码
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2021年05月26日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月31日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+
+<h3 id="HTML-JS-CSS"><a href="#HTML-JS-CSS" class="headerlink" title="HTML/JS/CSS"></a>HTML/JS/CSS</h3><figure class="highlight html"><figcaption><span>全网页变灰，IE11浏览器无效</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">!–[if</span> <span class="hljs-attr">IE</span>]&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">            <span class="hljs-selector-tag">html</span> &#123; <span class="hljs-attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="hljs-built_in">BasicImage</span>(grayscale=<span class="hljs-number">1</span>); &#125;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br>        &lt;!–&lt;![endif]–&gt;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">!–[if</span> !<span class="hljs-attr">IE</span>]&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>            html&#123;<br>                filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);<br><span class="css">                <span class="hljs-selector-tag">filter</span>: <span class="hljs-selector-tag">grayscale</span>(100%);<span class="hljs-comment">/* 其实只使用这一条也可以 */</span></span><br>                -webkit-filter: grayscale(100%);<br>                -moz-filter: grayscale(100%);<br>                -ms-filter: grayscale(100%);<br>                -o-filter: grayscale(100%);<br><span class="xml">                filter: url(“data:image/svg+xml;utf8,<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">\”http://www.w3.org/2000/svg\”</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">filter</span> …<span class="hljs-attr">.3333</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0.3333</span> <span class="hljs-attr">0.3333</span> <span class="hljs-attr">0.3333</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0</span> <span class="hljs-attr">0</span> <span class="hljs-attr">1</span> <span class="hljs-attr">0</span>\”/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>#grayscale”);</span><br>                filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);<br>                filter: gray;<br>                -webkit-filter: grayscale(1);<br>            &#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br>        &lt;!–&lt;![endif]–&gt;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: red;"</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><figcaption><span>for循环</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>,len=arr.length; j &lt; len; j++) &#123;<br>   <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><figcaption><span>常用色值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">肉色：      252,218,190     <span class="hljs-selector-id">#FCDABE</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight php"><figcaption><span>文件上传</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">if</span> (!<span class="hljs-keyword">empty</span>($_FILES)):<br>$ext = pathinfo($_FILES[<span class="hljs-string">'file_upload'</span>][<span class="hljs-string">'name'</span>], PATHINFO_EXTENSION);<br><span class="hljs-keyword">if</span> (in_array($ext, [<span class="hljs-string">'php'</span>])) &#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">'Unsupported filetype uploaded.'</span>);<br>&#125;<br><br>move_uploaded_file($_FILES[<span class="hljs-string">'file_upload'</span>][<span class="hljs-string">'tmp_name'</span>], <span class="hljs-string">'./'</span> . $_FILES[<span class="hljs-string">'file_upload'</span>][<span class="hljs-string">'name'</span>]);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;a href='/&#123;$_FILES['file_upload']['name']&#125;'&gt;&#123;$_FILES['file_upload']['name']&#125;&lt;/a&gt;"</span>;<br><br><span class="hljs-keyword">endif</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;form method=<span class="hljs-string">"post"</span> enctype=<span class="hljs-string">"multipart/form-data"</span>&gt;<br>    File: &lt;input type=<span class="hljs-string">"file"</span> name=<span class="hljs-string">"file_upload"</span>&gt;<br>    &lt;input type=<span class="hljs-string">"submit"</span>&gt;<br>&lt;/form&gt;<br></code></pre></td></tr></table></figure>
+
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2021/05/26/87673345/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-JS-CSS"><span class="toc-text">HTML&#x2F;JS&#x2F;CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-text">PHP</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

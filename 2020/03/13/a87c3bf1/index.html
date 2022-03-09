@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>【CTF】基础常识 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2020/03/13/a87c3bf1/" class="shake shake-little" title="【CTF】基础常识">
+            
+            【CTF】基础常识
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/wwzc/">五味杂陈</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2020年03月13日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年06月29日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chs/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cxgx/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>持续更新</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>入门必读，少走弯路，少查百度</p>
+<a id="more"></a>
+<style>
+table th:first-of-type {
+    width: 150px;
+}
+</style>
+
+<h2 id="常见词释义"><a href="#常见词释义" class="headerlink" title="常见词释义"></a>常见词释义</h2><table>
+<thead>
+<tr>
+<th>简称</th>
+<th>全称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CTF</td>
+<td>Capture The Flag</td>
+<td>夺旗赛，从题目信息中获取flag并按照指定格式提交确认</td>
+</tr>
+<tr>
+<td>CTE</td>
+<td>Capture the Ether</td>
+<td>区块链智能合约，一般是漏洞利用</td>
+</tr>
+<tr>
+<td>MISC</td>
+<td>miscellaneous</td>
+<td>杂项，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>RE</td>
+<td>Reverse</td>
+<td>逆向，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>Crypto</td>
+<td>Cryptography</td>
+<td>密码学，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>PWN</td>
+<td>发音类似“砰”，是指攻破设备或者系统</td>
+<td>系统/硬件破解，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>WEB</td>
+<td>website</td>
+<td>网站破解，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>-</td>
+<td>安卓破解，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>区块链</td>
+<td>-</td>
+<td>以太坊智能合约，CTF题目常见题目类型之一</td>
+</tr>
+<tr>
+<td>Steg/Stego</td>
+<td>steganography</td>
+<td>隐写术，隐藏术</td>
+</tr>
+<tr>
+<td>wp</td>
+<td>writeup</td>
+<td>解题思路，题目解题过程的记录</td>
+</tr>
+<tr>
+<td>pl</td>
+<td>playload</td>
+<td>（有效攻击负载）是包含在你用于一次漏洞利用（exploit）中的ShellCode中的主要功能代码</td>
+</tr>
+<tr>
+<td>shellcode</td>
+<td>-</td>
+<td>可提权代码</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>exploit</td>
+<td>漏洞利用，一般是个demo程序</td>
+</tr>
+<tr>
+<td>poc</td>
+<td>proof of concept</td>
+<td>漏洞证明，一般就是个样本</td>
+</tr>
+<tr>
+<td>vul</td>
+<td>vulnerable</td>
+<td>泛指漏洞</td>
+</tr>
+<tr>
+<td>cve</td>
+<td>Common Vulnerabilities &amp; Exposures</td>
+<td>公共漏洞和暴露，漏洞字典，国际上的</td>
+</tr>
+<tr>
+<td>cnvd</td>
+<td>-</td>
+<td>漏洞编号，漏洞字典，中国的</td>
+</tr>
+<tr>
+<td>0day</td>
+<td>Zero-dayexploit</td>
+<td>没打补丁，没公开的安全漏洞</td>
+</tr>
+<tr>
+<td>ak</td>
+<td>all kill</td>
+<td>某一类型题目或者全部题目都被解出</td>
+</tr>
+<tr>
+<td>tql</td>
+<td>taiqiangle</td>
+<td>“太强了”的拼音首字母，常用于复读</td>
+</tr>
+<tr>
+<td>ddddhm</td>
+<td>daidaididihaoma</td>
+<td>“带带弟弟好吗”的拼音首字母，常用于复读</td>
+</tr>
+<tr>
+<td>yyds</td>
+<td>yongyuandishen</td>
+<td>“永远滴神”的拼音首字母，常与大佬昵称连用，可用于复读</td>
+</tr>
+<tr>
+<td>一血</td>
+<td>first blood</td>
+<td>通常指比赛中最先得分/解出某题</td>
+</tr>
+<tr>
+<td>套娃</td>
+<td>-</td>
+<td>题目有很多层，解完一层还有一层，类似俄罗斯套娃</td>
+</tr>
+<tr>
+<td>容器</td>
+<td></td>
+<td>某类或某些题目解题需要创建出的在线环境，由于需要消耗服务器资源，一般有时间、并行数、操作频率等限制</td>
+</tr>
+<tr>
+<td>动态积分</td>
+<td>-</td>
+<td>比赛中用来衡量成绩的得分，解出人数越多该题目的分数值就越低</td>
+</tr>
+<tr>
+<td>非预期</td>
+<td>-</td>
+<td>在出题人预期的解题方法之外的可行解法</td>
+</tr>
+<tr>
+<td>签到题</td>
+<td>-</td>
+<td>一般指比赛中送分的题目，可用于统计实际参赛人数或团队数</td>
+</tr>
+<tr>
+<td>py</td>
+<td>-</td>
+<td>常用工具类编程语言python。有时也指比赛中通过非解题手段，从其他渠道或选手处违规获得flag或解题提示</td>
+</tr>
+<tr>
+<td>出题人</td>
+<td>-</td>
+<td>题目（问题）的制造者，经常因为题目难度或脑洞过大被做题者口头威胁，是大家喜闻乐见的迫害对象</td>
+</tr>
+<tr>
+<td>萌新/萌旧</td>
+<td>-</td>
+<td>一些很厉害的人自谦的称呼</td>
+</tr>
+<tr>
+<td>大佬</td>
+<td>-</td>
+<td>恭维一些厉害的人的称呼</td>
+</tr>
+<tr>
+<td>师傅</td>
+<td>-</td>
+<td>有问题请教一些不认识的人时的称呼，可用“大佬”替换。或前面加姓/id称呼德高望重的前辈</td>
+</tr>
+<tr>
+<td>xxx爷爷</td>
+<td>-</td>
+<td>公认的对某一类型题目精通的大佬的称呼</td>
+</tr>
+<tr>
+<td>菜鸟/菜狗/菜鸡</td>
+<td>-</td>
+<td>新入门或想入门的人的自称，有时也是一些大佬的自嘲</td>
+</tr>
+<tr>
+<td>小白</td>
+<td>-</td>
+<td>从没接触过ctf出于好奇想入门的人</td>
+</tr>
+<tr>
+<td>弟弟</td>
+<td>-</td>
+<td>在想要得到别人帮助时的自称</td>
+</tr>
+<tr>
+<td>妹子/小姐姐</td>
+<td>-</td>
+<td>一类是比赛的客服。另一类是参赛选手，常被团队用来招新或大佬婉拒带人</td>
+</tr>
+<tr>
+<td>菜</td>
+<td>-</td>
+<td>技术差，与“大佬”对应，是水群的常用语</td>
+</tr>
+</tbody></table>
+<h2 id="骚姿势"><a href="#骚姿势" class="headerlink" title="骚姿势"></a>骚姿势</h2><h3 id="不同类型题目getflag技巧"><a href="#不同类型题目getflag技巧" class="headerlink" title="不同类型题目getflag技巧"></a>不同类型题目getflag技巧</h3><h4 id="0-通用技巧"><a href="#0-通用技巧" class="headerlink" title="0. 通用技巧"></a>0. 通用技巧</h4><p>根据上下文盲猜flag</p>
+<blockquote>
+<ol>
+<li>XCTF-2020-高校战疫，签到题flag是‘flag{shijiejiayou}’，另一道叫“武汉加油”的题目的flag是flag{zhong_guo_jia_you}</li>
+<li>校内赛/萌新赛，题目一般备注出题人的昵称，这些昵称有时也会出现在flag中，flag不完整时可以试试手动补全</li>
+<li>非动态容器题目的flag一般是“可读的”，可以尝试 微调/补全 字词</li>
+</ol>
+</blockquote>
+<p>某些高校赛有些缺心眼的新手会在比赛中发布wp，比赛快结束时看一下有没有公开的wp，比如某破解论坛</p>
+<h4 id="1-Reverse-Pwn"><a href="#1-Reverse-Pwn" class="headerlink" title="1. Reverse/Pwn"></a>1. Reverse/Pwn</h4><p>这两类题有时flag以明文存储在附件文件中，直接用文本编辑器打开搜索关键词即可，尤其是做出人数接近签到人数时</p>
+<h4 id="2-misc"><a href="#2-misc" class="headerlink" title="2. misc"></a>2. misc</h4><p>对于题目的附件中文件很多的题目，比如游戏题，一般情况下可以着重分析修改时间最晚的文件</p>
+<p>身体强壮的可以手动解题。例如：游戏类题目手动通关、手动解300层有密码压缩包、人工爆破flag</p>
+<h4 id="3-web"><a href="#3-web" class="headerlink" title="3. web"></a>3. web</h4><p>对于共享环境的题目可以直接利用其它选手上传的脚本或直接读取输出文件中的flag，甚至对于杂项题使用同一个在线工具，可以爬取前人的使用记录。</p>
+<p>web考查知识点是有限的，有的题目有特殊的正则表达式或其他关键词，可以用搜索引擎搜索这些比较有代表性的关键词查找类似题目甚至相同的题目wp。</p>
+<h3 id="混排名，混进复赛-决赛技巧"><a href="#混排名，混进复赛-决赛技巧" class="headerlink" title="混排名，混进复赛/决赛技巧"></a>混排名，混进复赛/决赛技巧</h3><p>写的有点乱，可以每次比赛前看一遍，对号入座，做到心里有数。</p>
+<ol>
+<li><p>奖金贼离谱、进线下队伍有数且线下得奖队伍数占70%以上、为响应国家政策举办<br>放平心态，不要因为题目脑洞或者比赛环境而影响自己的心情。除非队伍实力十分强劲，否则看个热闹就好，这些奖金不是给你准备的。</p>
+</li>
+<li><p>动态积分、比赛时间较短、限制队员人数较少、题目较多<br>这类比赛，往往做出一两道高分题（做出人数少）就能晋级/获奖。参赛人数/队伍数越多越有效（简单题分会降到更低），参赛人数特别多时一般比赛开始前会宣传有多少人（队伍）参赛。</p>
+</li>
+<li><p>题目较少或题目难度较大、相同分数的较多<br>最后一个flag的提交时间对排名影响最大，所以不要屯flag，除非你的分数不在同分较多的范围内。注意紧盯最后调查问卷（签退题）的放出，如果有的话，这很可能是你最后提交的flag</p>
+</li>
+<li><p>flag提交策略<br>屯flag的目的，一是为了可以表演“垂直上分”小装一下，但主要目的是在提升较少排名较为关键时（前几名奖励差别较大、分数徘徊在晋不晋级之间），在比赛快要结束时提交flag打对手一个措手不及。屯flag策略一般在时间较长的比赛中更有效。<br>如果前三没有加成，或者前三血有加成，得到flag时前三血已经没了，而且不是上面第三条的情况，这时flag可以屯着，提交时间不影响最终的分数和排名。<br>最后提醒一点，如果比赛平台不稳定，需要预留出更多时间提交flag，防止出现比赛结束flag没提交完的尴尬。</p>
+</li>
+</ol>
+<h2 id="学习定位"><a href="#学习定位" class="headerlink" title="学习定位"></a>学习定位</h2><ol>
+<li><p>如果想长期从事CTF比赛相关的，要么各个方向全面发展，一个人打全场，要么专门学精一两个方向，加入一些优秀的团队。<br>ctf发展到现在大多数都是团队赛，一个人就算把一个方向的题目全部ak，总分算下来也很难比得上各方向题目平衡的一般队伍。而且很多优秀的选手都加入了一些排名靠前的队伍，这样只会强者越来越强，弱者越来越弱，每次比赛前几名都是那几个，如果队伍名没出现只能说明他们没参加。虽然这有点“不公平”，但这是大势所趋。</p>
+</li>
+<li><p>如果仅是作为业余爱好，选择自己喜欢的方向学习即可</p>
+</li>
+<li><p>如果想通过CTF学习、比赛，将来从事相关工作，就要提前考虑工作的内容，选择合适的方向，侧重实际的学习</p>
+</li>
+<li><p>友情提示：CTF界也是有骗子的，而且经常是比你还小的骗子，受法律保护的那种，所以保护好自己。</p>
+</li>
+</ol>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2020/03/13/a87c3bf1/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见词释义"><span class="toc-text">常见词释义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#骚姿势"><span class="toc-text">骚姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不同类型题目getflag技巧"><span class="toc-text">不同类型题目getflag技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-通用技巧"><span class="toc-text">0. 通用技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Reverse-Pwn"><span class="toc-text">1. Reverse&#x2F;Pwn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-misc"><span class="toc-text">2. misc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-web"><span class="toc-text">3. web</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混排名，混进复赛-决赛技巧"><span class="toc-text">混排名，混进复赛&#x2F;决赛技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习定位"><span class="toc-text">学习定位</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

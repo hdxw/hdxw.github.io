@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XCTF攻防世界 CRYPTO 新手区 | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/11/05/3a00bb2/" class="shake shake-little" title="XCTF攻防世界 CRYPTO 新手区">
+            
+            XCTF攻防世界 CRYPTO 新手区
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/writeup/">writeup</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年11月05日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CRYPTO/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CRYPTO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>XCTF</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>很基础</p>
+<a id="more"></a>
+
+<h3 id="0x001-幂数加密"><a href="#0x001-幂数加密" class="headerlink" title="0x001 幂数加密"></a>0x001 幂数加密</h3><p>观察密文发现只有数字“01248”，上网搜索后发现这是“云影密码”。</p>
+<blockquote>
+<p>01248 密码：该密码又称为云影密码，使用 01248 四个数字，其中 0 用来表示间隔，其他数字以加法可以表示出 如：28=10，124=7，18=9，再用 1-&gt;26 表示 A-&gt;Z。</p>
+</blockquote>
+<p>按照规则解密出“WELLDONE”，根据题目提示的flag格式，最后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;WELLDONE&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x002-base64"><a href="#0x002-base64" class="headerlink" title="0x002 base64"></a>0x002 base64</h3><p>直接base64解码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;Welcome_to_new_World!&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/base64.htm" target="_blank" rel="noopener">在线base64解码</a></p>
+<h3 id="0x003-Caesar"><a href="#0x003-Caesar" class="headerlink" title="0x003 Caesar"></a>0x003 Caesar</h3><p>由题目名得到提示使用“凯撒解密”，根据flag格式第一位应该是“c”，凯撒位移12位解密得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;you_have_learned_caesar_encryption&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/kaisamima.php" target="_blank" rel="noopener">凯撒加密解密</a></p>
+<h3 id="0x004-Morse"><a href="#0x004-Morse" class="headerlink" title="0x004 Morse"></a>0x004 Morse</h3><p>由题目名得到提示使用“摩尔斯电码解密”，把“0”替换为“.”，把“1”替换为“-”，解码得到“morsecodeissointeresting”，根据flag格式最后提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;morsecodeissointeresting&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx" target="_blank" rel="noopener">摩尔斯电码转换</a></p>
+<h3 id="0x005-Railfence"><a href="#0x005-Railfence" class="headerlink" title="0x005 Railfence"></a>0x005 Railfence</h3><p>题目名字“栅栏密码”，题目描述“5只小鸡”提示每组5字，试了普通的栅栏解密发现答案并不对。解密后的明文应该是以“cyber”开头，但这几个字母在密文中不是“均匀”分布的，考虑使用栅栏密码的变种解密，得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;railfence_cipher_gogogo&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/zhalanmima.php" target="_blank" rel="noopener">栅栏密码</a>、<a href="http://rumkin.com/tools/cipher/railfence.php" target="_blank" rel="noopener">栅栏密码变种</a></p>
+<h3 id="0x006-转轮机加密"><a href="#0x006-转轮机加密" class="headerlink" title="0x006 转轮机加密"></a>0x006 转轮机加密</h3><p>提示“转轮机加密”、“托马斯·杰斐逊”，上网查到解密规则，写脚本解决</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br>sss=<span class="hljs-string">'1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;'</span><br>m=<span class="hljs-string">"NFQKSEVOQOFNP"</span><br>content=re.findall(<span class="hljs-string">r'&lt; (.*?) &lt;'</span>,sss)<br>iv=[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">13</span>,<span class="hljs-number">12</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">4</span>,<span class="hljs-number">11</span>,<span class="hljs-number">6</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">26</span>):<br>   flag=<span class="hljs-string">""</span><br>   <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">13</span>):<br>       table = content[iv[j]<span class="hljs-number">-1</span>]<span class="hljs-comment"># 第j个字母对应字母表</span><br>       flag+=table[(table.index(m[j])+i)%<span class="hljs-number">26</span>]<span class="hljs-comment"># 在字母表中偏移i得到新的字母</span><br>   print(flag.lower())<br></code></pre></td></tr></table></figure>
+<p>从输出中找得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">fireinthehole<br></code></pre></td></tr></table></figure>
+
+<p>参考链接：<a href="http://www.d4rksec.org/Crypto/Jefferson-disk/" target="_blank" rel="noopener">杰斐逊盘</a></p>
+<h3 id="0x007-easy-RSA"><a href="#0x007-easy-RSA" class="headerlink" title="0x007 easy_RSA"></a>0x007 easy_RSA</h3><p>p=473398607161，q=4511491，e=17。题目所给参数都是十进制，可以用“RSATool2”计算d。“Number Base”切换到10进制，填写e、p、q，注意参数e恒为16进制，所以需要把“17”转为16进制的“11”填到e的位置，然后点击“Calc D”就能得到d的值“125631357777427553”。或者可以使用python的gmpy2库计算得到d的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># gmpy2:https://www.lfd.uci.edu/~gohlke/pythonlibs/</span><br><span class="hljs-keyword">import</span> gmpy2<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_d</span><span class="hljs-params">(p,q,e)</span>:</span><br>    phi=(p<span class="hljs-number">-1</span>)*(q<span class="hljs-number">-1</span>)<br>    <span class="hljs-keyword">return</span> gmpy2.invert(e,phi)<br><br>p=<span class="hljs-number">473398607161</span><br>q=<span class="hljs-number">4511491</span><br>e=<span class="hljs-number">17</span><br>print(calc_d(p,q,e))<br></code></pre></td></tr></table></figure>
+<p>最后提交flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;125631357777427553&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x008-Normal-RSA"><a href="#0x008-Normal-RSA" class="headerlink" title="0x008 Normal_RSA"></a>0x008 Normal_RSA</h3><p>正常的逻辑是从pubkey.pem获取n和e，再从n分解出p和q（当n比较小时），然后计算生成私钥private.pem，最后通过私钥解密flag.enc得到flag。先使用openssl从公钥中得到n和e</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">openssl rsa -pubin -text -modulus -<span class="hljs-keyword">in</span> waimup -<span class="hljs-keyword">in</span> pubkey.pem<br><br><span class="hljs-comment"># 输出信息</span><br><span class="hljs-comment"># Exponent: 65537 (0x10001)</span><br><span class="hljs-comment"># Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</span><br></code></pre></td></tr></table></figure>
+<p>其中e=65537,n=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD(为计算方便需要转为10进制)。分解因数n，可以使用factordb在线查询，还可以使用yafu、SageMath、msieve、RSATool2v17（比较弱）等工具本地破解，得到p和q的值。生成私钥可以用rsatool(python2)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python rsatool.py -o private.pem -e 65537 -p 319576316814478949870590164193048041239 -q 275127860351348928173285174381581152299<br></code></pre></td></tr></table></figure>
+<p>得到私钥文件“private.pem”，再通过openssl命令解密就可以得到flag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">openssl rsautl -decrypt -<span class="hljs-keyword">in</span> flag.enc -inkey private.pem<br></code></pre></td></tr></table></figure>
+<p>或者使用CTF-RSA-tool(python2)一键获取flag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python solve.py --verbose -k pubkey.pem --decrypt flag.enc<br></code></pre></td></tr></table></figure>
+<p>从输出中找到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">PCTF&#123;256b_i5_m3dium&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://sourceforge.net/projects/yafu/" target="_blank" rel="noopener">yafu</a>、<a href="http://factordb.com/" target="_blank" rel="noopener">在线大数分解</a>、<a href="https://github.com/ius/rsatool" target="_blank" rel="noopener">rsatool</a>、<a href="https://github.com/3summer/CTF-RSA-tool" target="_blank" rel="noopener">CTF-RSA-tool</a></p>
+<h3 id="0x009-不仅仅是Morse"><a href="#0x009-不仅仅是Morse" class="headerlink" title="0x009 不仅仅是Morse"></a>0x009 不仅仅是Morse</h3><p>摩尔斯解密后得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">may_be_have_another_decodehhhhaaaaabaabbbaabbaaaaaaaabaababaaaaaaabbabaaabbaaabbaabaaaababaabaaabbabaaabaaabaababbaabbbabaaabababbaaabbabaaabaabaabaaaabbabbaabbaabaabaaabaabaabaababaabbabaaaabbabaabba<br></code></pre></td></tr></table></figure>
+<p>后面是ab的组合编码，使用培根密码解密得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">ATTACKANDDEFENCEWORLDISINTERESTING<br>attackanddefenceworldisinteresting<br></code></pre></td></tr></table></figure>
+<p>按照题目提示的flag格式，最后flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;attackanddefenceworldisinteresting&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://netair.xyz/tools/%E5%9F%B9%E6%A0%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86.html" target="_blank" rel="noopener">培根密码加密解密</a></p>
+<h3 id="0x010-混合编码"><a href="#0x010-混合编码" class="headerlink" title="0x010 混合编码"></a>0x010 混合编码</h3><p>base64解码，Unicode转ASCII，再base64解码得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x2F;119&#x2F;101&#x2F;108&#x2F;99&#x2F;111&#x2F;109&#x2F;101&#x2F;116&#x2F;111&#x2F;97&#x2F;116&#x2F;116&#x2F;97&#x2F;99&#x2F;107&#x2F;97&#x2F;110&#x2F;100&#x2F;100&#x2F;101&#x2F;102&#x2F;101&#x2F;110&#x2F;99&#x2F;101&#x2F;119&#x2F;111&#x2F;114&#x2F;108&#x2F;100<br></code></pre></td></tr></table></figure>
+<p>数字转ascii码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">res = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">"119/101/108/99/111/109/101/116/111/97/116/116/97/99/107/97/110/100/100/101/102/101/110/99/101/119/111/114/108/100"</span>.split(<span class="hljs-string">"/"</span>):<br>    res += chr(int(c))<br>print(res)<br></code></pre></td></tr></table></figure>
+<p>输出的结果加上题目提示的答案格式，最后flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;welcometoattackanddefenceworld&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/base64.htm" target="_blank" rel="noopener">base64编码解码</a>、<a href="http://tool.chinaz.com/tools/unicode.aspx" target="_blank" rel="noopener">Unicode转ASCII</a></p>
+<h3 id="0x011-easychallenge"><a href="#0x011-easychallenge" class="headerlink" title="0x011 easychallenge"></a>0x011 easychallenge</h3><p>使用python的“uncompyle6”库反汇编得到源码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># pip install uncompyle</span><br>uncompyle6 f1d42c84a3d84501a105eff4bb2994e3.pyc &gt; f1d42c84a3d84501a105eff4bb2994e3.py<br></code></pre></td></tr></table></figure>
+<p>代码中有flag经过3层加密后的密文，稍微改动代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># python2</span><br><span class="hljs-keyword">import</span> base64<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode1</span><span class="hljs-params">(ans)</span>:</span><br>    s = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ans:<br>        s += chr((ord(i)<span class="hljs-number">-25</span>) ^ <span class="hljs-number">36</span>)<br>    <span class="hljs-keyword">return</span> s<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode2</span><span class="hljs-params">(ans)</span>:</span><br>    s = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ans:<br>        s += chr((ord(i) ^ <span class="hljs-number">36</span>)<span class="hljs-number">-36</span>)<br>    <span class="hljs-keyword">return</span> s<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode3</span><span class="hljs-params">(ans)</span>:</span><br>    <span class="hljs-keyword">return</span> base64.b32decode(ans)<br><br>final = <span class="hljs-string">'UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E==='</span><br>flag = encode1(encode2(encode3(final)))<br><span class="hljs-keyword">print</span> flag<br></code></pre></td></tr></table></figure>
+<p>运行后即可得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;interestinghhhhh&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="0x012-easy-ECC"><a href="#0x012-easy-ECC" class="headerlink" title="0x012 easy_ECC"></a>0x012 easy_ECC</h3><p>可以使用下面wp中脚本解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> collections<br><span class="hljs-keyword">import</span> random<br><br>EllipticCurve = collections.namedtuple(<span class="hljs-string">'EllipticCurve'</span>, <span class="hljs-string">'name p a b g n h'</span>)<br><br>curve = EllipticCurve(<br>   <span class="hljs-string">'secp256k1'</span>,<br>   <span class="hljs-comment"># Field characteristic.</span><br>   p=int(input(<span class="hljs-string">'p='</span>)),<br>   <span class="hljs-comment"># Curve coefficients.</span><br>   a=int(input(<span class="hljs-string">'a='</span>)),<br>   b=int(input(<span class="hljs-string">'b='</span>)),<br>   <span class="hljs-comment"># Base point.</span><br>   g=(int(input(<span class="hljs-string">'Gx='</span>)),<br>      int(input(<span class="hljs-string">'Gy='</span>))),<br>   <span class="hljs-comment"># Subgroup order.</span><br>   n=int(input(<span class="hljs-string">'k='</span>)),<br>   <span class="hljs-comment"># Subgroup cofactor.</span><br>   h=<span class="hljs-number">1</span>,<br>)<br><br><span class="hljs-comment"># Modular arithmetic ##########################################################</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_mod</span><span class="hljs-params">(k, p)</span>:</span><br>   <span class="hljs-string">"""Returns the inverse of k modulo p.</span><br><span class="hljs-string">  This function returns the only integer x such that (x * k) % p == 1.</span><br><span class="hljs-string">  k must be non-zero and p must be a prime.</span><br><span class="hljs-string">  """</span><br>   <span class="hljs-keyword">if</span> k == <span class="hljs-number">0</span>:<br>       <span class="hljs-keyword">raise</span> ZeroDivisionError(<span class="hljs-string">'division by zero'</span>)<br><br>   <span class="hljs-keyword">if</span> k &lt; <span class="hljs-number">0</span>:<br>       <span class="hljs-comment"># k ** -1 = p - (-k) ** -1 (mod p)</span><br>       <span class="hljs-keyword">return</span> p - inverse_mod(-k, p)<br><br>   <span class="hljs-comment"># Extended Euclidean algorithm.</span><br>   s, old_s = <span class="hljs-number">0</span>, <span class="hljs-number">1</span><br>   t, old_t = <span class="hljs-number">1</span>, <span class="hljs-number">0</span><br>   r, old_r = p, k<br><br>   <span class="hljs-keyword">while</span> r != <span class="hljs-number">0</span>:<br>       quotient = old_r // r<br>       old_r, r = r, old_r - quotient * r<br>       old_s, s = s, old_s - quotient * s<br>       old_t, t = t, old_t - quotient * t<br><br>   gcd, x, y = old_r, old_s, old_t<br><br>   <span class="hljs-keyword">assert</span> gcd == <span class="hljs-number">1</span><br>   <span class="hljs-keyword">assert</span> (k * x) % p == <span class="hljs-number">1</span><br><br>   <span class="hljs-keyword">return</span> x % p<br><br><span class="hljs-comment"># Functions that work on curve points #########################################</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_on_curve</span><span class="hljs-params">(point)</span>:</span><br>   <span class="hljs-string">"""Returns True if the given point lies on the elliptic curve."""</span><br>   <span class="hljs-keyword">if</span> point <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>       <span class="hljs-comment"># None represents the point at infinity.</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>   x, y = point<br><br>   <span class="hljs-keyword">return</span> (y * y - x * x * x - curve.a * x - curve.b) % curve.p == <span class="hljs-number">0</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point_neg</span><span class="hljs-params">(point)</span>:</span><br>   <span class="hljs-string">"""Returns -point."""</span><br>   <span class="hljs-keyword">assert</span> is_on_curve(point)<br><br>   <span class="hljs-keyword">if</span> point <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>       <span class="hljs-comment"># -0 = 0</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br>   x, y = point<br>   result = (x, -y % curve.p)<br><br>   <span class="hljs-keyword">assert</span> is_on_curve(result)<br><br>   <span class="hljs-keyword">return</span> result<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point_add</span><span class="hljs-params">(point1, point2)</span>:</span><br>   <span class="hljs-string">"""Returns the result of point1 + point2 according to the group law."""</span><br>   <span class="hljs-keyword">assert</span> is_on_curve(point1)<br>   <span class="hljs-keyword">assert</span> is_on_curve(point2)<br><br>   <span class="hljs-keyword">if</span> point1 <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>       <span class="hljs-comment"># 0 + point2 = point2</span><br>       <span class="hljs-keyword">return</span> point2<br>   <span class="hljs-keyword">if</span> point2 <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>       <span class="hljs-comment"># point1 + 0 = point1</span><br>       <span class="hljs-keyword">return</span> point1<br><br>   x1, y1 = point1<br>   x2, y2 = point2<br><br>   <span class="hljs-keyword">if</span> x1 == x2 <span class="hljs-keyword">and</span> y1 != y2:<br>       <span class="hljs-comment"># point1 + (-point1) = 0</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br>   <span class="hljs-keyword">if</span> x1 == x2:<br>       <span class="hljs-comment"># This is the case point1 == point2.</span><br>       m = (<span class="hljs-number">3</span> * x1 * x1 + curve.a) * inverse_mod(<span class="hljs-number">2</span> * y1, curve.p)<br>   <span class="hljs-keyword">else</span>:<br>       <span class="hljs-comment"># This is the case point1 != point2.</span><br>       m = (y1 - y2) * inverse_mod(x1 - x2, curve.p)<br><br>   x3 = m * m - x1 - x2<br>   y3 = y1 + m * (x3 - x1)<br>   result = (x3 % curve.p,<br>             -y3 % curve.p)<br><br>   <span class="hljs-keyword">assert</span> is_on_curve(result)<br><br>   <span class="hljs-keyword">return</span> result<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">scalar_mult</span><span class="hljs-params">(k, point)</span>:</span><br>   <span class="hljs-string">"""Returns k * point computed using the double and point_add algorithm."""</span><br>   <span class="hljs-keyword">assert</span> is_on_curve(point)<br><br>   <span class="hljs-keyword">if</span> k &lt; <span class="hljs-number">0</span>:<br>       <span class="hljs-comment"># k * point = -k * (-point)</span><br>       <span class="hljs-keyword">return</span> scalar_mult(-k, point_neg(point))<br><br>   result = <span class="hljs-literal">None</span><br>   addend = point<br><br>   <span class="hljs-keyword">while</span> k:<br>       <span class="hljs-keyword">if</span> k &amp; <span class="hljs-number">1</span>:<br>           <span class="hljs-comment"># Add.</span><br>           result = point_add(result, addend)<br><br>       <span class="hljs-comment"># Double.</span><br>       addend = point_add(addend, addend)<br><br>       k &gt;&gt;= <span class="hljs-number">1</span><br><br>   <span class="hljs-keyword">assert</span> is_on_curve(result)<br><br>   <span class="hljs-keyword">return</span> result<br><br><span class="hljs-comment"># Keypair generation and ECDHE ################################################</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_keypair</span><span class="hljs-params">()</span>:</span><br>   <span class="hljs-string">"""Generates a random private-public key pair."""</span><br>   private_key = curve.n<br>   public_key = scalar_mult(private_key, curve.g)<br><br>   <span class="hljs-keyword">return</span> private_key, public_key<br><br>private_key, public_key = make_keypair()<br>print(<span class="hljs-string">"private key:"</span>, hex(private_key))<br>print(<span class="hljs-string">"public key: (0x&#123;:x&#125;, 0x&#123;:x&#125;)"</span>.format(*public_key))<br><span class="hljs-comment"># 输入参数后输出结果（public key需要把xy转为10进制然后相加得到flag）</span><br><span class="hljs-comment"># private key: 0x857d0</span><br><span class="hljs-comment"># public key: (0xcb19fe553fa, 0x50545408eb4)</span><br></code></pre></td></tr></table></figure>
+<p>还可以使用SageMath直接计算得到结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">E=EllipticCurve(GF(15424654874903),[16546484,4548674875])<br>G=E(6478678675,5636379357093)<br>k=546768<br>K=k*G<br><span class="hljs-built_in">print</span> K<br><br><span class="hljs-comment"># 输出：(13957031351290 : 5520194834100 : 1)</span><br></code></pre></td></tr></table></figure>
+<p>根据题目提示flag格式最后提交flag为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">cyberpeace&#123;19477226185390&#125;<br></code></pre></td></tr></table></figure>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/11/05/3a00bb2/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x001-幂数加密"><span class="toc-text">0x001 幂数加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x002-base64"><span class="toc-text">0x002 base64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x003-Caesar"><span class="toc-text">0x003 Caesar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x004-Morse"><span class="toc-text">0x004 Morse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x005-Railfence"><span class="toc-text">0x005 Railfence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x006-转轮机加密"><span class="toc-text">0x006 转轮机加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x007-easy-RSA"><span class="toc-text">0x007 easy_RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x008-Normal-RSA"><span class="toc-text">0x008 Normal_RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x009-不仅仅是Morse"><span class="toc-text">0x009 不仅仅是Morse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x010-混合编码"><span class="toc-text">0x010 混合编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x011-easychallenge"><span class="toc-text">0x011 easychallenge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x012-easy-ECC"><span class="toc-text">0x012 easy_ECC</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>

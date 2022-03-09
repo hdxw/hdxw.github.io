@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XCTF攻防世界 MISC 高手区（一） | 吴家兴的博客</title>
+    
+    
+        <meta property="og:site_name" content="吴家兴的博客">
+    
+    
+        <meta property="article:author" content="WuJiaxing">
+    
+    
+        <link rel="icon" href="/img/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/minireset.min.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/css/csshake.min.css">
+
+    
+<link rel="stylesheet" href="/css/hljs/lioshi.css">
+
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    
+<link rel="stylesheet" href="/styl/main.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/jquery.fancybox.min.js"></script>
+
+    
+<script src="/js/clipboard.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <header>
+  <div class="outer">
+    <div class="inner">
+      <h1 class="logo-wrap">
+        <a>吴家兴的博客<b><sup>1.2</sup></b></a>
+      </h1>
+    </div>
+    <div class="inner">
+      <nav class="main-nav">
+        
+          
+            <a href="/">首页</a>
+          
+        
+          
+            <a href="/archives">归档</a>
+          
+        
+          
+            <a href="/categories">分类</a>
+          
+        
+          
+            <a href="/tags">标签</a>
+          
+        
+          
+            <a href="/friends">友链</a>
+          
+        
+          
+            <a href="/about">关于</a>
+          
+        
+          
+            <div class="dropdown">
+              <a class="dropbtn">个人项目</a>
+              <div class="dropdown-content">
+                
+                  <a href="http://prowiki.wujiaxing.cn/" target="_blank" rel="noopener">Hexo主题</a>
+                
+                  <a href="https://readflag.cn/" target="_blank" rel="noopener">CTF在线工具</a>
+                
+                  <a href="https://search.readflag.cn/" target="_blank" rel="noopener">CTF题目搜索</a>
+                
+              </div>
+            </div>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <section class="outer">
+    <article>
+        <div class="article-title">
+    <h2>
+        <a href="/2019/09/10/d4b64846/" class="shake shake-little" title="XCTF攻防世界 MISC 高手区（一）">
+            
+            XCTF攻防世界 MISC 高手区（一）
+        </a>
+    </h2>
+    <div class="meta_box">
+    
+        
+        
+            
+                
+        
+        <div class="meta meta_auth">
+            <img src="/img/default.png" alt="head" />
+            <p>anonymous</p>
+        </div>
+    
+        
+            <div class="meta meta_cate">
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+                <p><a class="article-category-link" href="/categories/writeup/">writeup</a></p>
+            </div>
+        
+        
+        <div class="meta meta_date">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            <p>发布于：2019年09月10日</p>
+        </div>
+    
+        <div class="meta meta_update">
+            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+            <p>更新于：2021年05月25日</p>
+        </div>
+    </div>
+    
+  <div class="post_tags">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCTF/" rel="tag"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>XCTF</a></li></ul>
+  </div>
+
+
+</div>
+
+        <hr>
+        <div class="article-entry">
+            
+            
+            
+            <p>题太多，一个一个详细写太浪费时间了，这里只记录大概的步骤，可以通过题目名搜索题目。</p>
+<a id="more"></a>
+
+<h3 id="0x001-easycap"><a href="#0x001-easycap" class="headerlink" title="0x001 easycap"></a>0x001 easycap</h3><p>没有任何套路，用wireshark打开后任选一条，追踪TCP流，得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">FLAG:385b87afc8671dee07550290d16a8071<br></code></pre></td></tr></table></figure>
+<p>注意：答案就是追踪TCP流后得到的格式，不是flag{.+}</p>
+<h3 id="0x002-Avatar"><a href="#0x002-Avatar" class="headerlink" title="0x002 Avatar"></a>0x002 Avatar</h3><p>Stegsolve看一片小点，应该是用工具进行了色值的隐写，outguess解出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">We should blow up the bridge at midnight<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x003-What-is-this"><a href="#0x003-What-is-this" class="headerlink" title="0x003 What-is-this"></a>0x003 What-is-this</h3><p>解压后是一个没有扩展名的文件，kali系统下发现还是一个压缩包，解压后得到两张图片，用Stegsolve合并两张图出现flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">AZADI TOWER<br></code></pre></td></tr></table></figure>
+<h3 id="0x004-签到题"><a href="#0x004-签到题" class="headerlink" title="0x004 签到题"></a>0x004 签到题</h3><p>先base64解码，然后凯撒位移14解密，最后栅栏每组7字解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ssctf&#123;ssCtf_seC10ver#@rabit&#125;<br></code></pre></td></tr></table></figure>
+<p>工具：<a href="https://www.qqxiuzi.cn/bianma/kaisamima.php" target="_blank" rel="noopener">在线凯撒</a>、<a href="https://www.qqxiuzi.cn/bianma/zhalanmima.php" target="_blank" rel="noopener">在线栅栏</a></p>
+<h3 id="0x005-Excaliflag"><a href="#0x005-Excaliflag" class="headerlink" title="0x005 Excaliflag"></a>0x005 Excaliflag</h3><p>Stegsolve，Gray bits通道</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">3DS&#123;Gr4b_Only_th1s_B1ts&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x006-Get-the-key-txt"><a href="#0x006-Get-the-key-txt" class="headerlink" title="0x006 Get-the-key.txt"></a>0x006 Get-the-key.txt</h3><p>解压，挂载，由题目名，搜“key.txt”,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">grep -r &quot;key.txt&quot;<br></code></pre></td></tr></table></figure>
+<p>输出1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">gunzip &lt; 1<br></code></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SECCON&#123;@]NL7n+-s75FrET]vU&#x3D;7Z&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x007-glance-50"><a href="#0x007-glance-50" class="headerlink" title="0x007 glance-50"></a>0x007 glance-50</h3><p>一张2x600的gif图，从动图可以看出是一张图的一部分在向一个方向移动，IrfanView提取所有帧然后创建全景图像（图片太多分两次创建再合并，这种方法结果图片中没有间隙）。或者在kali系统中使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 分离动图帧，分离出201张图片<br>convert 33e3d14fb67a44f4ad1378149fff1d9a.gif flag.png<br><br># 合并图片，方法一<br>convert flag-*.png +append flag.png<br>参数说明：<br>+append表示横向拼接图片<br>-append表示纵向拼接图片<br><br># 合并图片，方法二<br>montage flag*.png -tile x1 -geometry +0+0 flag.png<br>参数说明：<br>-tile是拼接时每行和每列的图片数，这里用x1，就是只一行。a行b列，-tile bxa<br>-geometry是首选每个图和边框尺寸，我们边框为0，图照原始尺寸即可<br></code></pre></td></tr></table></figure>
+<p>最后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">TWCTF&#123;Bliss by Charles O&#39;Rear&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x008-4-2"><a href="#0x008-4-2" class="headerlink" title="0x008 4-2"></a>0x008 4-2</h3><p>文本文件，内容像是一句话，但是字母被替换了，通过词频分析，逐渐替换字母得到原文内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">Eg qnlyjtcnzydl z umaujejmjetg qeydsn eu z bsjdtx tw sgqtxegc al kdeqd mgeju tw yrzegjsoj zns nsyrzqsx kejd qeydsnjsoj<br>Ew ltm fgtk jds kzl tw sgqtxegc m kerr csj jds wrzc kdeqd eu qrzuueqzr-qeydsn_eu_gtj_usqmnejl_du<br><br>In cryptography a substitution cipher is a method of encoding by which units of plaintext are replaced with ciphertext<br>If you know the way of encoding u will get the flag which is classical-cipher_is_not_security_hs<br></code></pre></td></tr></table></figure>
+<p>所以flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;classical-cipher_is_not_security_hs&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://quipqiup.com/" target="_blank" rel="noopener">词频分析</a></p>
+<h3 id="0x009-misc1"><a href="#0x009-misc1" class="headerlink" title="0x009 misc1"></a>0x009 misc1</h3><p>16进制去掉二进制最高位转字符串，原理同新手区题目“掀桌子”，直接解出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">That was fast! The flag is: DDCTF&#123;9af3c9d377b61d269b11337f330c935f&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x010-embarrass"><a href="#0x010-embarrass" class="headerlink" title="0x010 embarrass"></a>0x010 embarrass</h3><p>直接搜到flag，确实像题目一样“尴尬”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;Good_b0y_W3ll_Done&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x011-肥宅快乐题"><a href="#0x011-肥宅快乐题" class="headerlink" title="0x011 肥宅快乐题"></a>0x011 肥宅快乐题</h3><p>flash游戏，potplayer打开，答案在57帧“U1lDe0YzaVpoYWlfa3U0aWxlX1QxMTF9”(字母容易看错要注意),base64解码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SYC&#123;F3iZhai_ku4ile_T111&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x012-Cephalopod"><a href="#0x012-Cephalopod" class="headerlink" title="0x012 Cephalopod"></a>0x012 Cephalopod</h3><p>搜索“flag”发现“flag.png”，追踪tcp流，在<strong>流2</strong>处发现PNG，导出<strong>原始数据</strong>，删掉png头“89504E47”以前的数据，保存为png得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">HITB&#123;95700d8aefdc1648b90a92f3a8460a2c&#125;<br></code></pre></td></tr></table></figure>
+<p>也可以：tcpxtract -f 66b7f39d97364ca5a2f928a4e61b46ee.pcap<br>直接出图片</p>
+<h3 id="0x013-hit-the-core"><a href="#0x013-hit-the-core" class="headerlink" title="0x013 hit-the-core"></a>0x013 hit-the-core</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">strings e67ad877258d4454af464202b9ee46c4.core<br>发现可疑字符串“cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;”<br></code></pre></td></tr></table></figure>
+<p>“{”前面所有的大写字母组合在一起是“ALEXCTF”且字母间等距，每5个字符分割一次，取每组的第四个字符，得到flag(也可以栅栏加密后在结果中找到)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ALEXCTF&#123;K33P_7H3_g00D_w0rk_up&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x014-pure-color"><a href="#0x014-pure-color" class="headerlink" title="0x014 pure_color"></a>0x014 pure_color</h3><p>Stegsolve打开，blue plane 0直接出flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;true_steganographers_doesnt_need_any_tools&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x015-2-1"><a href="#0x015-2-1" class="headerlink" title="0x015 2-1"></a>0x015 2-1</h3><p>附件是png图片，但是不显示图像，010Editor打开，发现文件头不对，改为“89504E47”，然后还是没有图像，010Editor加载png模板，发现报错信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">*ERROR: CRC Mismatch @ chunk[0]; in data: 932f8a6b; expected: 55d5f64f<br></code></pre></td></tr></table></figure>
+
+<p>查看图片大小，宽竟然是0，用crc“932f8a6b”爆破宽度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> binascii<br><span class="hljs-keyword">import</span> struct<br><br><span class="hljs-comment">#\x49\x48\x44\x52\ x00\x00\x00\x00（宽） \x00\x00\x02\xF8（高） \x08\x06\x00\x00\x00</span><br>crc32key = <span class="hljs-number">0x932F8A6B</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">65535</span>):<br>    <span class="hljs-comment"># for j in range(0, 65535):</span><br>    width = struct.pack(<span class="hljs-string">'&gt;i'</span>, i)<br>    <span class="hljs-comment"># height = struct.pack('&gt;i', j)</span><br>    height = struct.pack(<span class="hljs-string">'&gt;i'</span>, <span class="hljs-number">760</span>)<br>    <br>    data = bytes(<span class="hljs-string">'\x49\x48\x44\x52'</span>,<span class="hljs-string">'utf-8'</span>) + width + height + bytes(<span class="hljs-string">'\x08\x06\x00\x00\x00'</span>,<span class="hljs-string">'utf-8'</span>)<br>    crc32result = binascii.crc32(data) &amp; <span class="hljs-number">0xffffffff</span><br>    <span class="hljs-keyword">if</span> crc32result == crc32key:<br>        print(<span class="hljs-string">"width: %s,height: %s"</span>%(width,height))<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+<p>最后得到宽度是“02C5”，十进制是709。修改宽度后保存图片得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">wdflag&#123;Png_C2c_u_kn0W&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x016-2017-Dating-in-Singapore"><a href="#0x016-2017-Dating-in-Singapore" class="headerlink" title="0x016 2017_Dating_in_Singapore"></a>0x016 2017_Dating_in_Singapore</h3><p>题目描述一堆数字，还有附件pdf。既然题目描述有一段“密文”应该就不是pdf隐写之类的，重点在“密文上”。可以看出数字用“-”分割，替换为换行符便于观察，发现数字应该是两位一组，结合pdf的日历，正是两位数字代表一天的日期，一行（“-”分隔月）一个月，连起来发现是字母，十二个月连起来就是flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">HITB&#123;CTFFUN&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x017-Janos-the-Ripper"><a href="#0x017-Janos-the-Ripper" class="headerlink" title="0x017 János-the-Ripper"></a>0x017 János-the-Ripper</h3><p>附件解压后得到一个文件，这个文件还是zip文件，解压时需要密码，压缩包内文件是“flag.txt”，所以需要找到解压密码。测试了伪加密，查看了文件的exif信息和压缩包注释，测试了文件名“misc100”，都没有找到解压密码或提示信息。回头看题目标题，搜索到一个叫“John the Ripper”的密码爆破软件，所以密码要靠爆破了。不管用不用这个软件，最后爆破出来的密码是fish，得到flag是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;ev3n::y0u::bru7us?!&#125;<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.aldeid.com/wiki/John-The-Ripper" target="_blank" rel="noopener">John the Ripper</a>，爆破zip密码命令(字典/run/password.lst)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;run&#x2F;zip2john target.zip &gt; hash<br>.&#x2F;run&#x2F;john hash<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x018-4-1"><a href="#0x018-4-1" class="headerlink" title="0x018 4-1"></a>0x018 4-1</h3><p>解压缩得到一张图片，图片名是“画风不一样的喵.png”，所以可能是隐藏了文件，binwalk发现确实有隐藏文件，foremost分离文件。得到一个压缩包，解压得到“tips.txt”和“day2’s secret.zip”。“day2’s secret.zip”解压得到两个图片，“tips.txt”里的提示是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Although two days doing the same things, but day2 has a secret than day1<br></code></pre></td></tr></table></figure>
+<p>用Stegsolve比较两张图，sub下可见图片是像素点隐写，<strong>有两张相同的图片而且第二个东西比较多基本就是盲水印</strong>，利用github的脚本解密得到flag图片。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">wdflag&#123;My_c4t_Ho&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://github.com/chishaxie/BlindWaterMark" target="_blank" rel="noopener">盲水印代码</a></p>
+<h3 id="0x019-Training-Stegano-1"><a href="#0x019-Training-Stegano-1" class="headerlink" title="0x019 Training-Stegano-1"></a>0x019 Training-Stegano-1</h3><p>如题目描述所示，最简单的图片隐写，用文本编辑器打开得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">steganoI<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x020-小小的PDF"><a href="#0x020-小小的PDF" class="headerlink" title="0x020 小小的PDF"></a>0x020 小小的PDF</h3><p>binwalk显示有三张图片，foremost得到第三张图片上的flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SYC&#123;so_so_so_easy&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x021-神奇的Modbus"><a href="#0x021-神奇的Modbus" class="headerlink" title="0x021 神奇的Modbus"></a>0x021 神奇的Modbus</h3><p>直接搜索字符串“ctf”或者选择一个“Modbus/TCP”，追踪TCP流得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">sctf&#123;Easy_Mdbus&#125;<br></code></pre></td></tr></table></figure>
+<p>最坑的是正确的flag需要加一个“o”（题目名称）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">sctf&#123;Easy_Modbus&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x022-5-1"><a href="#0x022-5-1" class="headerlink" title="0x022 5-1"></a>0x022 5-1</h3><p>附件是一个不知道是什么类型的文件，kali中使用file也命令无法识别，查看hex后也没有任何发现。使用工具“xortool”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plain">xortool cd2a80e1b48e44b5a830605e684ffb31 -c 00<br>可能的密码：gOOD)UCKtOyOU<br><br>xortool cd2a80e1b48e44b5a830605e684ffb31 -c 20<br>可能的密码：Good\tuckToYou<br><br># 通常“00”原文是二进制文件，“20”原文是文本文件<br># 所以密码很可能是：GoodLuckToYou<br>xortool-xor -f cd2a80e1b48e44b5a830605e684ffb31 -s &quot;GoodLuckToYou&quot; &gt; out.txt<br><br># 输出文件没有乱码说明密码正确，在输出文件out.txt中搜索flag得到<br>wdflag&#123;You Are Very Smart&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://github.com/hellman/xortool" target="_blank" rel="noopener">xortool</a></p>
+<h3 id="0x023-MISCall"><a href="#0x023-MISCall" class="headerlink" title="0x023 MISCall"></a>0x023 MISCall</h3><p>未知文件类型，binwalk检测到文件格式是“bzip2”，解压后得到“flag.txt”，但是内容是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Nothing to see here, moving along...<br></code></pre></td></tr></table></figure>
+<p>window系统可以看到“flag.txt”同目录下还有“.git文件夹”，linux系统下默认不显示以“.”开头的文件，可以用“ls -a”查看。所以这道题应该是考察git命令的使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 1、git log(查看git记录)<br>commit bea99b953bef6cc2f98ab59b10822bc42afe5abc (HEAD -&gt; master)<br>Author: Linus Torvalds &lt;torvalds@klaava.Helsinki.Fi&gt;<br>Date:   Thu Jul 24 21:16:59 2014 +0200<br><br>    Initial commit<br><br># 2、git stash list(查看修改列表)<br>stash@&#123;0&#125;: WIP on master: bea99b9 Initial commit<br><br># 3、git stash show(校验一下列表中的存储文件)<br> flag.txt | 25 ++++++++++++++++++++++++-<br> s.py     |  4 ++++<br> 2 files changed, 28 insertions(+), 1 deletion(-)<br><br># 4、git stash apply(重新储存，把上面的文件复原)<br>位于分支 master<br>要提交的变更：<br>  （使用 &quot;git reset HEAD &lt;文件&gt;...&quot; 以取消暂存）<br><br>	新文件：   s.py<br><br>尚未暂存以备提交的变更：<br>  （使用 &quot;git add &lt;文件&gt;...&quot; 更新要提交的内容）<br>  （使用 &quot;git checkout -- &lt;文件&gt;...&quot; 丢弃工作区的改动）<br><br>	修改：     flag.txt<br></code></pre></td></tr></table></figure>
+<p>这样就得到了flag.txt和s.py，运行s.py即得flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">NCN4dd992213ae6b76f27d7340f0dde1222888df4d3<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x024-can-has-stdio"><a href="#0x024-can-has-stdio" class="headerlink" title="0x024 can_has_stdio?"></a>0x024 can_has_stdio?</h3><p>解压后得到文件，用文本编辑器打开，内容是纯符号。是一种叫“Brainfuck”代码语言，文件内容全部复制，去掉换行和空格(我是粘贴到浏览器地址栏再复制出来)，解密后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;esolangs_for_fun_and_profit&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://www.splitbrain.org/services/ook" target="_blank" rel="noopener">Brainfuck</a></p>
+<h3 id="0x025-Test-flag-please-ignore"><a href="#0x025-Test-flag-please-ignore" class="headerlink" title="0x025 Test-flag-please-ignore"></a>0x025 Test-flag-please-ignore</h3><p>十六进制转字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;hello_world&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.5ixuexiwang.com/str/from-hex.php" target="_blank" rel="noopener">十六进制转字符串</a></p>
+<h3 id="0x026-3-1"><a href="#0x026-3-1" class="headerlink" title="0x026 3-1"></a>0x026 3-1</h3><p>附件是rar压缩文件，添加扩展名后解压，解压得到的文件是wireshark的流量包。搜索“flag”，在“流6”有多个cat命令，输出了一个rar压缩包、一个64进制字符串、一串python代码，最后输出了“zhu ni cheng gong”。把压缩包提取出来，是一个有密码的rar。解压密码应该是就是那个64进制字符串，base64解密发现不对，所以应该放到python代码里执行解密（代码有点坑）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding:utf-8</span><br><br>__author__ = <span class="hljs-string">'YFP'</span><br><br><span class="hljs-keyword">from</span> Crypto <span class="hljs-keyword">import</span> Random<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> base64<br><br>IV = <span class="hljs-string">'QWERTYUIOPASDFGH'</span>.encode(<span class="hljs-string">'utf-8'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decrypt</span><span class="hljs-params">(encrypted)</span>:</span><br>  aes = AES.new(IV, AES.MODE_CBC, IV)<br>  <span class="hljs-keyword">return</span> aes.decrypt(encrypted)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encrypt</span><span class="hljs-params">(message)</span>:</span><br>  length = <span class="hljs-number">16</span><br>  count = len(message)<br>  padding = length - (count % length)<br>  message = message + <span class="hljs-string">'\0'</span> * padding<br>  aes = AES.new(IV, AES.MODE_CBC, IV)<br><br>  <span class="hljs-keyword">return</span> aes.encrypt(message.encode(<span class="hljs-string">'utf-8'</span>))<br><br><span class="hljs-comment"># str = 'this is a test'</span><br><span class="hljs-comment"># example = encrypt(str)</span><br>print(decrypt(base64.b64decode(<span class="hljs-string">"19aaFYsQQKr+hVX6hl2smAUQ5a767TsULEUebWSajEo="</span>)).decode(<span class="hljs-string">'utf-8'</span>))<br></code></pre></td></tr></table></figure>
+<p>运行后输出“passwd={No_One_Can_Decrypt_Me}”，所以解压密码是“No_One_Can_Decrypt_Me”，解压后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">WDCTF&#123;Seclab_CTF_2017&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x027-适合作为桌面"><a href="#0x027-适合作为桌面" class="headerlink" title="0x027 适合作为桌面"></a>0x027 适合作为桌面</h3><p>解压后是一张图片，用“Stegsolve”在“Red Plane 1”或者“Green Plane 1”可以看到图片左上角有一个二维码（同一个二维码），扫码得到的内容是一串十六进制。在线转为字符串后发现有“flag”、“py”、“pyt”等特征字符，保存十六进制（hex）为文件后通过file命令可以得到“python 2.7 byte-compiled”，所以这是一个python2的字节码文件，重命名为*.pyc。直接运行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">python file.pyc<br></code></pre></td></tr></table></figure>
+<p>发现没有输出，先反汇编该字节码文件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 安装反汇编库<br>pip install uncompyle<br><br># 反汇编文件<br>uncompyle6 file.pyc &gt; file.py<br></code></pre></td></tr></table></figure>
+<p>打开file.py里面是一个方法但没有调用，在最后加上“flag()”调用方法并保存到文件，运行file.py得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;38a57032085441e7&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x028-warmup"><a href="#0x028-warmup" class="headerlink" title="0x028 warmup"></a>0x028 warmup</h3><p>解压后是一个图片和一个压缩包，压缩包有密码，打开压缩包发现，压缩包内存在与外面图片同名的文件，所以使用“明文攻击”提取出压缩包内另外两张图片“fuli.png”和“fuli2.png”。这是两张看起来一样的图片，很容易联想到盲水印，使用盲水印解码得到结果文件显示的就是flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;bWm_Are_W0nderfu1&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.downza.cn/soft/208982.html" target="_blank" rel="noopener">ARCHPR(明文攻击软件)</a></p>
+<h3 id="0x029-simple-transfer"><a href="#0x029-simple-transfer" class="headerlink" title="0x029 simple_transfer"></a>0x029 simple_transfer</h3><p>附件是一个流量包，搜索字符串“flag”,找到一个pdf文件，追踪TCP流，保存原始数据到文件，用十六进制编辑器删除pdf文件头(25504446)尾(2525454F460A)之外的数据并保存，打开pdf,调整图片透明度或删除图片或在安装了“PDF Viewer”插件的谷歌浏览器中打开即可见flag；或者直接用binwalk和foremost操作流量包即得pdf文件，kali系统下直接打开pdf就能看到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">HITB&#123;b3d0e380e9c39352c667307d010775ca&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x030-Banmabanma"><a href="#0x030-Banmabanma" class="headerlink" title="0x030 Banmabanma"></a>0x030 Banmabanma</h3><p>附件是张图片，马身上是条形码，用画图拉长后在线扫条形码（有的手机也能扫）内容为“FLAG IS TENSHINE”，所以flag就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;TENSHINE&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="http://www.makepic.net/tool/deqrbarcode.html" target="_blank" rel="noopener">在线扫条形码</a></p>
+<h3 id="0x031-我们的秘密是绿色的"><a href="#0x031-我们的秘密是绿色的" class="headerlink" title="0x031 我们的秘密是绿色的"></a>0x031 我们的秘密是绿色的</h3><p>用stegdetect检测可能是outguess，解密失败。图片上日历有几天的颜色是绿色，由于题目名所以“0405111218192526”应该是一个密码。有个软件叫“oursecret”密码就是那串数字，解密图片得到“try.zip”压缩包。压缩包有密码，注释是“你知道coffee的生日是多少么<del>~</del>”，所以解压密码是生日。用ARCHPR爆破得到解压密码“19950822”，解压后“flag.zip”还是加密压缩包，采用明文攻击的到解压密码“Y29mZmVl”，解压后压缩包还是加密文件，还有一种常见的伪加密没用过，把“deFlags”改为0，解压得到flag“qddpqwnpcplen%prqwn_{_zz*d@gq}”。栅栏解密每组6字，凯撒解密位移11得到flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;ssctf_@seclover%coffee_*&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x032-Just-No-One"><a href="#0x032-Just-No-One" class="headerlink" title="0x032 Just-No-One"></a>0x032 Just-No-One</h3><p>使用“innounp（Inno Setup Unpacker）”直接提取安装程序，或者使用ollydbg绕过密码（安装密码是1234567），软件安装后打开，一直循环输出“You already saw the flag.”，就是提示flag在用户协议里。协议内容正常序号一共11条，在第7条后面有一条“7A. YOU MAY SUBMIT THIS TO GET TEN POINTS: ILOVEREADINGEULAS. ”，所以flag就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ILOVEREADINGEULAS<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://sourceforge.net/projects/innounp/" target="_blank" rel="noopener">innounp</a></p>
+<h3 id="0x033-Erik-Baleog-and-Olaf"><a href="#0x033-Erik-Baleog-and-Olaf" class="headerlink" title="0x033 Erik-Baleog-and-Olaf"></a>0x033 Erik-Baleog-and-Olaf</h3><p>附件解压后没有扩展名，从文件头可以看出是PNG图片，文件的末尾有提示信息“hint = <a href="http://i.imgur.com/22kUrzm.png" target="_blank" rel="noopener">http://i.imgur.com/22kUrzm.png</a> ”。用Stegsolve可以发现中间的小人儿胸前有一个二维码，但是由于部分被挡住直接裁出来会扫不了（反相后也扫不了）。提示信息是原图片，所以使用Stegsolve的“Image Combiner”功能取两张图的“SUB”（原图SUB隐写图）得到清晰地二维码，反相放大后扫描得到flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">flag&#123;#justdiffit&#125;<br></code></pre></td></tr></table></figure>
+<p><a href="http://dl.wujiaxing.cn/xctf/misc/0x033/22kUrzm.png" target="_blank" rel="noopener">原图片(被墙)备份下载</a></p>
+<h3 id="0x034-Py-Py-Py"><a href="#0x034-Py-Py-Py" class="headerlink" title="0x034 Py-Py-Py"></a>0x034 Py-Py-Py</h3><p>附件是.pyc文件，使用uncompyle6反编译得到源码，调用解密方法计算得到flag为“The challenge is Steganography”，但是这并不是答案，只是一句提示信息，这道题是“字节码隐写”。</p>
+<blockquote>
+<p>其实Stegosaurus的工作原理十分简单，就是寻找DeadZone，无效空间。<br>在python3以后所有指令都会占用两个字节，且无参的指令的第二个字节会设置为0，这个字节在运行中会被解释器忽略。<br>所以代码中所有无参的命令都可以被嵌入一个字节，但是确发现不了。并且修改前后大小一样。<br>隐写文件可以是py, pyc 或者 pyo</p>
+</blockquote>
+<p>使用Stegosaurus常用命令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 解码获取隐藏信息<br>&gt; &quot;python3路径\python.exe&quot; stegosaurus.py 0ede1270c5c0433b94ad26d46a182b9c.pyc -x<br>输出结果：Extracted payload: Flag&#123;HiD3_Pal0ad_1n_Python&#125;<br><br># 文件可隐写字节数<br>&gt; &quot;python3路径\python.exe&quot; stegosaurus.py 0ede1270c5c0433b94ad26d46a182b9c.pyc -r<br>输出结果：Carrier can support a payload of 65 bytes<br><br># 隐写信息“root pwd: 5+3g05aW”到文件，“-s”参数表示生成新文件否则会覆盖原文件<br>&gt; &quot;python3路径\python.exe&quot; stegosaurus.py 0ede1270c5c0433b94ad26d46a182b9c.pyc -s --payload &quot;root pwd: 5+3g05aW&quot;<br></code></pre></td></tr></table></figure>
+<p>执行解密命令获得flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Flag&#123;HiD3_Pal0ad_1n_Python&#125;<br></code></pre></td></tr></table></figure>
+
+<p>工具：<a href="https://bitbucket.org/jherron/stegosaurus/src/default/" target="_blank" rel="noopener">Stegosaurus</a></p>
+<h3 id="0x035-mysql"><a href="#0x035-mysql" class="headerlink" title="0x035 mysql"></a>0x035 mysql</h3><blockquote>
+<p>题目描述：我们在Mysql数据库中存放了flag，但是黑客已经把它删除了。你能找回来flag吗？</p>
+</blockquote>
+<p>直接使用命令搜索日志文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">strings ib_logfile* |grep &#39;flag&#39;<br>返回结果：.flag71e55075163d5c6410c0d9eae499c977<br></code></pre></td></tr></table></figure>
+<p>最后正确的flag没有格式，就是那个十六进制字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">71e55075163d5c6410c0d9eae499c977<br></code></pre></td></tr></table></figure>
+
+<h3 id="0x036-Reverse-it"><a href="#0x036-Reverse-it" class="headerlink" title="0x036 Reverse-it"></a>0x036 Reverse-it</h3><p>附件是未知的文件类型，由题目名字“颠倒它”，发现文件结尾十六进制是“FF8DFF”，倒序后正好是jpg的文件头（而且文件头“9DFF”正是倒序的jpg的文件尾），按照这样的思路处理文件。<br>方法一、使用python代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 文件十六进制倒序</span><br><span class="hljs-keyword">import</span> sys<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">swap_nibbles</span><span class="hljs-params">(byte)</span>:</span><br>  <span class="hljs-keyword">return</span> ((byte&lt;&lt;<span class="hljs-number">4</span>) | (byte&gt;&gt;<span class="hljs-number">4</span>)) &amp; <span class="hljs-number">0xff</span><br>  <br>i=open(sys.argv[<span class="hljs-number">1</span>], <span class="hljs-string">'rb'</span>)<br>o=open(sys.argv[<span class="hljs-number">1</span>] + <span class="hljs-string">'.rev'</span>, <span class="hljs-string">'wb'</span>)<br><span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> map(swap_nibbles, i.read()[::<span class="hljs-number">-1</span>]):<br>    o.write(b.to_bytes(length=<span class="hljs-number">1</span>,byteorder=<span class="hljs-string">'big'</span>,signed=<span class="hljs-literal">False</span>))<br>i.close()<br>o.close()<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 图片水平翻转</span><br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br> <br>i = Image.open(sys.argv[<span class="hljs-number">1</span>])<br>o = Image.new(i.mode, i.size)<br>idata, odata = i.load(), o.load()<br> <br><span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(i.size[<span class="hljs-number">1</span>]):<br>  <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(i.size[<span class="hljs-number">0</span>]):<br>    odata[x, y] = idata[i.size[<span class="hljs-number">0</span>]-x<span class="hljs-number">-1</span>, y]<br> <br>o.save(sys.argv[<span class="hljs-number">1</span>] + <span class="hljs-string">'.jpg'</span>)<br></code></pre></td></tr></table></figure>
+
+<p>方法二、使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 以下命令在kali系统下执行通过<br><br># 颠倒文件十六进制，输出到文件“reversed”<br>xxd -p a761687370cb42279acaeb27d6c94fea | tr -d &#39;\n&#39; | rev | xxd -r -p &gt; reversed<br>说明：xxd -p&#x2F;-ps(转十六进制) 文件名 | tr -d &#39;\n&#39;(tr命令删除换行) | rev(颠倒顺序) | xxd -r(十六进制文本转二进制) -p&#x2F;-ps(输出) &gt; reversed(输出到文件)<br><br># 图片是左右颠倒的，再次颠倒后得到原图“reversed.jpg”<br>convert -flop reversed reversed.jpg<br>说明：-flop(水平方向颠倒)，-flip(垂直方向颠倒)<br></code></pre></td></tr></table></figure>
+
+<p>最后得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">SECCON&#123;6in_tex7&#125;<br></code></pre></td></tr></table></figure>
+
+            <div class="article-copyright">
+                
+    <blockquote>
+        <p>
+            版权声明：本文为「Blog.WuJiaxing.Cn」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：https://blog.wujiaxing.cn/2019/09/10/d4b64846/
+        </p>
+    </blockquote>
+
+
+            </div>
+        </div>
+    </article>
+    
+
+    <section id="toc-div" >
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x001-easycap"><span class="toc-text">0x001 easycap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x002-Avatar"><span class="toc-text">0x002 Avatar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x003-What-is-this"><span class="toc-text">0x003 What-is-this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x004-签到题"><span class="toc-text">0x004 签到题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x005-Excaliflag"><span class="toc-text">0x005 Excaliflag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x006-Get-the-key-txt"><span class="toc-text">0x006 Get-the-key.txt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x007-glance-50"><span class="toc-text">0x007 glance-50</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x008-4-2"><span class="toc-text">0x008 4-2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x009-misc1"><span class="toc-text">0x009 misc1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x010-embarrass"><span class="toc-text">0x010 embarrass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x011-肥宅快乐题"><span class="toc-text">0x011 肥宅快乐题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x012-Cephalopod"><span class="toc-text">0x012 Cephalopod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x013-hit-the-core"><span class="toc-text">0x013 hit-the-core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x014-pure-color"><span class="toc-text">0x014 pure_color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x015-2-1"><span class="toc-text">0x015 2-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x016-2017-Dating-in-Singapore"><span class="toc-text">0x016 2017_Dating_in_Singapore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x017-Janos-the-Ripper"><span class="toc-text">0x017 János-the-Ripper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x018-4-1"><span class="toc-text">0x018 4-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x019-Training-Stegano-1"><span class="toc-text">0x019 Training-Stegano-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x020-小小的PDF"><span class="toc-text">0x020 小小的PDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x021-神奇的Modbus"><span class="toc-text">0x021 神奇的Modbus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x022-5-1"><span class="toc-text">0x022 5-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x023-MISCall"><span class="toc-text">0x023 MISCall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x024-can-has-stdio"><span class="toc-text">0x024 can_has_stdio?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x025-Test-flag-please-ignore"><span class="toc-text">0x025 Test-flag-please-ignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x026-3-1"><span class="toc-text">0x026 3-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x027-适合作为桌面"><span class="toc-text">0x027 适合作为桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x028-warmup"><span class="toc-text">0x028 warmup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x029-simple-transfer"><span class="toc-text">0x029 simple_transfer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x030-Banmabanma"><span class="toc-text">0x030 Banmabanma</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x031-我们的秘密是绿色的"><span class="toc-text">0x031 我们的秘密是绿色的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x032-Just-No-One"><span class="toc-text">0x032 Just-No-One</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x033-Erik-Baleog-and-Olaf"><span class="toc-text">0x033 Erik-Baleog-and-Olaf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x034-Py-Py-Py"><span class="toc-text">0x034 Py-Py-Py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x035-mysql"><span class="toc-text">0x035 mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x036-Reverse-it"><span class="toc-text">0x036 Reverse-it</span></a></li></ol>
+    </section>
+    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
+
+
+</section>
+    </div>
+    <footer>
+    <div class="outer">
+        <div class="inner">
+            Powered by <a href="https://blog.wujiaxing.cn" target="_blank">ProWiki</a>
+            &copy;2022 WuJiaxing<br>
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">冀ICP备00000000号</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/custom.js"></script>
+
+
+    <script>onload_content();</script>
+
+</body>
+</html>
